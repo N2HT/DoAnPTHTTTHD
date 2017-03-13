@@ -1,0 +1,10 @@
+###Phát triển hệ thống thông tin hiện đại
+## Nhóm NHT
+Thông tin nhóm:
++ 1542250 - Nguyễn Thanh Nhàn - thanhnhan7794@gmail.com
++ 1542223 - Trần Đình Hiệp - trandinhhiephtd@gmail.com
++ 1542282 - Nguyễn Văn Trọng - nguyentrong1701@gmail.com
++ 1542226 - Ngô Trung Hiếu - ngotrunghieu10@gmail.com
++ 1542289 - Nguyễn Thị Trí Tuệ - ntttue.gl@gmail.com
+## Đề tài
+Đang cập nhật...
