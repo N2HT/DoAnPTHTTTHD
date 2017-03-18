@@ -84,6 +84,9 @@
 	    (object Class "Shopper"
 		quid       	"58CCA826020A"
 		stereotype 	"Business Actor")
+	    (object Class "Master"
+		quid       	"58CCD46B021C"
+		stereotype 	"Business Actor")
 	    (object UseCase "Dang Ky Merchant"
 		quid       	"58CCA3A20373"
 		stereotype 	"Business Use Case"
@@ -1266,7 +1269,357 @@
 				    x_offset   	FALSE))))))
 	    (object UseCase "Thanh Toan"
 		quid       	"58CCA61D00B2"
-		stereotype 	"Business Use Case")
+		stereotype 	"Business Use Case"
+		statemachine 	(object State_Machine "State/Activity Model2"
+		    quid       	"58CCD1D90056"
+		    states     	(list States
+			(object State "$UNNAMED$7"
+			    quid       	"58CCD1F002D9"
+			    type       	"StartState")
+			(object ActivityState "Quet the qua may POS"
+			    quid       	"58CCD28B02AA")
+			(object ActivityState "Xu ly chung thuc"
+			    quid       	"58CCD2C80230")
+			(object Decision "Chung Thuc?"
+			    quid       	"58CCD3080373")
+			(object ActivityState "Luu thong tin giao dich"
+			    quid       	"58CCD33403A6")
+			(object ActivityState "Tong hop giao dich trong ngay gui len processor"
+			    quid       	"58CCD37000F9")
+			(object Decision "$UNNAMED$8"
+			    quid       	"58CCD39D029A")
+			(object Decision "$UNNAMED$9"
+			    quid       	"58CCD86E01EE")
+			(object State "$UNNAMED$10"
+			    quid       	"58CCD88901D0"
+			    type       	"EndState"))
+		    partitions 	(list Partitions)
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"58CCD2B503B8"
+			    supplier   	"Use Case View::Thanh Toan::State/Activity Model2::Quet the qua may POS"
+			    supplier_quidu 	"58CCD28B02AA"
+			    client     	"$UNNAMED$7"
+			    client_quidu 	"58CCD1F002D9"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD2B503BB"))
+			(object State_Transition
+			    quid       	"58CCD2FE01BA"
+			    supplier   	"Use Case View::Thanh Toan::State/Activity Model2::Xu ly chung thuc"
+			    supplier_quidu 	"58CCD2C80230"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Quet the qua may POS"
+			    client_quidu 	"58CCD28B02AA"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD2FE01BD"))
+			(object State_Transition
+			    quid       	"58CCD31C0124"
+			    supplier   	"Use Case View::Thanh Toan::State/Activity Model2::Chung Thuc?"
+			    supplier_quidu 	"58CCD3080373"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Quet the qua may POS"
+			    client_quidu 	"58CCD28B02AA"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD31C0127"))
+			(object State_Transition
+			    quid       	"58CCD3520034"
+			    label      	""
+			    supplier   	"Use Case View::Thanh Toan::State/Activity Model2::Luu thong tin giao dich"
+			    supplier_quidu 	"58CCD33403A6"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Chung Thuc?"
+			    client_quidu 	"58CCD3080373"
+			    Event      	(object Event "Thanh cong"
+				quid       	"58CCD3520035")
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD3520037"))
+			(object State_Transition
+			    quid       	"58CCD3BB0281"
+			    supplier   	"$UNNAMED$8"
+			    supplier_quidu 	"58CCD39D029A"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Chung Thuc?"
+			    client_quidu 	"58CCD3080373"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD3BB0284"))
+			(object State_Transition
+			    quid       	"58CCD8780130"
+			    label      	""
+			    supplier   	"$UNNAMED$9"
+			    supplier_quidu 	"58CCD86E01EE"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Chung Thuc?"
+			    client_quidu 	"58CCD3080373"
+			    Event      	(object Event "Khong thanh cong"
+				quid       	"58CCD8780131")
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD8780133"))
+			(object State_Transition
+			    quid       	"58CCD8A000F6"
+			    supplier   	"$UNNAMED$10"
+			    supplier_quidu 	"58CCD88901D0"
+			    client     	"$UNNAMED$9"
+			    client_quidu 	"58CCD86E01EE"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD8A000F9"))
+			(object State_Transition
+			    quid       	"58CCD8C503D3"
+			    supplier   	"$UNNAMED$9"
+			    supplier_quidu 	"58CCD86E01EE"
+			    client     	"Use Case View::Thanh Toan::State/Activity Model2::Luu thong tin giao dich"
+			    client_quidu 	"58CCD33403A6"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD8C503D6")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "activityThanhToan"
+			    quid       	"58CCD1D90058"
+			    title      	"activityThanhToan"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "" @55
+				    line_color 	3342489
+				    width      	450)
+				(object StateView "StartState" "$UNNAMED$7" @56
+				    Parent_View 	@55
+				    location   	(928, 112)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCD1F002D9"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Quet the qua may POS" @57
+				    Parent_View 	@55
+				    location   	(1488, 112)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@57
+					location   	(1488, 115)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Quet the qua may POS")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD28B02AA"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @58
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD2B503B8"
+				    client     	@56
+				    supplier   	@57
+				    vertices   	(list Points
+					(958, 112)
+					(1317, 112))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object DecisionView "Chung Thuc?" @59
+				    Parent_View 	@55
+				    location   	(1488, 416)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @60
+					Parent_View 	@59
+					location   	(1384, 478)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	TRUE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor     	1
+					nlines     	2
+					max_width  	300
+					justify    	1
+					label      	"Chung Thuc?"
+					pctDist    	-0.128539
+					height     	170
+					orientation 	1)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD3080373"
+				    autoResize 	TRUE)
+				(object TransView "" @61
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD31C0124"
+				    client     	@57
+				    supplier   	@59
+				    vertices   	(list Points
+					(1488, 165)
+					(1488, 379))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Luu thong tin giao dich" @62
+				    Parent_View 	@55
+				    location   	(832, 416)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@62
+					location   	(832, 419)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Luu thong tin giao dich")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD33403A6"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @63
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @64
+					Parent_View 	@63
+					location   	(1208, 461)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	450
+					justify    	0
+					label      	"Thanh cong"
+					pctDist    	0.500000
+					height     	45
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD3520034"
+				    client     	@59
+				    supplier   	@62
+				    vertices   	(list Points
+					(1413, 416)
+					(1003, 416))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object DecisionView "$UNNAMED$9" @65
+				    Parent_View 	@55
+				    location   	(1488, 800)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD86E01EE"
+				    autoResize 	TRUE)
+				(object TransView "" @66
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @67
+					Parent_View 	@66
+					location   	(1723, 639)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	450
+					justify    	0
+					label      	"Khong thanh cong"
+					pctDist    	0.600000
+					height     	235
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD8780130"
+				    client     	@59
+				    supplier   	@65
+				    vertices   	(list Points
+					(1488, 453)
+					(1488, 763))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "EndState" "$UNNAMED$10" @68
+				    Parent_View 	@55
+				    location   	(1488, 1056)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCD88901D0"
+				    autoResize 	TRUE)
+				(object TransView "" @69
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD8A000F6"
+				    client     	@65
+				    supplier   	@68
+				    vertices   	(list Points
+					(1488, 837)
+					(1488, 1014))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @70
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD8C503D3"
+				    client     	@62
+				    supplier   	@65
+				    vertices   	(list Points
+					(831, 468)
+					(828, 766)
+					(1413, 800))
+				    line_style 	0
+				    x_offset   	FALSE))))))
 	    (object UseCase "Tra Hang"
 		quid       	"58CCA662004D"
 		stereotype 	"Business Use Case")
@@ -1275,67 +1628,549 @@
 		stereotype 	"Business Use Case")
 	    (object UseCase "Sao Ke Tai Khoan"
 		quid       	"58CCA687038D"
-		stereotype 	"Business Use Case")
-	    (object Association "$UNNAMED$7"
+		stereotype 	"Business Use Case"
+		statemachine 	(object State_Machine "State/Activity Model4"
+		    quid       	"58CCDAFB0243"
+		    states     	(list States
+			(object State "$UNNAMED$11"
+			    quid       	"58CCDB0D0146"
+			    type       	"StartState")
+			(object ActivityState "Gui thong tin giao dich bang the cua shopper den ngan hang phat hanh the"
+			    quid       	"58CCDB340235")
+			(object ActivityState "Ngan hang gui email den nguoi dung dang pdf"
+			    quid       	"58CCDB5E01F6")
+			(object State "$UNNAMED$12"
+			    quid       	"58CCDB7202FC"
+			    type       	"EndState"))
+		    partitions 	(list Partitions)
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"58CCDB7A0039"
+			    supplier   	"Use Case View::Sao Ke Tai Khoan::State/Activity Model4::Gui thong tin giao dich bang the cua shopper den ngan hang phat hanh the"
+			    supplier_quidu 	"58CCDB340235"
+			    client     	"$UNNAMED$11"
+			    client_quidu 	"58CCDB0D0146"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDB7A003C"))
+			(object State_Transition
+			    quid       	"58CCDB8302FA"
+			    supplier   	"Use Case View::Sao Ke Tai Khoan::State/Activity Model4::Ngan hang gui email den nguoi dung dang pdf"
+			    supplier_quidu 	"58CCDB5E01F6"
+			    client     	"Use Case View::Sao Ke Tai Khoan::State/Activity Model4::Gui thong tin giao dich bang the cua shopper den ngan hang phat hanh the"
+			    client_quidu 	"58CCDB340235"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDB8302FD"))
+			(object State_Transition
+			    quid       	"58CCDB880367"
+			    supplier   	"$UNNAMED$12"
+			    supplier_quidu 	"58CCDB7202FC"
+			    client     	"Use Case View::Sao Ke Tai Khoan::State/Activity Model4::Ngan hang gui email den nguoi dung dang pdf"
+			    client_quidu 	"58CCDB5E01F6"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDB88036A")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "activiTySaoKeTaiKhoan"
+			    quid       	"58CCDAFB0245"
+			    title      	"activiTySaoKeTaiKhoan"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "" @71
+				    line_color 	3342489
+				    width      	450)
+				(object StateView "StartState" "$UNNAMED$11" @72
+				    Parent_View 	@71
+				    location   	(480, 112)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCDB0D0146"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Gui thong tin giao dich bang the cua shopper den ngan hang phat hanh the" @73
+				    Parent_View 	@71
+				    location   	(1344, 112)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@73
+					location   	(1344, 115)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	710
+					justify    	0
+					label      	"Gui thong tin giao dich bang the cua shopper den ngan hang phat hanh the")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCDB340235"
+				    width      	816
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Ngan hang gui email den nguoi dung dang pdf" @74
+				    Parent_View 	@71
+				    location   	(1360, 528)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@74
+					location   	(1360, 531)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	458
+					justify    	0
+					label      	"Ngan hang gui email den nguoi dung dang pdf")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCDB5E01F6"
+				    width      	564
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$12" @75
+				    Parent_View 	@71
+				    location   	(1376, 832)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCDB7202FC"
+				    autoResize 	TRUE)
+				(object TransView "" @76
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDB7A0039"
+				    client     	@72
+				    supplier   	@73
+				    vertices   	(list Points
+					(510, 112)
+					(1007, 112))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @77
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDB8302FA"
+				    client     	@73
+				    supplier   	@74
+				    vertices   	(list Points
+					(1346, 164)
+					(1357, 475))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @78
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDB880367"
+				    client     	@74
+				    supplier   	@75
+				    vertices   	(list Points
+					(1362, 580)
+					(1373, 789))
+				    line_style 	0
+				    x_offset   	FALSE))))))
+	    (object UseCase "Tong Hop Giao Dich"
+		quid       	"58CCD48E0076"
+		stereotype 	"Business Use Case"
+		statemachine 	(object State_Machine "State/Activity Model3"
+		    quid       	"58CCD96401CD"
+		    states     	(list States
+			(object State "$UNNAMED$13"
+			    quid       	"58CCD97301D6"
+			    type       	"StartState")
+			(object ActivityState "Tong hop giao dich trong ngay, dong goi, gui len processor"
+			    quid       	"58CCD98C0317")
+			(object ActivityState "Tong hop gui len master"
+			    quid       	"58CCD9D20079")
+			(object ActivityState "Master thanh toan tien cho merchant"
+			    quid       	"58CCD9FC022B")
+			(object ActivityState "Thuc hien use-case Sao Ke Tai Khoan"
+			    quid       	"58CCDA310267")
+			(object ActivityState "Yeu cau thanh toan cac koan tien da giao dich"
+			    quid       	"58CCDA6B02B6")
+			(object State "$UNNAMED$14"
+			    quid       	"58CCDAB701AA"
+			    type       	"EndState"))
+		    partitions 	(list Partitions)
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"58CCD9AA0036"
+			    supplier   	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Tong hop giao dich trong ngay, dong goi, gui len processor"
+			    supplier_quidu 	"58CCD98C0317"
+			    client     	"$UNNAMED$13"
+			    client_quidu 	"58CCD97301D6"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD9AA0039"))
+			(object State_Transition
+			    quid       	"58CCD9DF03E7"
+			    supplier   	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Tong hop gui len master"
+			    supplier_quidu 	"58CCD9D20079"
+			    client     	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Tong hop giao dich trong ngay, dong goi, gui len processor"
+			    client_quidu 	"58CCD98C0317"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCD9DF03EA"))
+			(object State_Transition
+			    quid       	"58CCDA1A0215"
+			    supplier   	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Master thanh toan tien cho merchant"
+			    supplier_quidu 	"58CCD9FC022B"
+			    client     	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Tong hop gui len master"
+			    client_quidu 	"58CCD9D20079"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDA1A0218"))
+			(object State_Transition
+			    quid       	"58CCDA430217"
+			    supplier   	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Thuc hien use-case Sao Ke Tai Khoan"
+			    supplier_quidu 	"58CCDA310267"
+			    client     	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Master thanh toan tien cho merchant"
+			    client_quidu 	"58CCD9FC022B"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDA43021A"))
+			(object State_Transition
+			    quid       	"58CCDAA9025E"
+			    supplier   	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Yeu cau thanh toan cac koan tien da giao dich"
+			    supplier_quidu 	"58CCDA6B02B6"
+			    client     	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Thuc hien use-case Sao Ke Tai Khoan"
+			    client_quidu 	"58CCDA310267"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDAA90261"))
+			(object State_Transition
+			    quid       	"58CCDABC0345"
+			    supplier   	"$UNNAMED$14"
+			    supplier_quidu 	"58CCDAB701AA"
+			    client     	"Use Case View::Tong Hop Giao Dich::State/Activity Model3::Yeu cau thanh toan cac koan tien da giao dich"
+			    client_quidu 	"58CCDA6B02B6"
+			    sendEvent  	(object sendEvent
+				quid       	"58CCDABC0348")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "activityTongHopGiaoDich"
+			    quid       	"58CCD96401DE"
+			    title      	"activityTongHopGiaoDich"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	631
+			    items      	(list diagram_item_list
+				(object Swimlane "" @79
+				    line_color 	3342489
+				    width      	450)
+				(object StateView "StartState" "$UNNAMED$13" @80
+				    Parent_View 	@79
+				    location   	(592, 112)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCD97301D6"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Tong hop giao dich trong ngay, dong goi, gui len processor" @81
+				    Parent_View 	@79
+				    location   	(1376, 112)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@81
+					location   	(1376, 115)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	588
+					justify    	0
+					label      	"Tong hop giao dich trong ngay, dong goi, gui len processor")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD98C0317"
+				    width      	694
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @82
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD9AA0036"
+				    client     	@80
+				    supplier   	@81
+				    vertices   	(list Points
+					(622, 112)
+					(1085, 112))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Tong hop gui len master" @83
+				    Parent_View 	@79
+				    location   	(1376, 464)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@83
+					location   	(1376, 467)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Tong hop gui len master")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD9D20079"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @84
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCD9DF03E7"
+				    client     	@81
+				    supplier   	@83
+				    vertices   	(list Points
+					(1376, 165)
+					(1376, 411))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Master thanh toan tien cho merchant" @85
+				    Parent_View 	@79
+				    location   	(1392, 768)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@85
+					location   	(1392, 771)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	340
+					justify    	0
+					label      	"Master thanh toan tien cho merchant")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCD9FC022B"
+				    width      	446
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @86
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDA1A0215"
+				    client     	@83
+				    supplier   	@85
+				    vertices   	(list Points
+					(1378, 516)
+					(1389, 715))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Thuc hien use-case Sao Ke Tai Khoan" @87
+				    Parent_View 	@79
+				    location   	(1392, 1024)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@87
+					location   	(1392, 1027)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	368
+					justify    	0
+					label      	"Thuc hien use-case Sao Ke Tai Khoan")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCDA310267"
+				    width      	474
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @88
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDA430217"
+				    client     	@85
+				    supplier   	@87
+				    vertices   	(list Points
+					(1392, 821)
+					(1392, 971))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Yeu cau thanh toan cac koan tien da giao dich" @89
+				    Parent_View 	@79
+				    location   	(1408, 1296)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@89
+					location   	(1408, 1299)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	428
+					justify    	0
+					label      	"Yeu cau thanh toan cac koan tien da giao dich")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"58CCDA6B02B6"
+				    width      	534
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @90
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDAA9025E"
+				    client     	@87
+				    supplier   	@89
+				    vertices   	(list Points
+					(1395, 1077)
+					(1404, 1242))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "EndState" "$UNNAMED$14" @91
+				    Parent_View 	@79
+				    location   	(1408, 1536)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"58CCDAB701AA"
+				    autoResize 	TRUE)
+				(object TransView "" @92
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"58CCDABC0345"
+				    client     	@89
+				    supplier   	@91
+				    vertices   	(list Points
+					(1408, 1349)
+					(1408, 1494))
+				    line_style 	0
+				    x_offset   	FALSE))))))
+	    (object Association "$UNNAMED$15"
 		quid       	"58CCA7E602F7"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$8"
+		    (object Role "$UNNAMED$16"
 			quid       	"58CCA7E801FD"
 			supplier   	"Use Case View::Dang Ky Merchant"
 			quidu      	"58CCA3A20373"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$9"
+		    (object Role "$UNNAMED$17"
 			quid       	"58CCA7E801FF"
 			supplier   	"Use Case View::Merchant"
 			quidu      	"58CCA7CA0366")))
-	    (object Association "$UNNAMED$10"
+	    (object Association "$UNNAMED$18"
 		quid       	"58CCA83803BA"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$11"
+		    (object Role "$UNNAMED$19"
 			quid       	"58CCA83A0013"
 			supplier   	"Use Case View::Thanh Toan"
 			quidu      	"58CCA61D00B2"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$12"
+		    (object Role "$UNNAMED$20"
 			quid       	"58CCA83A0015"
 			supplier   	"Use Case View::Shopper"
 			quidu      	"58CCA826020A")))
-	    (object Association "$UNNAMED$13"
+	    (object Association "$UNNAMED$21"
 		quid       	"58CCA871028D"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$14"
+		    (object Role "$UNNAMED$22"
 			quid       	"58CCA8720395"
 			supplier   	"Use Case View::Tra Hang"
 			quidu      	"58CCA662004D"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$15"
+		    (object Role "$UNNAMED$23"
 			quid       	"58CCA8720397"
 			supplier   	"Use Case View::Shopper"
 			quidu      	"58CCA826020A")))
-	    (object Association "$UNNAMED$16"
+	    (object Association "$UNNAMED$24"
 		quid       	"58CCAB3A02D7"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$17"
+		    (object Role "$UNNAMED$25"
 			quid       	"58CCAB3C0100"
 			supplier   	"Use Case View::Shopper"
 			quidu      	"58CCA826020A"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$18"
+		    (object Role "$UNNAMED$26"
 			quid       	"58CCAB3C0102"
 			supplier   	"Use Case View::Sao Ke Tai Khoan"
 			quidu      	"58CCA687038D")))
-	    (object Association "$UNNAMED$19"
+	    (object Association "$UNNAMED$27"
 		quid       	"58CCAB41002E"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$20"
+		    (object Role "$UNNAMED$28"
 			quid       	"58CCAB420200"
 			supplier   	"Use Case View::Truy Hoi"
 			quidu      	"58CCA67702A2"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$21"
+		    (object Role "$UNNAMED$29"
 			quid       	"58CCAB420202"
 			supplier   	"Use Case View::Shopper"
-			quidu      	"58CCA826020A"))))
+			quidu      	"58CCA826020A")))
+	    (object Association "$UNNAMED$30"
+		quid       	"58CCD4C500A8"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$31"
+			quid       	"58CCD4C6025D"
+			supplier   	"Use Case View::Master"
+			quidu      	"58CCD46B021C"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$32"
+			quid       	"58CCD4C6025F"
+			supplier   	"Use Case View::Tong Hop Giao Dich"
+			quidu      	"58CCD48E0076"))))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
 		quid       	"39C9261001B7"
@@ -1353,9 +2188,9 @@
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
-		origin_y   	0
+		origin_y   	200
 		items      	(list diagram_item_list
-		    (object UseCaseView "Use Case View::Dang Ky Merchant" @55
+		    (object UseCaseView "Use Case View::Dang Ky Merchant" @93
 			location   	(832, 176)
 			font       	(object Font
 			    size       	10
@@ -1367,7 +2202,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@55
+			    Parent_View 	@93
 			    location   	(831, 351)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1380,7 +2215,7 @@
 			fill_color 	13434879
 			quidu      	"58CCA3A20373"
 			width      	306)
-		    (object ClassView "Class" "Use Case View::Merchant" @56
+		    (object ClassView "Class" "Use Case View::Merchant" @94
 			ShowCompartmentStereotypes 	TRUE
 			SuppressAttribute 	TRUE
 			SuppressOperation 	TRUE
@@ -1397,7 +2232,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@56
+			    Parent_View 	@94
 			    location   	(223, 448)
 			    anchor_loc 	1
 			    nlines     	1
@@ -1413,7 +2248,7 @@
 			height     	257
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$7" @57
+		    (object AssociationViewNew "$UNNAMED$15" @95
 			location   	(500, 208)
 			font       	(object Font
 			    size       	10
@@ -1428,31 +2263,31 @@
 			line_color 	3342489
 			quidu      	"58CCA7E602F7"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$8" @58
-				Parent_View 	@57
+			    (object RoleView "$UNNAMED$16" @96
+				Parent_View 	@95
 				location   	(164, -432)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA7E801FD"
-				client     	@57
-				supplier   	@55
+				client     	@95
+				supplier   	@93
 				vertices   	(list Points
 				    (500, 208)
 				    (679, 189))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$9" @59
-				Parent_View 	@57
+			    (object RoleView "$UNNAMED$17" @97
+				Parent_View 	@95
 				location   	(164, -432)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA7E801FF"
-				client     	@57
-				supplier   	@56
+				client     	@95
+				supplier   	@94
 				vertices   	(list Points
 				    (500, 208)
 				    (321, 227))
 				line_style 	0)))
-		    (object UseCaseView "Use Case View::Thanh Toan" @60
+		    (object UseCaseView "Use Case View::Thanh Toan" @98
 			location   	(1392, 848)
 			font       	(object Font
 			    size       	10
@@ -1464,7 +2299,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@60
+			    Parent_View 	@98
 			    location   	(1391, 1023)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1477,7 +2312,7 @@
 			fill_color 	13434879
 			quidu      	"58CCA61D00B2"
 			width      	306)
-		    (object UseCaseView "Use Case View::Tra Hang" @61
+		    (object UseCaseView "Use Case View::Tra Hang" @99
 			location   	(1280, 1216)
 			font       	(object Font
 			    size       	10
@@ -1489,7 +2324,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@61
+			    Parent_View 	@99
 			    location   	(1279, 1391)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1502,7 +2337,7 @@
 			fill_color 	13434879
 			quidu      	"58CCA662004D"
 			width      	306)
-		    (object UseCaseView "Use Case View::Sao Ke Tai Khoan" @62
+		    (object UseCaseView "Use Case View::Sao Ke Tai Khoan" @100
 			location   	(1136, 512)
 			font       	(object Font
 			    size       	10
@@ -1514,7 +2349,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@62
+			    Parent_View 	@100
 			    location   	(1135, 687)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1527,7 +2362,7 @@
 			fill_color 	13434879
 			quidu      	"58CCA687038D"
 			width      	306)
-		    (object UseCaseView "Use Case View::Truy Hoi" @63
+		    (object UseCaseView "Use Case View::Truy Hoi" @101
 			location   	(864, 1312)
 			font       	(object Font
 			    size       	10
@@ -1539,7 +2374,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@63
+			    Parent_View 	@101
 			    location   	(863, 1487)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1552,7 +2387,7 @@
 			fill_color 	13434879
 			quidu      	"58CCA67702A2"
 			width      	306)
-		    (object ClassView "Class" "Use Case View::Shopper" @64
+		    (object ClassView "Class" "Use Case View::Shopper" @102
 			ShowCompartmentStereotypes 	TRUE
 			SuppressAttribute 	TRUE
 			SuppressOperation 	TRUE
@@ -1569,7 +2404,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@64
+			    Parent_View 	@102
 			    location   	(575, 1152)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1584,7 +2419,7 @@
 			width      	202
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$10" @65
+		    (object AssociationViewNew "$UNNAMED$18" @103
 			location   	(956, 896)
 			font       	(object Font
 			    size       	10
@@ -1599,31 +2434,31 @@
 			line_color 	3342489
 			quidu      	"58CCA83803BA"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$11" @66
-				Parent_View 	@65
+			    (object RoleView "$UNNAMED$19" @104
+				Parent_View 	@103
 				location   	(204, -144)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA83A0013"
-				client     	@65
-				supplier   	@60
+				client     	@103
+				supplier   	@98
 				vertices   	(list Points
 				    (956, 896)
 				    (1239, 863))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$12" @67
-				Parent_View 	@65
+			    (object RoleView "$UNNAMED$20" @105
+				Parent_View 	@103
 				location   	(204, -144)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA83A0015"
-				client     	@65
-				supplier   	@64
+				client     	@103
+				supplier   	@102
 				vertices   	(list Points
 				    (956, 896)
 				    (674, 929))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$13" @68
+		    (object AssociationViewNew "$UNNAMED$21" @106
 			location   	(900, 1067)
 			font       	(object Font
 			    size       	10
@@ -1638,31 +2473,31 @@
 			line_color 	3342489
 			quidu      	"58CCA871028D"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$14" @69
-				Parent_View 	@68
+			    (object RoleView "$UNNAMED$22" @107
+				Parent_View 	@106
 				location   	(148, 27)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA8720395"
-				client     	@68
-				supplier   	@61
+				client     	@106
+				supplier   	@99
 				vertices   	(list Points
 				    (900, 1067)
 				    (1127, 1154))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$15" @70
-				Parent_View 	@68
+			    (object RoleView "$UNNAMED$23" @108
+				Parent_View 	@106
 				location   	(148, 27)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCA8720397"
-				client     	@68
-				supplier   	@64
+				client     	@106
+				supplier   	@102
 				vertices   	(list Points
 				    (900, 1067)
 				    (674, 980))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$16" @71
+		    (object AssociationViewNew "$UNNAMED$24" @109
 			location   	(819, 752)
 			font       	(object Font
 			    size       	10
@@ -1677,31 +2512,31 @@
 			line_color 	3342489
 			quidu      	"58CCAB3A02D7"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$17" @72
-				Parent_View 	@71
+			    (object RoleView "$UNNAMED$25" @110
+				Parent_View 	@109
 				location   	(-317, 240)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCAB3C0100"
-				client     	@71
-				supplier   	@64
+				client     	@109
+				supplier   	@102
 				vertices   	(list Points
 				    (819, 752)
 				    (674, 863))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$18" @73
-				Parent_View 	@71
+			    (object RoleView "$UNNAMED$26" @111
+				Parent_View 	@109
 				location   	(-317, 240)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCAB3C0102"
-				client     	@71
-				supplier   	@62
+				client     	@109
+				supplier   	@100
 				vertices   	(list Points
 				    (819, 752)
 				    (965, 642))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$19" @74
+		    (object AssociationViewNew "$UNNAMED$27" @112
 			location   	(731, 1143)
 			font       	(object Font
 			    size       	10
@@ -1716,29 +2551,125 @@
 			line_color 	3342489
 			quidu      	"58CCAB41002E"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$20" @75
-				Parent_View 	@74
+			    (object RoleView "$UNNAMED$28" @113
+				Parent_View 	@112
 				location   	(155, 199)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCAB420200"
-				client     	@74
-				supplier   	@63
+				client     	@112
+				supplier   	@101
 				vertices   	(list Points
 				    (731, 1143)
 				    (789, 1217))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$21" @76
-				Parent_View 	@74
+			    (object RoleView "$UNNAMED$29" @114
+				Parent_View 	@112
 				location   	(155, 199)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58CCAB420202"
-				client     	@74
-				supplier   	@64
+				client     	@112
+				supplier   	@102
 				vertices   	(list Points
 				    (731, 1143)
 				    (674, 1070))
+				line_style 	0)))
+		    (object UseCaseView "Use Case View::Tong Hop Giao Dich" @115
+			location   	(1888, 336)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@115
+			    location   	(1887, 511)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	879
+			    justify    	0
+			    label      	"Tong Hop Giao Dich")
+			icon       	"Business Use Case"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"58CCD48E0076"
+			width      	306)
+		    (object ClassView "Class" "Use Case View::Master" @116
+			ShowCompartmentStereotypes 	TRUE
+			SuppressAttribute 	TRUE
+			SuppressOperation 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(2528, 640)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@116
+			    location   	(2527, 848)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	570
+			    justify    	0
+			    label      	"Master")
+			icon       	"Business Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"58CCD46B021C"
+			width      	202
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$30" @117
+			location   	(2232, 498)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"58CCD4C500A8"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$31" @118
+				Parent_View 	@117
+				location   	(344, 162)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"58CCD4C6025D"
+				client     	@117
+				supplier   	@116
+				vertices   	(list Points
+				    (2232, 498)
+				    (2427, 590))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$32" @119
+				Parent_View 	@117
+				location   	(344, 162)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"58CCD4C6025F"
+				client     	@117
+				supplier   	@115
+				vertices   	(list Points
+				    (2232, 498)
+				    (2038, 406))
 				line_style 	0)))))))
     root_category 	(object Class_Category "Logical View"
 	quid       	"39C9260C00D5"
@@ -1772,7 +2703,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object CategoryView "Logical View::java" @77
+		    (object CategoryView "Logical View::java" @120
 			location   	(208, 272)
 			font       	(object Font
 			    size       	10
@@ -1784,7 +2715,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@77
+			    Parent_View 	@120
 			    location   	(64, 188)
 			    nlines     	2
 			    max_width  	288
@@ -1796,7 +2727,7 @@
 			quidu      	"39C92661003B"
 			width      	300
 			height     	180)
-		    (object CategoryView "Logical View::javax" @78
+		    (object CategoryView "Logical View::javax" @121
 			location   	(656, 272)
 			font       	(object Font
 			    size       	10
@@ -1808,7 +2739,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@78
+			    Parent_View 	@121
 			    location   	(512, 188)
 			    nlines     	2
 			    max_width  	288
@@ -1820,7 +2751,7 @@
 			quidu      	"39C926610018"
 			width      	300
 			height     	180)
-		    (object CategoryView "Logical View::org" @79
+		    (object CategoryView "Logical View::org" @122
 			location   	(1104, 272)
 			font       	(object Font
 			    size       	10
@@ -1832,7 +2763,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@79
+			    Parent_View 	@122
 			    location   	(960, 188)
 			    nlines     	2
 			    max_width  	288
@@ -1853,7 +2784,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object NoteView @80
+		    (object NoteView @123
 			location   	(224, 624)
 			font       	(object Font
 			    size       	10
@@ -1868,7 +2799,7 @@
 			fill_color 	12632256
 			width      	300
 			height     	132)
-		    (object NoteView @81
+		    (object NoteView @124
 			location   	(704, 624)
 			font       	(object Font
 			    size       	10
@@ -1883,7 +2814,7 @@
 			fill_color 	8421631
 			width      	300
 			height     	132)
-		    (object NoteView @82
+		    (object NoteView @125
 			location   	(1200, 624)
 			font       	(object Font
 			    size       	10
@@ -1898,7 +2829,7 @@
 			fill_color 	12615680
 			width      	300
 			height     	132)
-		    (object NoteView @83
+		    (object NoteView @126
 			location   	(1664, 624)
 			font       	(object Font
 			    size       	10
@@ -1913,7 +2844,7 @@
 			fill_color 	16777215
 			width      	300
 			height     	132)
-		    (object Label @84
+		    (object Label @127
 			location   	(81, 369)
 			font       	(object Font
 			    size       	12
@@ -1928,7 +2859,7 @@
 			max_width  	1163
 			justify    	1
 			label      	"J2EE: Java 2 Platform, Enterprise Edition - v 1.2.1")
-		    (object Label @85
+		    (object Label @128
 			location   	(96, 608)
 			font       	(object Font
 			    size       	10
@@ -1943,7 +2874,7 @@
 			max_width  	268
 			justify    	1
 			label      	"Abstract Class")
-		    (object Label @86
+		    (object Label @129
 			location   	(592, 608)
 			font       	(object Font
 			    size       	10
@@ -1958,7 +2889,7 @@
 			max_width  	225
 			justify    	1
 			label      	"Final Class")
-		    (object Label @87
+		    (object Label @130
 			location   	(1104, 608)
 			font       	(object Font
 			    size       	10
@@ -1973,7 +2904,7 @@
 			max_width  	206
 			justify    	1
 			label      	"Interface")
-		    (object Label @88
+		    (object Label @131
 			location   	(1552, 608)
 			font       	(object Font
 			    size       	10
