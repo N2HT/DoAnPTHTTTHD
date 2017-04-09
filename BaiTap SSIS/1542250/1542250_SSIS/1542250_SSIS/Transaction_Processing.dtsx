@@ -1,0 +1,603 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/9/2017 7:28:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MYPC"
+  DTS:CreatorName="MYPC\THANHNHAN"
+  DTS:DTSID="{045D536C-16CD-46A7-9876-D10158568787}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Transaction_Processing"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{84E624E0-7898-498A-8AB4-1D796D509638}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MYPC\SQLEXPRESS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11339411-56B9-4AA7-8C85-FB2E4C064EDB}"
+      DTS:ObjectName="MYPC\SQLEXPRESS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MYPC\SQLEXPRESS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MYPC\SQLEXPRESS.TransactionProcessing]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{63C6C619-6DCD-454B-BF9E-04CD7C0194BA}"
+      DTS:ObjectName="MYPC\SQLEXPRESS.TransactionProcessing">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MYPC\SQLEXPRESS;Initial Catalog=TransactionProcessing;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TransactionLyThuongKiet]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7EED33FD-FAE4-4811-9EED-019B02CE37FC}"
+      DTS:ObjectName="TransactionLyThuongKiet">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FileTransactionNamePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x007C_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\transaction_lythuongkiet_01042017.dat">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReportDate"
+              DTS:DTSID="{BD8BAC49-EF50-4A71-9C84-18CC9BEAA47D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountNumber"
+              DTS:DTSID="{8796DFC1-1A29-4886-9D9C-E3276FF5742C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TransactionCode"
+              DTS:DTSID="{59823A13-32D5-4665-B208-1D9A74291EA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{F61A07FF-39EA-4004-AD15-393C340D0C0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MerchantNumber"
+              DTS:DTSID="{2B1CFE24-AD89-42D9-B755-4F3E78F40D9B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EEAA7AF9-8117-4B5E-8C15-3BA04530445F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileTransactionNamePath">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\transaction_lythuongkiet_01042017.dat</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{556D8C66-B405-4329-B732-CD63D4E4EA9F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TransactionTable">
+      <DTS:VariableValue
+        DTS:DataType="8">TransactionDetail</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TransactionDetailTask"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{66690655-09F9-4947-BAE1-05F993BD0A9A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TransactionDetailTask"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TransactionDetailTask\Transaction"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Transaction"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TransactionDetailTask\Transaction.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TransactionLyThuongKiet]"
+                  connectionManagerRefId="Package.ConnectionManagers[TransactionLyThuongKiet]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[ReportDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[ReportDate]"
+                      length="50"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[ReportDate]"
+                      name="ReportDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[AccountNumber]"
+                      length="50"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[TransactionCode]"
+                      length="50"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      length="50"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[MerchantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[MerchantNumber]"
+                      length="50"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[MerchantNumber]"
+                      name="MerchantNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[ReportDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ReportDate" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].ExternalColumns[MerchantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MerchantNumber" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TransactionDetailTask\Transaction Detail Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Transaction Detail Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TransactionDetail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::TransactionTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TransactionDetailTask\Transaction Detail Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MYPC\SQLEXPRESS.TransactionProcessing]"
+                  connectionManagerRefId="Package.ConnectionManagers[MYPC\SQLEXPRESS.TransactionProcessing]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].Columns[ReportDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ReportDate"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[ReportDate]"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[ReportDate]" />
+                    <inputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].Columns[AccountNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccountNumber"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].Columns[TransactionCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TransactionCode"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].Columns[MerchantNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MerchantNumber"
+                      externalMetadataColumnId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[MerchantNumber]"
+                      lineageId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output].Columns[MerchantNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordId]"
+                      dataType="i4"
+                      name="RecordId" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[ReportDate]"
+                      dataType="dbDate"
+                      name="ReportDate" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="cy"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input].ExternalColumns[MerchantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="MerchantNumber" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TransactionDetailTask\Transaction Detail Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TransactionDetailTask\Transaction Detail Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TransactionDetailTask\Transaction Detail Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TransactionDetailTask\Transaction Detail Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TransactionDetailTask.Paths[Flat File Source Output]"
+              endId="Package\TransactionDetailTask\Transaction Detail Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\TransactionDetailTask\Transaction.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\TransactionDetailTask"
+          TopLeft="99.5,23.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TransactionDetailTask">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\TransactionDetailTask\Transaction Detail Table"
+          TopLeft="78,154" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\TransactionDetailTask\Transaction"
+          TopLeft="103,36" />
+        <EdgeLayout
+          Id="Package\TransactionDetailTask.Paths[Flat File Source Output]"
+          TopLeft="172.25,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TransactionDetailTask\Transaction Detail Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
