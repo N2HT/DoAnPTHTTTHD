@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "1542250_SSIS", "1542250_SSIS\1542250_SSIS.dtproj", "{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallSSIS", "CallSSIS\CallSSIS.csproj", "{1A5DE54E-CB87-422A-9433-E1A40E959CD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Debug|Any CPU.ActiveCfg = Development
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Debug|Any CPU.Build.0 = Development
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Development|Any CPU.ActiveCfg = Development
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Development|Any CPU.Build.0 = Development
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Release|Any CPU.ActiveCfg = Development
+		{AD40AFD6-2BFA-4C9E-84F0-0762354CA311}.Release|Any CPU.Build.0 = Development
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5DE54E-CB87-422A-9433-E1A40E959CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
