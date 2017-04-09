@@ -1,0 +1,5 @@
+ReportDate|AccountNumber|TransactionCode|Amount|MerchantNumber
+25/03/2017|123|S|24.5|321
+25/03/2017|456|R|23.8|654
+25/03/2017|789|S|30.0|987
+25/03/2017|468|R|24.5|864
