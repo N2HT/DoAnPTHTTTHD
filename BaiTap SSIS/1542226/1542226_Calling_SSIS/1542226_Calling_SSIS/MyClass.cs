@@ -78,7 +78,7 @@ namespace _1542226_Calling_SSIS
 					myVars["TransactionFilePath"].Value = file.FullName;
 					pkgResults = pkg.Execute(null, myVars, null, null, null);
 					Console.WriteLine(pkgResults.ToString());
-					File.Move(file.FullName, _rycycleBinPath + file.Name);
+					File.Move(file.FullName, _rycycleBinPath + "\\" + file.Name);
 				}
 				catch (Exception ex)
 				{
