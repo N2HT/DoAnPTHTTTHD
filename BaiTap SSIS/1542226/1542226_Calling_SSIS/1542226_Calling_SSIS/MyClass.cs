@@ -63,6 +63,18 @@ namespace _1542226_Calling_SSIS
 
 		public static void Run()
 		{
+			if (!File.Exists(_packagePath))
+			{
+				Console.WriteLine("Duong dan den file package khong ton tai. Vui long xem lai PackagePath trong app.config");
+				Console.ReadLine();
+				return;
+			}
+			if (!Directory.Exists(_sourceFolderPath))
+			{
+				Console.WriteLine("Duong dan den source folder khong ton tai. Vui long xem lai SourceFolderPath trong app.config");
+				Console.ReadLine();
+				return;
+			}
 			Package pkg;
 			Application app;
 			DTSExecResult pkgResults;
