@@ -2,6 +2,7 @@
 using Microsoft.SqlServer.Dts.Runtime;
 using System.Configuration;
 using System.IO;
+using System.Threading;
 
 namespace _1542226_Calling_SSIS
 {
@@ -13,12 +14,24 @@ namespace _1542226_Calling_SSIS
 		private static string _packagePath = ConfigurationManager.AppSettings["PackagePath"];
 		public static void ListenFileChange()
 		{
-			FileSystemWatcher watcher = new FileSystemWatcher()
+			new Thread(() =>
 			{
-				Path = _sourceFolderPath,
-				Filter = "*.txt"
-			};
-			watcher.Created += Watcher_Created;
+				if (!File.Exists(_packagePath))
+				{
+					Console.WriteLine("Duong dan den file package khong ton tai. Vui long xem lai PackagePath trong app.config");
+					return;
+				}
+				if (!Directory.Exists(_sourceFolderPath))
+				{
+					Console.WriteLine("Duong dan den source folder khong ton tai. Vui long xem lai SourceFolderPath trong app.config");
+				}
+				FileSystemWatcher watcher = new FileSystemWatcher()
+				{
+					Path = _sourceFolderPath,
+				};
+				watcher.Created += Watcher_Created;
+			}).Start();
+			Console.ReadLine();
 		}
 
 		private static void Watcher_Created(object sender, FileSystemEventArgs e)
@@ -27,15 +40,51 @@ namespace _1542226_Calling_SSIS
 			Application app;
 			DTSExecResult pkgResults;
 			app = new Application();
-
 			pkg = app.LoadPackage(_packagePath, null);
 			Variables myVars = pkg.Variables;
-			myVars["MyVariable1"].Value = "value1";
-			myVars["MyVariable2"].Value = "value2";
-			pkgResults = pkg.Execute(null, myVars, null, null, null);
+			var files = new FileInfo(e.FullPath).Directory?.GetFiles();
+			if (files == null) return;
+			foreach (var file in files)
+			{
+				try
+				{
+					myVars["TransactionFilePath"].Value = file.FullName;
+					pkgResults = pkg.Execute(null, myVars, null, null, null);
+					Console.WriteLine(pkgResults.ToString());
+					File.Move(file.FullName, _rycycleBinPath + "\\" + file.Name);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
+			}
+		}
 
-			Console.WriteLine(pkgResults.ToString());
-			Console.ReadKey();
+
+		public static void Run()
+		{
+			Package pkg;
+			Application app;
+			DTSExecResult pkgResults;
+			app = new Application();
+			pkg = app.LoadPackage(_packagePath, null);
+			Variables myVars = pkg.Variables;
+			var files = Directory.CreateDirectory(_sourceFolderPath).GetFiles();
+			//if (files == null) return;
+			foreach (var file in files)
+			{
+				try
+				{
+					myVars["TransactionFilePath"].Value = file.FullName;
+					pkgResults = pkg.Execute(null, myVars, null, null, null);
+					Console.WriteLine(pkgResults.ToString());
+					File.Move(file.FullName, _rycycleBinPath + file.Name);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
+			}
 		}
 	}
 }
