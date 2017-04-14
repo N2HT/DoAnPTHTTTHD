@@ -10098,7 +10098,7 @@
 					line_style 	0
 					label      	(object SegLabel @491
 					    Parent_View 	@490
-					    location   	(1026, 1011)
+					    location   	(1012, 1093)
 					    font       	(object Font
 						size       	10
 						face       	"Arial"
@@ -10114,9 +10114,9 @@
 					    max_width  	15
 					    justify    	0
 					    label      	"0..n"
-					    pctDist    	0.876076
-					    height     	28
-					    orientation 	1))
+					    pctDist    	0.900000
+					    height     	54
+					    orientation 	0))
 				    (object RoleView "$UNNAMED$184" @492
 					Parent_View 	@489
 					location   	(462, 275)
@@ -10142,7 +10142,7 @@
 					line_style 	0
 					label      	(object SegLabel @493
 					    Parent_View 	@492
-					    location   	(792, 1254)
+					    location   	(885, 1255)
 					    font       	(object Font
 						size       	10
 						face       	"Arial"
@@ -10158,9 +10158,9 @@
 					    max_width  	15
 					    justify    	0
 					    label      	"0..1"
-					    pctDist    	0.900699
-					    height     	39
-					    orientation 	0))))
+					    pctDist    	0.900000
+					    height     	54
+					    orientation 	1))))
 			    (object ClassView "Class" "Use Case View::ClassDiagram::Master" @494
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
