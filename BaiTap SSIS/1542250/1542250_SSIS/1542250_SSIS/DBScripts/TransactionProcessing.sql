@@ -13,3 +13,5 @@ CREATE TABLE TransactionDetail
 )
 
 SELECT * FROM TransactionDetail
+
+DROP Table TransactionDetail

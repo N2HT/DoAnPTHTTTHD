@@ -27,17 +27,21 @@ namespace CallSSIS {
             Microsoft.SqlServer.Dts.Runtime.Application app;
             DTSExecResult pkgResults;
 
-            pkgLocation =
-              @"..\..\..\1542250_SSIS\Transaction_Processing.dtsx";
+            pkgLocation = @"D:\Transaction_Processing.dtsx";
             app = new Microsoft.SqlServer.Dts.Runtime.Application();
             pkg = app.LoadPackage(pkgLocation, null);
             Variables appVars = pkg.Variables;
-            appVars["FileTransactionNamePath"].Value = "D:\transaction_lythuongkiet_01042017.dat";
+            appVars["FileTransactionNamePath"].Value = @"D:\transaction_lythuongkiet_01042017.dat";
 
             pkgResults = pkg.Execute(null, appVars, null, null, null);
 
-            Console.WriteLine(pkgResults.ToString());
-            Console.ReadKey();
+            if (pkgResults == DTSExecResult.Success) {
+                MessageBox.Show("Package ran successfully");
+            } else {
+                MessageBox.Show("Package failed");
+            }
+            //Console.WriteLine(pkgResults.ToString());
+            //Console.ReadKey();
         }
     }
 }
