@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace _1542226_Calling_SSIS
 {
-	class Program
+	static class Program
 	{
-		static void Main(string[] args)
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
+		[STAThread]
+		static void Main()
 		{
-			//MyClass.ListenFileChange();
-			MyClass.Run();
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new Form1());
 		}
 	}
 }
