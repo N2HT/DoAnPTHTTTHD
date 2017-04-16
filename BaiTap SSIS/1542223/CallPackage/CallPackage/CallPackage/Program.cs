@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace _1542226_Calling_SSIS
+namespace CallPackage
 {
 	static class Program
 	{
