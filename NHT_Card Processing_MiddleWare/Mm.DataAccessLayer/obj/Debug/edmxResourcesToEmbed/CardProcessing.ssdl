@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardProcessingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountStatement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardId" Type="int" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="Month" Type="int" />
+    <Property Name="Year" Type="int" />
+    <Property Name="TotalPrice" Type="money" />
+  </EntityType>
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="AgentId" />
+    </Key>
+    <Property Name="AgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="ParentAgentId" Type="int" />
+    <Property Name="Activate" Type="bit" />
+    <Property Name="AreaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaName" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="CardId" />
+    </Key>
+    <Property Name="CardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="CardTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="CardType">
+    <Key>
+      <PropertyRef Name="CardTypeId" />
+    </Key>
+    <Property Name="CardTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardTypeName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Master">
+    <Key>
+      <PropertyRef Name="MasterId" />
+    </Key>
+    <Property Name="MasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Merchant">
+    <Key>
+      <PropertyRef Name="MerchantId" />
+    </Key>
+    <Property Name="MerchantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="BeginDay" Type="date" />
+    <Property Name="Activate" Type="bit" />
+    <Property Name="MerchantTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="MerchantType">
+    <Key>
+      <PropertyRef Name="MerchantTypeId" />
+    </Key>
+    <Property Name="MerchantTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="MessageTypeId" Type="int" />
+    <Property Name="MessageContent" Type="text" />
+    <Property Name="Time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MessageType">
+    <Key>
+      <PropertyRef Name="MessageTypeId" />
+    </Key>
+    <Property Name="MessageTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Privilege">
+    <Key>
+      <PropertyRef Name="PrivilegeId" />
+    </Key>
+    <Property Name="PrivilegeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrivilegeName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Report_Agent">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="TransactionType" Type="int" />
+    <Property Name="Merchant" Type="int" />
+    <Property Name="Area" Type="int" />
+    <Property Name="CardType" Type="int" />
+    <Property Name="MerchantType" Type="int" />
+    <Property Name="SaleAmount" Type="money" />
+    <Property Name="ReturnAmount" Type="money" />
+    <Property Name="SaleCount" Type="money" />
+    <Property Name="ReturnCount" Type="money" />
+    <Property Name="NetAmount" Type="money" />
+    <Property Name="ReportTypeId" Type="int" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Report_Master">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="Agent" Type="int" />
+    <Property Name="Merchant" Type="int" />
+    <Property Name="TransactionType" Type="int" />
+    <Property Name="Area" Type="int" />
+    <Property Name="CardType" Type="int" />
+    <Property Name="MerchantType" Type="int" />
+    <Property Name="SaleAmount" Type="money" />
+    <Property Name="ReturmAmount" Type="money" />
+    <Property Name="SaleCount" Type="int" />
+    <Property Name="ReturnCount" Type="int" />
+    <Property Name="NetAmount" Type="money" />
+    <Property Name="ReportTypeId" Type="int" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Report_Merchant">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="TransactionType" Type="int" />
+    <Property Name="CardType" Type="nchar" MaxLength="10" />
+    <Property Name="SaleAmount" Type="money" />
+    <Property Name="ReturnAmount" Type="money" />
+    <Property Name="SaleCount" Type="int" />
+    <Property Name="ReturnCount" Type="int" />
+    <Property Name="NetAmount" Type="money" />
+    <Property Name="ReportTypeId" Type="int" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+  </EntityType>
+  <EntityType Name="ReportType">
+    <Key>
+      <PropertyRef Name="ReportTypeId" />
+    </Key>
+    <Property Name="ReportTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="CardId" Type="int" />
+    <Property Name="TotalPrice" Type="money" />
+    <Property Name="TransactionTime" Type="datetime" />
+    <Property Name="TransactionTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="TransactionTypeId" />
+    </Key>
+    <Property Name="TransactionTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionTypeName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="PrivilegeId" Type="int" />
+    <Property Name="Activate" Type="bit" />
+  </EntityType>
+  <Association Name="FK_AccountStatement_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
+    <End Role="AccountStatement" Type="Self.AccountStatement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="MasterId" />
+      </Principal>
+      <Dependent Role="AccountStatement">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="Agent1" Type="Self.Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="AgentId" />
+      </Principal>
+      <Dependent Role="Agent1">
+        <PropertyRef Name="ParentAgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="Agent">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
+    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="MasterId" />
+      </Principal>
+      <Dependent Role="Agent">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_CardType">
+    <End Role="CardType" Type="Self.CardType" Multiplicity="0..1" />
+    <End Role="Card" Type="Self.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardType">
+        <PropertyRef Name="CardTypeId" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="CardTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
+    <End Role="Card" Type="Self.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="MasterId" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Merchant_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="AgentId" />
+      </Principal>
+      <Dependent Role="Merchant">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Merchant_MerchantType">
+    <End Role="MerchantType" Type="Self.MerchantType" Multiplicity="0..1" />
+    <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MerchantType">
+        <PropertyRef Name="MerchantTypeId" />
+      </Principal>
+      <Dependent Role="Merchant">
+        <PropertyRef Name="MerchantTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_MessageType">
+    <End Role="MessageType" Type="Self.MessageType" Multiplicity="0..1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MessageType">
+        <PropertyRef Name="MessageTypeId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MessageTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_Agent_ReportType">
+    <End Role="ReportType" Type="Self.ReportType" Multiplicity="0..1" />
+    <End Role="Report_Agent" Type="Self.Report_Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportType">
+        <PropertyRef Name="ReportTypeId" />
+      </Principal>
+      <Dependent Role="Report_Agent">
+        <PropertyRef Name="ReportTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_Master_ReportType">
+    <End Role="ReportType" Type="Self.ReportType" Multiplicity="0..1" />
+    <End Role="Report_Master" Type="Self.Report_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportType">
+        <PropertyRef Name="ReportTypeId" />
+      </Principal>
+      <Dependent Role="Report_Master">
+        <PropertyRef Name="ReportTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_Merchant_ReportType">
+    <End Role="ReportType" Type="Self.ReportType" Multiplicity="0..1" />
+    <End Role="Report_Merchant" Type="Self.Report_Merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportType">
+        <PropertyRef Name="ReportTypeId" />
+      </Principal>
+      <Dependent Role="Report_Merchant">
+        <PropertyRef Name="ReportTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Card">
+    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="CardId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="CardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Merchant">
+    <End Role="Merchant" Type="Self.Merchant" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Merchant">
+        <PropertyRef Name="MerchantId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="MerchantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_TransactionType">
+    <End Role="TransactionType" Type="Self.TransactionType" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionType">
+        <PropertyRef Name="TransactionTypeId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="TransactionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Privilege">
+    <End Role="Privilege" Type="Self.Privilege" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilege">
+        <PropertyRef Name="PrivilegeId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PrivilegeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CardProcessingModelStoreContainer">
+    <EntitySet Name="AccountStatement" EntityType="Self.AccountStatement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardType" EntityType="Self.CardType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master" EntityType="Self.Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Merchant" EntityType="Self.Merchant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerchantType" EntityType="Self.MerchantType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageType" EntityType="Self.MessageType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Privilege" EntityType="Self.Privilege" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report_Agent" EntityType="Self.Report_Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report_Master" EntityType="Self.Report_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report_Merchant" EntityType="Self.Report_Merchant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportType" EntityType="Self.ReportType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AccountStatement_Master" Association="Self.FK_AccountStatement_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="AccountStatement" EntitySet="AccountStatement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_Agent" Association="Self.FK_Agent_Agent">
+      <End Role="Agent" EntitySet="Agent" />
+      <End Role="Agent1" EntitySet="Agent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_Area" Association="Self.FK_Agent_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Agent" EntitySet="Agent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_Master" Association="Self.FK_Agent_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Agent" EntitySet="Agent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_CardType" Association="Self.FK_Card_CardType">
+      <End Role="CardType" EntitySet="CardType" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_Master" Association="Self.FK_Card_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Merchant_Agent" Association="Self.FK_Merchant_Agent">
+      <End Role="Agent" EntitySet="Agent" />
+      <End Role="Merchant" EntitySet="Merchant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Merchant_MerchantType" Association="Self.FK_Merchant_MerchantType">
+      <End Role="MerchantType" EntitySet="MerchantType" />
+      <End Role="Merchant" EntitySet="Merchant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_MessageType" Association="Self.FK_Message_MessageType">
+      <End Role="MessageType" EntitySet="MessageType" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_Agent_ReportType" Association="Self.FK_Report_Agent_ReportType">
+      <End Role="ReportType" EntitySet="ReportType" />
+      <End Role="Report_Agent" EntitySet="Report_Agent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_Master_ReportType" Association="Self.FK_Report_Master_ReportType">
+      <End Role="ReportType" EntitySet="ReportType" />
+      <End Role="Report_Master" EntitySet="Report_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_Merchant_ReportType" Association="Self.FK_Report_Merchant_ReportType">
+      <End Role="ReportType" EntitySet="ReportType" />
+      <End Role="Report_Merchant" EntitySet="Report_Merchant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Card" Association="Self.FK_Transaction_Card">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Merchant" Association="Self.FK_Transaction_Merchant">
+      <End Role="Merchant" EntitySet="Merchant" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_TransactionType" Association="Self.FK_Transaction_TransactionType">
+      <End Role="TransactionType" EntitySet="TransactionType" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Privilege" Association="Self.FK_User_Privilege">
+      <End Role="Privilege" EntitySet="Privilege" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

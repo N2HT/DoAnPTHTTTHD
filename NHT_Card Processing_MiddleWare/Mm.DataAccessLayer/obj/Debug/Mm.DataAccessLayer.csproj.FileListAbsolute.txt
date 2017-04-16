@@ -1,0 +1,20 @@
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.dll.config
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\Mm.DomainModel.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\bin\Debug\Mm.DomainModel.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.dll.config
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\Mm.DataAccessLayer.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\Mm.DomainModel.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\bin\Debug\Mm.DomainModel.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DataAccessLayer\obj\Debug\Mm.DataAccessLayer.pdb

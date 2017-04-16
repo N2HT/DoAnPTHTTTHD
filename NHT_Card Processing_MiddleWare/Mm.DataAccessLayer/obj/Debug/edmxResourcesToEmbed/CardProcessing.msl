@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CardProcessingModelStoreContainer" CdmEntityContainer="CardProcessingEntities">
+    <EntitySetMapping Name="AccountStatements">
+      <EntityTypeMapping TypeName="CardProcessingModel.AccountStatement">
+        <MappingFragment StoreEntitySet="AccountStatement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="CardProcessingModel.Agent">
+        <MappingFragment StoreEntitySet="Agent">
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="ParentAgentId" ColumnName="ParentAgentId" />
+          <ScalarProperty Name="Activate" ColumnName="Activate" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="CardProcessingModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="CardProcessingModel.Card">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardTypeId" ColumnName="CardTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardTypes">
+      <EntityTypeMapping TypeName="CardProcessingModel.CardType">
+        <MappingFragment StoreEntitySet="CardType">
+          <ScalarProperty Name="CardTypeId" ColumnName="CardTypeId" />
+          <ScalarProperty Name="CardTypeName" ColumnName="CardTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Masters">
+      <EntityTypeMapping TypeName="CardProcessingModel.Master">
+        <MappingFragment StoreEntitySet="Master">
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="MasterName" ColumnName="MasterName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Merchants">
+      <EntityTypeMapping TypeName="CardProcessingModel.Merchant">
+        <MappingFragment StoreEntitySet="Merchant">
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="MerchantName" ColumnName="MerchantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="BeginDay" ColumnName="BeginDay" />
+          <ScalarProperty Name="Activate" ColumnName="Activate" />
+          <ScalarProperty Name="MerchantTypeId" ColumnName="MerchantTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantTypes">
+      <EntityTypeMapping TypeName="CardProcessingModel.MerchantType">
+        <MappingFragment StoreEntitySet="MerchantType">
+          <ScalarProperty Name="MerchantTypeId" ColumnName="MerchantTypeId" />
+          <ScalarProperty Name="MerchantTypeName" ColumnName="MerchantTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="CardProcessingModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="MessageTypeId" ColumnName="MessageTypeId" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTypes">
+      <EntityTypeMapping TypeName="CardProcessingModel.MessageType">
+        <MappingFragment StoreEntitySet="MessageType">
+          <ScalarProperty Name="MessageTypeId" ColumnName="MessageTypeId" />
+          <ScalarProperty Name="MessageTypeName" ColumnName="MessageTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Privileges">
+      <EntityTypeMapping TypeName="CardProcessingModel.Privilege">
+        <MappingFragment StoreEntitySet="Privilege">
+          <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report_Agent">
+      <EntityTypeMapping TypeName="CardProcessingModel.Report_Agent">
+        <MappingFragment StoreEntitySet="Report_Agent">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="Merchant" ColumnName="Merchant" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="MerchantType" ColumnName="MerchantType" />
+          <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+          <ScalarProperty Name="ReturnAmount" ColumnName="ReturnAmount" />
+          <ScalarProperty Name="SaleCount" ColumnName="SaleCount" />
+          <ScalarProperty Name="ReturnCount" ColumnName="ReturnCount" />
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report_Master">
+      <EntityTypeMapping TypeName="CardProcessingModel.Report_Master">
+        <MappingFragment StoreEntitySet="Report_Master">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="Agent" ColumnName="Agent" />
+          <ScalarProperty Name="Merchant" ColumnName="Merchant" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="MerchantType" ColumnName="MerchantType" />
+          <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+          <ScalarProperty Name="ReturmAmount" ColumnName="ReturmAmount" />
+          <ScalarProperty Name="SaleCount" ColumnName="SaleCount" />
+          <ScalarProperty Name="ReturnCount" ColumnName="ReturnCount" />
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report_Merchant">
+      <EntityTypeMapping TypeName="CardProcessingModel.Report_Merchant">
+        <MappingFragment StoreEntitySet="Report_Merchant">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+          <ScalarProperty Name="ReturnAmount" ColumnName="ReturnAmount" />
+          <ScalarProperty Name="SaleCount" ColumnName="SaleCount" />
+          <ScalarProperty Name="ReturnCount" ColumnName="ReturnCount" />
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportTypes">
+      <EntityTypeMapping TypeName="CardProcessingModel.ReportType">
+        <MappingFragment StoreEntitySet="ReportType">
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportTypeName" ColumnName="ReportTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CardProcessingModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="CardProcessingModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="CardProcessingModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionType">
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="TransactionTypeName" ColumnName="TransactionTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CardProcessingModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+          <ScalarProperty Name="Activate" ColumnName="Activate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

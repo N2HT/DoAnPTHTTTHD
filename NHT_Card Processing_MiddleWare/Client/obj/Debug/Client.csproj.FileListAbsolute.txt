@@ -1,0 +1,14 @@
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Client.exe.config
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Client.exe
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Client.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.BusinessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.DomainModel.dll
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.DataAccessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\EntityFramework.dll
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.BusinessLayer.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.DomainModel.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\Mm.DataAccessLayer.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Client\bin\Debug\EntityFramework.xml
+E:\University of Science\NET\demo\EmployeeManagement\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+E:\University of Science\NET\demo\EmployeeManagement\Client\obj\Debug\Client.exe
+E:\University of Science\NET\demo\EmployeeManagement\Client\obj\Debug\Client.pdb

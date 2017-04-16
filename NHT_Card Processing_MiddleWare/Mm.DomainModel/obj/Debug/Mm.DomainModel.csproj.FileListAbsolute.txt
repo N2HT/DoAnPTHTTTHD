@@ -1,0 +1,13 @@
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DomainModel\bin\Debug\Mm.DomainModel.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DomainModel\bin\Debug\Mm.DomainModel.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DomainModel\obj\Debug\Mm.DomainModel.csprojResolveAssemblyReference.cache
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DomainModel\obj\Debug\Mm.DomainModel.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.DomainModel\obj\Debug\Mm.DomainModel.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\bin\Debug\Mm.DomainModel.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\bin\Debug\Mm.DomainModel.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\obj\Debug\Mm.DomainModel.csprojResolveAssemblyReference.cache
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\obj\Debug\Mm.DomainModel.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\obj\Debug\Mm.DomainModel.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\bin\Debug\Mm.DomainModel.dll.config
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\bin\Debug\EntityFramework.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.DomainModel\bin\Debug\EntityFramework.xml
