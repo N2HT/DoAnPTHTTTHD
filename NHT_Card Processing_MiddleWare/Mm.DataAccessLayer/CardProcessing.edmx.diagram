@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29e8ff29edc1438aa88566c9d2108d40" Name="Diagram1">
+        <EntityTypeShape EntityType="CardProcessingModel.AccountStatement" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Agent" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Area" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Card" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.CardType" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Master" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Merchant" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.MerchantType" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Message" Width="1.5" PointX="13" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.MessageType" Width="1.5" PointX="10.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Privilege" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Report_Agent" Width="1.5" PointX="8" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Report_Master" Width="1.5" PointX="8" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Report_Merchant" Width="1.5" PointX="8" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.ReportType" Width="1.5" PointX="5.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.sysdiagram" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.Transaction" Width="1.5" PointX="10.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.TransactionType" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardProcessingModel.User" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="CardProcessingModel.FK_AccountStatement_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Agent_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Card_CardType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Card_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Transaction_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Merchant_MerchantType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Transaction_Merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Message_MessageType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_User_Privilege" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Report_Agent_ReportType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Report_Master_ReportType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Report_Merchant_ReportType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardProcessingModel.FK_Transaction_TransactionType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

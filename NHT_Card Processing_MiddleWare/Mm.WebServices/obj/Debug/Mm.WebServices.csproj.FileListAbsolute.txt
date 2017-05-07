@@ -1,0 +1,154 @@
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.WebServices.dll.config
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.WebServices.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.WebServices.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Antlr3.Runtime.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\EntityFramework.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Data.Edm.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Data.OData.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Web.Infrastructure.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.BusinessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.DomainModel.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Newtonsoft.Json.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Net.Http.Formatting.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Spatial.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Helpers.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.OData.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.Tracing.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.WebHost.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Mvc.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Optimization.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Providers.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Razor.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.Deployment.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.Razor.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\WebGrease.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.DataAccessLayer.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.BusinessLayer.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.DomainModel.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\EntityFramework.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Newtonsoft.Json.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Net.Http.Formatting.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Helpers.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.WebHost.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Mvc.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Razor.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.Deployment.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.WebPages.Razor.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.Tracing.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Web.Http.OData.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Data.Edm.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Microsoft.Data.OData.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\System.Spatial.xml
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\Mm.DataAccessLayer.pdb
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\de\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\es\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\it\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\de\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\es\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\fr\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\it\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ja\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ko\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ru\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\de\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\es\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\fr\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\it\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ja\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ko\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\ru\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hans\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\bin\zh-Hant\System.Spatial.resources.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\obj\Debug\Mm.WebServices.csprojResolveAssemblyReference.cache
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\obj\Debug\Mm.WebServices.dll
+E:\University of Science\NET\demo\EmployeeManagement\Mm.WebServices\obj\Debug\Mm.WebServices.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.WebServices.dll.config
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.WebServices.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.WebServices.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Antlr3.Runtime.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\EntityFramework.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Data.Edm.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Data.OData.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Web.Infrastructure.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.BusinessLayer.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.DomainModel.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Newtonsoft.Json.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Net.Http.Formatting.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Spatial.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Helpers.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.OData.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.Tracing.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.WebHost.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Mvc.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Optimization.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Providers.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Razor.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.Deployment.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.Razor.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\WebGrease.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.DataAccessLayer.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.BusinessLayer.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.DomainModel.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\EntityFramework.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Newtonsoft.Json.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Net.Http.Formatting.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Helpers.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.WebHost.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Mvc.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Razor.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.Deployment.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.WebPages.Razor.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.Tracing.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Web.Http.OData.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Data.Edm.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Microsoft.Data.OData.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\System.Spatial.xml
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\Mm.DataAccessLayer.pdb
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\de\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\es\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\it\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\de\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\es\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\fr\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\it\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ja\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ko\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\ru\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hans\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\bin\zh-Hant\System.Spatial.resources.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\obj\Debug\Mm.WebServices.csprojResolveAssemblyReference.cache
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\obj\Debug\Mm.WebServices.dll
+E:\Desktop\HCDH\HK42017\HTTTHD\DoAnPTHTTTHD\NHT_Card Processing_MiddleWare\Mm.WebServices\obj\Debug\Mm.WebServices.pdb

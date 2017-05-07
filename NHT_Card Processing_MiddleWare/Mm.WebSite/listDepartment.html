@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "http://localhost:47075/api/department",
+                type: "GET",
+               success: function (res) {
+                    var str = "";
+                    $.each(res, function (k, v) {
+                        str += "<tr>";
+                        str += "<td>" + v.DepartmentId + "</td>";
+                        str += "<td>" + v.Name + "</td>";
+                        str += "</tr>";
+                        
+                    });
+                    $("tbody").append(str);
+                },
+                error:function(error)
+                {
+                    alert(error.fail);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" border="1" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
