@@ -1,6 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
+import Test from '../../../../../models/test';
+
 export default class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.user = Test;
+    this.user.age = 30;
+
+  }
   render() {
     return (
       <div>
