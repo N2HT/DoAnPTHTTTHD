@@ -1,5 +1,5 @@
 const config = {
-  port: process.env.PORT || 8000,
+  port: process.env.PORT || 3333,
   host: 'http://localhost'
 };
 

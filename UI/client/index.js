@@ -11,6 +11,8 @@ import { configureStore } from './store';
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 render(
   <AppContainer>
     <App store={store} />
