@@ -1,9 +1,13 @@
+Mm.BusinessLayer/bin/
+Mm.BusinessLayer/obj/
 Mm.DataAccessLayer/bin/
 Mm.DataAccessLayer/obj/
 Mm.DomainModel/bin/
 Mm.DomainModel/obj/
 Mm.WebServices/bin/
 Mm.WebServices/obj/
+Mm.WebSite/bin/
+Mm.WebSite/obj/
 MyTest/bin/
 MyTest/obj/
 packages/

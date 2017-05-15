@@ -1,7 +1,7 @@
 {
-  "name": "CardProcessing System Interface",
+  "name": "CardProcessingSystemInterface",
   "author": "Custom by NHT Team",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "CardProcessing System Interface",
   "scripts": {
     "test": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://localhost:27017/mern-test node_modules/.bin/nyc node --harmony-proxies node_modules/.bin/ava",
