@@ -10,7 +10,8 @@ const styles = {
     height: 40,
     marginTop: 10,
     borderRadius: 2,
-    position: 'relative'
+    position: 'relative',
+    width: '50%'
   },
   searchIcon: {
     position: 'absolute'
