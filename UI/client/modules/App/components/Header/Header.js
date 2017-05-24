@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {AppBar, SvgIcon, IconButton, Avatar, IconMenu, Badge} from 'material-ui';
+import {AppBar, SvgIcon, IconButton, Avatar, IconMenu, Badge, FloatingActionButton} from 'material-ui';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import {List, ListItem} from 'material-ui/List';
 import SearchForm from '../SearchForm/SearchForm';
 import DrawerMenu from '../DrawerMenu/DrawerMenu';
+import {browserHistory} from 'react-router';
 // Import Style
 import styles from './Header.css';
 const navIconStyle = {
@@ -20,6 +21,14 @@ const drawerMenuWidth = 250;
 const navStyle = {
   height: 60,
   backgroundColor: '#3367d6'
+};
+
+const appIconStyle = {
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  cursor: 'pointer',
+  marginLeft: 10
 };
 
 const IconNotification = (props) => (
@@ -82,9 +91,14 @@ export default class Header extends Component {
           iconStyleRight={navIconStyle}
           title={<SearchForm />}
           iconElementLeft={
-            <IconButton onClick={this.handleSwitchDrawerState}>
-              {this.state.isDrawerOpen?<NavigationClose color="#fff"/>:<MenuIcon color="#fff"/>}
-            </IconButton>}
+            <div>
+              <IconButton onClick={this.handleSwitchDrawerState}>
+                {this.state.isDrawerOpen?<NavigationClose color="#fff"/>:<MenuIcon color="#fff"/>}
+              </IconButton>
+              <img onClick={()=>{browserHistory.push('/')}}
+                   style={appIconStyle}
+                   title="Card Processing" src="assets/images/appicon.png" width="40" height="40" />
+            </div>}
           iconElementRight={
             <div>
               <IconButton className={styles["notification-icon-button"]}>

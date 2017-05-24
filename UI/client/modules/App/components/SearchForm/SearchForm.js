@@ -8,10 +8,9 @@ const styles = {
   wrapper: {
     backgroundColor: '#2850a7',
     height: 40,
-    marginTop: 10,
+    margin: '10px 40px 0 60px',
     borderRadius: 2,
-    position: 'relative',
-    width: '50%'
+    position: 'relative'
   },
   searchIcon: {
     position: 'absolute'

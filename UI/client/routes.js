@@ -16,10 +16,12 @@ if (typeof require.ensure !== 'function') {
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
-  // require('./modules/Post/pages/PostListPage/PostListPage');
-  // require('./modules/Post/pages/PostDetailPage/PostDetailPage');
   require('./modules/Home/pages/HomePage/HomePage');
   require('./modules/Home/pages/AboutPage/AboutPage');
+  require('./modules/Account/LoginPage');
+  require('./modules/Agent/AgentPage');
+  require('./modules/Merchant/MerchantPage');
+  require('./modules/Report/ReportPage');
 }
 
 // react-router setup with code-splitting
@@ -34,10 +36,42 @@ export default (
       }}
     />
     <Route
+      path="/agents"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Agent/AgentPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/merchants"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Merchant/MerchantPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/reports"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Report/ReportPage').default);
+        });
+      }}
+    />
+    <Route
       path="/about"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Home/pages/AboutPage/AboutPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/login"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Account/LoginPage').default);
         });
       }}
     />
