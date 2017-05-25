@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CardProcessingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CardProcessingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountStatement">
           <Key>
             <PropertyRef Name="Id" />
@@ -183,16 +183,18 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Transaction">
+        <EntityType Name="TransactionDetails">
           <Key>
-            <PropertyRef Name="TransactionId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="varchar" MaxLength="150" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="UnitPrice" Type="money" />
           <Property Name="MerchantId" Type="int" />
           <Property Name="CardId" Type="int" />
-          <Property Name="TotalPrice" Type="money" />
-          <Property Name="TransactionTime" Type="datetime" />
           <Property Name="TransactionTypeId" Type="int" />
+          <Property Name="TransactionTime" Type="datetime" />
         </EntityType>
         <EntityType Name="TransactionType">
           <Key>
@@ -391,38 +393,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_Card">
+        <Association Name="FK_TransactionDetails_Card">
           <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Card">
               <PropertyRef Name="CardId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="CardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_Merchant">
+        <Association Name="FK_TransactionDetails_Merchant">
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Merchant">
               <PropertyRef Name="MerchantId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="MerchantId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_TransactionType">
+        <Association Name="FK_TransactionDetails_TransactionType">
           <End Role="TransactionType" Type="Self.TransactionType" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TransactionType">
               <PropertyRef Name="TransactionTypeId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="TransactionTypeId" />
             </Dependent>
           </ReferentialConstraint>
@@ -456,7 +458,7 @@
           <EntitySet Name="Report_Merchant" EntityType="Self.Report_Merchant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReportType" EntityType="Self.ReportType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AccountStatement_Master" Association="Self.FK_AccountStatement_Master">
@@ -519,24 +521,25 @@
             <End Role="ReportType" EntitySet="ReportType" />
             <End Role="Report_Merchant" EntitySet="Report_Merchant" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_Card" Association="Self.FK_Transaction_Card">
+          <AssociationSet Name="FK_TransactionDetails_Card" Association="Self.FK_TransactionDetails_Card">
             <End Role="Card" EntitySet="Card" />
-            <End Role="Transaction" EntitySet="Transaction" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_Merchant" Association="Self.FK_Transaction_Merchant">
+          <AssociationSet Name="FK_TransactionDetails_Merchant" Association="Self.FK_TransactionDetails_Merchant">
             <End Role="Merchant" EntitySet="Merchant" />
-            <End Role="Transaction" EntitySet="Transaction" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_TransactionType" Association="Self.FK_Transaction_TransactionType">
+          <AssociationSet Name="FK_TransactionDetails_TransactionType" Association="Self.FK_TransactionDetails_TransactionType">
             <End Role="TransactionType" EntitySet="TransactionType" />
-            <End Role="Transaction" EntitySet="Transaction" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Privilege" Association="Self.FK_User_Privilege">
             <End Role="Privilege" EntitySet="Privilege" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CardProcessingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -562,13 +565,13 @@
           <Property Name="ParentAgentId" Type="Int32" />
           <Property Name="Activate" Type="Boolean" />
           <Property Name="AreaId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="Agent1" Relationship="Self.FK_Agent_Agent" FromRole="Agent" ToRole="Agent1" />
           <NavigationProperty Name="Agent2" Relationship="Self.FK_Agent_Agent" FromRole="Agent1" ToRole="Agent" />
           <NavigationProperty Name="Area" Relationship="Self.FK_Agent_Area" FromRole="Agent" ToRole="Area" />
           <NavigationProperty Name="Master" Relationship="Self.FK_Agent_Master" FromRole="Agent" ToRole="Master" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Agent_User" FromRole="Agent" ToRole="User" />
           <NavigationProperty Name="Merchants" Relationship="Self.FK_Merchant_Agent" FromRole="Agent" ToRole="Merchant" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="CardProcessingModel.FK_Agent_User" FromRole="Agent" ToRole="User" />
         </EntityType>
         <EntityType Name="Area">
           <Key>
@@ -588,7 +591,7 @@
           <Property Name="CardTypeId" Type="Int32" />
           <NavigationProperty Name="CardType" Relationship="Self.FK_Card_CardType" FromRole="Card" ToRole="CardType" />
           <NavigationProperty Name="Master" Relationship="Self.FK_Card_Master" FromRole="Card" ToRole="Master" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_Card" FromRole="Card" ToRole="Transaction" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Card" FromRole="Card" ToRole="TransactionDetails" />
         </EntityType>
         <EntityType Name="CardType">
           <Key>
@@ -604,11 +607,11 @@
           </Key>
           <Property Name="MasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MasterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="AccountStatements" Relationship="Self.FK_AccountStatement_Master" FromRole="Master" ToRole="AccountStatement" />
           <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_Master" FromRole="Master" ToRole="Agent" />
           <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Master" FromRole="Master" ToRole="Card" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="CardProcessingModel.FK_Master_User" FromRole="Master" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Master_User" FromRole="Master" ToRole="User" />
         </EntityType>
         <EntityType Name="Merchant">
           <Key>
@@ -621,11 +624,11 @@
           <Property Name="BeginDay" Type="DateTime" Precision="0" />
           <Property Name="Activate" Type="Boolean" />
           <Property Name="MerchantTypeId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="Agent" Relationship="Self.FK_Merchant_Agent" FromRole="Merchant" ToRole="Agent" />
           <NavigationProperty Name="MerchantType" Relationship="Self.FK_Merchant_MerchantType" FromRole="Merchant" ToRole="MerchantType" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_Merchant" FromRole="Merchant" ToRole="Transaction" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="CardProcessingModel.FK_Merchant_User" FromRole="Merchant" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Merchant_User" FromRole="Merchant" ToRole="User" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Merchant" FromRole="Merchant" ToRole="TransactionDetails" />
         </EntityType>
         <EntityType Name="MerchantType">
           <Key>
@@ -748,19 +751,21 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Transaction">
+        <EntityType Name="TransactionDetail">
           <Key>
-            <PropertyRef Name="TransactionId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="MerchantId" Type="Int32" />
           <Property Name="CardId" Type="Int32" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="TransactionTime" Type="DateTime" Precision="3" />
           <Property Name="TransactionTypeId" Type="Int32" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Transaction_Card" FromRole="Transaction" ToRole="Card" />
-          <NavigationProperty Name="Merchant" Relationship="Self.FK_Transaction_Merchant" FromRole="Transaction" ToRole="Merchant" />
-          <NavigationProperty Name="TransactionType" Relationship="Self.FK_Transaction_TransactionType" FromRole="Transaction" ToRole="TransactionType" />
+          <Property Name="TransactionTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_TransactionDetails_Card" FromRole="TransactionDetails" ToRole="Card" />
+          <NavigationProperty Name="Merchant" Relationship="Self.FK_TransactionDetails_Merchant" FromRole="TransactionDetails" ToRole="Merchant" />
+          <NavigationProperty Name="TransactionType" Relationship="Self.FK_TransactionDetails_TransactionType" FromRole="TransactionDetails" ToRole="TransactionType" />
         </EntityType>
         <EntityType Name="TransactionType">
           <Key>
@@ -768,7 +773,7 @@
           </Key>
           <Property Name="TransactionTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TransactionTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_TransactionType" FromRole="TransactionType" ToRole="Transaction" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_TransactionType" FromRole="TransactionType" ToRole="TransactionDetails" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -779,10 +784,10 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PrivilegeId" Type="Int32" />
           <Property Name="Activate" Type="Boolean" />
+          <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_User" FromRole="User" ToRole="Agent" />
+          <NavigationProperty Name="Masters" Relationship="Self.FK_Master_User" FromRole="User" ToRole="Master" />
+          <NavigationProperty Name="Merchants" Relationship="Self.FK_Merchant_User" FromRole="User" ToRole="Merchant" />
           <NavigationProperty Name="Privilege" Relationship="Self.FK_User_Privilege" FromRole="User" ToRole="Privilege" />
-          <NavigationProperty Name="Agents" Relationship="CardProcessingModel.FK_Agent_User" FromRole="User" ToRole="Agent" />
-          <NavigationProperty Name="Masters" Relationship="CardProcessingModel.FK_Master_User" FromRole="User" ToRole="Master" />
-          <NavigationProperty Name="Merchants" Relationship="CardProcessingModel.FK_Merchant_User" FromRole="User" ToRole="Merchant" />
         </EntityType>
         <Association Name="FK_AccountStatement_Master">
           <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
@@ -832,6 +837,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Agent_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Merchant_Agent">
           <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
@@ -868,15 +885,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_Card">
+        <Association Name="FK_TransactionDetails_Card">
           <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Card">
               <PropertyRef Name="CardId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="CardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Master_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Master" Type="Self.Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Master">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -892,14 +921,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_Merchant">
+        <Association Name="FK_Merchant_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Merchant">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_Merchant">
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Merchant">
               <PropertyRef Name="MerchantId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="MerchantId" />
             </Dependent>
           </ReferentialConstraint>
@@ -964,14 +1005,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaction_TransactionType">
+        <Association Name="FK_TransactionDetails_TransactionType">
           <End Role="TransactionType" Type="Self.TransactionType" Multiplicity="0..1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TransactionType">
               <PropertyRef Name="TransactionTypeId" />
             </Principal>
-            <Dependent Role="Transaction">
+            <Dependent Role="TransactionDetails">
               <PropertyRef Name="TransactionTypeId" />
             </Dependent>
           </ReferentialConstraint>
@@ -993,7 +1034,7 @@
           <EntitySet Name="Report_Merchant" EntityType="Self.Report_Merchant" />
           <EntitySet Name="ReportTypes" EntityType="Self.ReportType" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
           <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_AccountStatement_Master" Association="Self.FK_AccountStatement_Master">
@@ -1012,6 +1053,10 @@
             <End Role="Master" EntitySet="Masters" />
             <End Role="Agent" EntitySet="Agents" />
           </AssociationSet>
+          <AssociationSet Name="FK_Agent_User" Association="Self.FK_Agent_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Agent" EntitySet="Agents" />
+          </AssociationSet>
           <AssociationSet Name="FK_Merchant_Agent" Association="Self.FK_Merchant_Agent">
             <End Role="Agent" EntitySet="Agents" />
             <End Role="Merchant" EntitySet="Merchants" />
@@ -1024,17 +1069,25 @@
             <End Role="Master" EntitySet="Masters" />
             <End Role="Card" EntitySet="Cards" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_Card" Association="Self.FK_Transaction_Card">
+          <AssociationSet Name="FK_TransactionDetails_Card" Association="Self.FK_TransactionDetails_Card">
             <End Role="Card" EntitySet="Cards" />
-            <End Role="Transaction" EntitySet="Transactions" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Master_User" Association="Self.FK_Master_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Master" EntitySet="Masters" />
           </AssociationSet>
           <AssociationSet Name="FK_Merchant_MerchantType" Association="Self.FK_Merchant_MerchantType">
             <End Role="MerchantType" EntitySet="MerchantTypes" />
             <End Role="Merchant" EntitySet="Merchants" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_Merchant" Association="Self.FK_Transaction_Merchant">
+          <AssociationSet Name="FK_Merchant_User" Association="Self.FK_Merchant_User">
+            <End Role="User" EntitySet="Users" />
             <End Role="Merchant" EntitySet="Merchants" />
-            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_Merchant" Association="Self.FK_TransactionDetails_Merchant">
+            <End Role="Merchant" EntitySet="Merchants" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_Message_MessageType" Association="Self.FK_Message_MessageType">
             <End Role="MessageType" EntitySet="MessageTypes" />
@@ -1056,59 +1109,11 @@
             <End Role="ReportType" EntitySet="ReportTypes" />
             <End Role="Report_Merchant" EntitySet="Report_Merchant" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaction_TransactionType" Association="Self.FK_Transaction_TransactionType">
+          <AssociationSet Name="FK_TransactionDetails_TransactionType" Association="Self.FK_TransactionDetails_TransactionType">
             <End Role="TransactionType" EntitySet="TransactionTypes" />
-            <End Role="Transaction" EntitySet="Transactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Agent_User" Association="CardProcessingModel.FK_Agent_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Agent" EntitySet="Agents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Master_User" Association="CardProcessingModel.FK_Master_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Master" EntitySet="Masters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Merchant_User" Association="CardProcessingModel.FK_Merchant_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Merchant" EntitySet="Merchants" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Agent_User">
-          <End Type="CardProcessingModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="CardProcessingModel.Agent" Role="Agent" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Agent">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Master_User">
-          <End Type="CardProcessingModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="CardProcessingModel.Master" Role="Master" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Master">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Merchant_User">
-          <End Type="CardProcessingModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="CardProcessingModel.Merchant" Role="Merchant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Merchant">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1130,13 +1135,13 @@
           <EntitySetMapping Name="Agents">
             <EntityTypeMapping TypeName="CardProcessingModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="AgentId" ColumnName="AgentId" />
                 <ScalarProperty Name="AgentName" ColumnName="AgentName" />
                 <ScalarProperty Name="MasterId" ColumnName="MasterId" />
                 <ScalarProperty Name="ParentAgentId" ColumnName="ParentAgentId" />
                 <ScalarProperty Name="Activate" ColumnName="Activate" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1169,16 +1174,15 @@
           <EntitySetMapping Name="Masters">
             <EntityTypeMapping TypeName="CardProcessingModel.Master">
               <MappingFragment StoreEntitySet="Master">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="MasterId" ColumnName="MasterId" />
                 <ScalarProperty Name="MasterName" ColumnName="MasterName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Merchants">
             <EntityTypeMapping TypeName="CardProcessingModel.Merchant">
               <MappingFragment StoreEntitySet="Merchant">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
                 <ScalarProperty Name="MerchantName" ColumnName="MerchantName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -1186,6 +1190,7 @@
                 <ScalarProperty Name="BeginDay" ColumnName="BeginDay" />
                 <ScalarProperty Name="Activate" ColumnName="Activate" />
                 <ScalarProperty Name="MerchantTypeId" ColumnName="MerchantTypeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1309,15 +1314,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Transactions">
-            <EntityTypeMapping TypeName="CardProcessingModel.Transaction">
-              <MappingFragment StoreEntitySet="Transaction">
-                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="CardProcessingModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
                 <ScalarProperty Name="CardId" ColumnName="CardId" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
                 <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
