@@ -16,12 +16,12 @@ namespace Mm.DomainModel
     {
         public TransactionType()
         {
-            this.Transactions = new HashSet<Transaction>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
         }
     
         public int TransactionTypeId { get; set; }
         public string TransactionTypeName { get; set; }
     
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

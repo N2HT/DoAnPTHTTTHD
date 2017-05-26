@@ -19,6 +19,8 @@ namespace Mm.DomainModel
             this.Agents = new HashSet<Agent>();
             this.Masters = new HashSet<Master>();
             this.Merchants = new HashSet<Merchant>();
+            this.Messages = new HashSet<Message>();
+            this.Messages1 = new HashSet<Message>();
         }
     
         public int UserId { get; set; }
@@ -27,9 +29,11 @@ namespace Mm.DomainModel
         public Nullable<int> PrivilegeId { get; set; }
         public Nullable<bool> Activate { get; set; }
     
-        public virtual Privilege Privilege { get; set; }
         public virtual ICollection<Agent> Agents { get; set; }
         public virtual ICollection<Master> Masters { get; set; }
         public virtual ICollection<Merchant> Merchants { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
+        public virtual ICollection<Message> Messages1 { get; set; }
+        public virtual Privilege Privilege { get; set; }
     }
 }

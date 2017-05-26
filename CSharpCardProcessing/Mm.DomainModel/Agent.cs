@@ -32,7 +32,7 @@ namespace Mm.DomainModel
         public virtual Agent Agent2 { get; set; }
         public virtual Area Area { get; set; }
         public virtual Master Master { get; set; }
-        public virtual ICollection<Merchant> Merchants { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<Merchant> Merchants { get; set; }
     }
 }

@@ -17,11 +17,13 @@ namespace Mm.DomainModel
         public Area()
         {
             this.Agents = new HashSet<Agent>();
+            this.Merchants = new HashSet<Merchant>();
         }
     
         public int AreaId { get; set; }
         public string AreaName { get; set; }
     
         public virtual ICollection<Agent> Agents { get; set; }
+        public virtual ICollection<Merchant> Merchants { get; set; }
     }
 }

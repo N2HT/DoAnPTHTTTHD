@@ -15,13 +15,14 @@ namespace Mm.DomainModel
     public partial class Message
     {
         public int MessageId { get; set; }
-        public Nullable<int> MasterId { get; set; }
-        public Nullable<int> AgentId { get; set; }
-        public Nullable<int> MerchantId { get; set; }
+        public Nullable<int> UserIdSend { get; set; }
+        public Nullable<int> UserIdRecevie { get; set; }
         public Nullable<int> MessageTypeId { get; set; }
         public string MessageContent { get; set; }
         public Nullable<System.DateTime> Time { get; set; }
     
         public virtual MessageType MessageType { get; set; }
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

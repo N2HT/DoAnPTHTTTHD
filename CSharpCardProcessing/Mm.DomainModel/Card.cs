@@ -16,7 +16,7 @@ namespace Mm.DomainModel
     {
         public Card()
         {
-            this.Transactions = new HashSet<Transaction>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
         }
     
         public int CardId { get; set; }
@@ -26,6 +26,6 @@ namespace Mm.DomainModel
     
         public virtual CardType CardType { get; set; }
         public virtual Master Master { get; set; }
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

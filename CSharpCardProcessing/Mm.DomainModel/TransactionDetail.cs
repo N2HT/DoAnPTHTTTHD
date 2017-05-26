@@ -12,14 +12,16 @@ namespace Mm.DomainModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Transaction
+    public partial class TransactionDetail
     {
-        public int TransactionId { get; set; }
+        public int Id { get; set; }
+        public string Product { get; set; }
+        public Nullable<double> Quantity { get; set; }
+        public Nullable<decimal> UnitPrice { get; set; }
         public Nullable<int> MerchantId { get; set; }
         public Nullable<int> CardId { get; set; }
-        public Nullable<decimal> TotalPrice { get; set; }
-        public Nullable<System.DateTime> TransactionTime { get; set; }
         public Nullable<int> TransactionTypeId { get; set; }
+        public Nullable<System.DateTime> TransactionTime { get; set; }
     
         public virtual Card Card { get; set; }
         public virtual Merchant Merchant { get; set; }

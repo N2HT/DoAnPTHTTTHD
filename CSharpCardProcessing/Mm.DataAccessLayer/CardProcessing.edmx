@@ -71,6 +71,7 @@
           <Property Name="Activate" Type="bit" />
           <Property Name="MerchantTypeId" Type="int" />
           <Property Name="UserId" Type="int" />
+          <Property Name="AreaId" Type="int" />
         </EntityType>
         <EntityType Name="MerchantType">
           <Key>
@@ -84,9 +85,8 @@
             <PropertyRef Name="MessageId" />
           </Key>
           <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MasterId" Type="int" />
-          <Property Name="AgentId" Type="int" />
-          <Property Name="MerchantId" Type="int" />
+          <Property Name="UserIdSend" Type="int" />
+          <Property Name="UserIdRecevie" Type="int" />
           <Property Name="MessageTypeId" Type="int" />
           <Property Name="MessageContent" Type="text" />
           <Property Name="Time" Type="datetime" />
@@ -321,6 +321,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Merchant_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="Merchant">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Merchant_MerchantType">
           <End Role="MerchantType" Type="Self.MerchantType" Multiplicity="0..1" />
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
@@ -354,6 +366,30 @@
             </Principal>
             <Dependent Role="Message">
               <PropertyRef Name="MessageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserReceive">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserIdRecevie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserSend">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserIdSend" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -497,6 +533,10 @@
             <End Role="Agent" EntitySet="Agent" />
             <End Role="Merchant" EntitySet="Merchant" />
           </AssociationSet>
+          <AssociationSet Name="FK_Merchant_Area" Association="Self.FK_Merchant_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Merchant" EntitySet="Merchant" />
+          </AssociationSet>
           <AssociationSet Name="FK_Merchant_MerchantType" Association="Self.FK_Merchant_MerchantType">
             <End Role="MerchantType" EntitySet="MerchantType" />
             <End Role="Merchant" EntitySet="Merchant" />
@@ -507,6 +547,14 @@
           </AssociationSet>
           <AssociationSet Name="FK_Message_MessageType" Association="Self.FK_Message_MessageType">
             <End Role="MessageType" EntitySet="MessageType" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserReceive" Association="Self.FK_Message_UserReceive">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserSend" Association="Self.FK_Message_UserSend">
+            <End Role="User" EntitySet="User" />
             <End Role="Message" EntitySet="Message" />
           </AssociationSet>
           <AssociationSet Name="FK_Report_Agent_ReportType" Association="Self.FK_Report_Agent_ReportType">
@@ -580,6 +628,7 @@
           <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AreaName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_Area" FromRole="Area" ToRole="Agent" />
+          <NavigationProperty Name="Merchants" Relationship="Self.FK_Merchant_Area" FromRole="Area" ToRole="Merchant" />
         </EntityType>
         <EntityType Name="Card">
           <Key>
@@ -625,7 +674,9 @@
           <Property Name="Activate" Type="Boolean" />
           <Property Name="MerchantTypeId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
           <NavigationProperty Name="Agent" Relationship="Self.FK_Merchant_Agent" FromRole="Merchant" ToRole="Agent" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Merchant_Area" FromRole="Merchant" ToRole="Area" />
           <NavigationProperty Name="MerchantType" Relationship="Self.FK_Merchant_MerchantType" FromRole="Merchant" ToRole="MerchantType" />
           <NavigationProperty Name="User" Relationship="Self.FK_Merchant_User" FromRole="Merchant" ToRole="User" />
           <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Merchant" FromRole="Merchant" ToRole="TransactionDetails" />
@@ -643,13 +694,14 @@
             <PropertyRef Name="MessageId" />
           </Key>
           <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MasterId" Type="Int32" />
-          <Property Name="AgentId" Type="Int32" />
-          <Property Name="MerchantId" Type="Int32" />
+          <Property Name="UserIdSend" Type="Int32" />
+          <Property Name="UserIdRecevie" Type="Int32" />
           <Property Name="MessageTypeId" Type="Int32" />
           <Property Name="MessageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="MessageType" Relationship="Self.FK_Message_MessageType" FromRole="Message" ToRole="MessageType" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Message_UserReceive" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Message_UserSend" FromRole="Message" ToRole="User" />
         </EntityType>
         <EntityType Name="MessageType">
           <Key>
@@ -787,6 +839,8 @@
           <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_User" FromRole="User" ToRole="Agent" />
           <NavigationProperty Name="Masters" Relationship="Self.FK_Master_User" FromRole="User" ToRole="Master" />
           <NavigationProperty Name="Merchants" Relationship="Self.FK_Merchant_User" FromRole="User" ToRole="Merchant" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Message_UserReceive" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Messages1" Relationship="Self.FK_Message_UserSend" FromRole="User" ToRole="Message" />
           <NavigationProperty Name="Privilege" Relationship="Self.FK_User_Privilege" FromRole="User" ToRole="Privilege" />
         </EntityType>
         <Association Name="FK_AccountStatement_Master">
@@ -858,6 +912,18 @@
             </Principal>
             <Dependent Role="Merchant">
               <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchant_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="Merchant">
+              <PropertyRef Name="AreaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -954,6 +1020,30 @@
             </Principal>
             <Dependent Role="Message">
               <PropertyRef Name="MessageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserReceive">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserIdRecevie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_UserSend">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserIdSend" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1061,6 +1151,10 @@
             <End Role="Agent" EntitySet="Agents" />
             <End Role="Merchant" EntitySet="Merchants" />
           </AssociationSet>
+          <AssociationSet Name="FK_Merchant_Area" Association="Self.FK_Merchant_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Merchant" EntitySet="Merchants" />
+          </AssociationSet>
           <AssociationSet Name="FK_Card_CardType" Association="Self.FK_Card_CardType">
             <End Role="CardType" EntitySet="CardTypes" />
             <End Role="Card" EntitySet="Cards" />
@@ -1091,6 +1185,14 @@
           </AssociationSet>
           <AssociationSet Name="FK_Message_MessageType" Association="Self.FK_Message_MessageType">
             <End Role="MessageType" EntitySet="MessageTypes" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserReceive" Association="Self.FK_Message_UserReceive">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_UserSend" Association="Self.FK_Message_UserSend">
+            <End Role="User" EntitySet="Users" />
             <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Privilege" Association="Self.FK_User_Privilege">
@@ -1191,6 +1293,7 @@
                 <ScalarProperty Name="Activate" ColumnName="Activate" />
                 <ScalarProperty Name="MerchantTypeId" ColumnName="MerchantTypeId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1206,9 +1309,8 @@
             <EntityTypeMapping TypeName="CardProcessingModel.Message">
               <MappingFragment StoreEntitySet="Message">
                 <ScalarProperty Name="MessageId" ColumnName="MessageId" />
-                <ScalarProperty Name="MasterId" ColumnName="MasterId" />
-                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
-                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="UserIdSend" ColumnName="UserIdSend" />
+                <ScalarProperty Name="UserIdRecevie" ColumnName="UserIdRecevie" />
                 <ScalarProperty Name="MessageTypeId" ColumnName="MessageTypeId" />
                 <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
                 <ScalarProperty Name="Time" ColumnName="Time" />

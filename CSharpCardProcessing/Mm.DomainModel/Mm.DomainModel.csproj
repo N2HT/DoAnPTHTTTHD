@@ -57,11 +57,6 @@
     <Compile Include="Card.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
-    <Compile Include="CardProcessing.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CardProcessing.tt</DependentUpon>
-    </Compile>
     <Compile Include="CardType.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
@@ -99,7 +94,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
-    <Compile Include="Transaction.cs">
+    <Compile Include="TransactionDetail.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
     <Compile Include="TransactionType.cs">
