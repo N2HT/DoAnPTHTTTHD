@@ -44,6 +44,14 @@ export default (
       }}
     />
     <Route
+      path="/agent/new"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Agent/NewAgentPage').default);
+        });
+      }}
+    />
+    <Route
       path="/merchants"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {

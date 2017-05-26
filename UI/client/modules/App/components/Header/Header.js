@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppBar, SvgIcon, IconButton, Avatar, IconMenu, Badge, FloatingActionButton} from 'material-ui';
+import {AppBar, SvgIcon, IconButton, Avatar, IconMenu, Badge} from 'material-ui';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import {List, ListItem} from 'material-ui/List';
@@ -60,12 +60,14 @@ export default class Header extends Component {
   }
 
   handleAvatarClick() {
+    console.log('handleAvatarClick');
     this.setState((prevState)=>({
       isNavAvMenuOpen: !prevState.isNavAvMenuOpen,
       isNavNotifyMenuOpen: false
     }));
   }
   handleNotifyClick() {
+    console.log('handleNotifyClick');
     this.setState((prevState)=>({
       isNavNotifyMenuOpen: !prevState.isNavNotifyMenuOpen,
       isNavAvMenuOpen: false

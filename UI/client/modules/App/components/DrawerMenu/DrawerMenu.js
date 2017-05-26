@@ -38,6 +38,8 @@ export default class DrawerMenu extends React.Component {
     this.props.switchDrawerState();
   }
 
+
+
   render() {
     return (
       <Drawer
@@ -47,9 +49,10 @@ export default class DrawerMenu extends React.Component {
         onRequestChange={(open) => this.props.switchDrawerState()}>
         <AppBar
           style={navStyle}
-          title="MENU"
           iconElementLeft={
-            <IconButton style={{cursor: 'default'}}/>
+            <span style={{color: '#f7f7f7', fontSize: '1.5em', top: '50%', position: 'absolute', transform: 'translateY(-50%)'}}>
+              Agent admin
+            </span>
           }
           iconElementRight={
             <IconButton onClick={this.props.switchDrawerState}>
