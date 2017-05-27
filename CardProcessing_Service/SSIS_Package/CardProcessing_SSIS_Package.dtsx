@@ -11,18 +11,16 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CardProcessing_SSIS_Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{5DABBC12-7CAD-4A11-9194-6BD54B8101FA}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{739D670A-D528-45AD-9C83-F2BCD97A7CCE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.CardProcessing]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{189A11F1-2F9B-4F76-A6E2-77B34854525C}"
+      DTS:DTSID="{74E56363-E8E9-46BA-8F8E-BEE88CB11327}"
       DTS:ObjectName="LocalHost.CardProcessing">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=.;Initial Catalog=CardProcessing;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
@@ -48,66 +46,66 @@
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Id"
-              DTS:DTSID="{234A3750-62B8-478C-BDA2-0C8D5E3411ED}"
+              DTS:DTSID="{AC94813F-C01C-4DD9-AA5E-8A8CAB3ED342}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MerchantId"
-              DTS:DTSID="{39CEBC31-ECF5-47EF-988A-50723B81C713}"
+              DTS:DTSID="{7D840C10-FBA6-4248-9B5B-290EA123CFF0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CardId"
-              DTS:DTSID="{477EB137-DC1A-473A-B8F2-616148A7EFE7}"
+              DTS:DTSID="{0F13EBAD-3FC2-4018-A99F-5989AAF016CF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Product"
-              DTS:DTSID="{39B0065D-D7E7-4134-95BB-8B107E825075}"
+              DTS:DTSID="{0DCCE8D9-F589-4396-8046-6BF191B06D57}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quantity"
-              DTS:DTSID="{4CC1D8FE-F2D8-469C-B67F-C63202C90637}"
+              DTS:DTSID="{26A0DC05-699A-44B4-9AE8-B5F79EEBC32A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UnitPrice"
-              DTS:DTSID="{EB2012CA-2A0D-48F9-ADA8-AD9F095E15FB}"
+              DTS:DTSID="{440A7165-95D3-4C64-BF62-B9D7F756C398}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionTime"
-              DTS:DTSID="{1EC2753E-8ED0-48FA-A6FC-3882779543E6}"
+              DTS:DTSID="{D2540052-B7A9-405D-B438-1C273EF2434A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -116,7 +114,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionType"
-              DTS:DTSID="{D96726F6-4169-4C98-858B-A81A1C2F0436}"
+              DTS:DTSID="{F75372AF-89F7-4395-9E10-4F4AF42EB39F}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
