@@ -6,6 +6,8 @@ import {List, ListItem} from 'material-ui/List';
 import SearchForm from '../SearchForm/SearchForm';
 import DrawerMenu from '../DrawerMenu/DrawerMenu';
 import {browserHistory} from 'react-router';
+import {login} from '../../../Account/AccountActions';
+import {connect} from 'react-redux';
 // Import Style
 import styles from './Header.css';
 const navIconStyle = {
@@ -37,7 +39,7 @@ const IconNotification = (props) => (
   </SvgIcon>
 );
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.handleSwitchDrawerState = this.handleSwitchDrawerState.bind(this);
@@ -77,6 +79,9 @@ export default class Header extends Component {
   handleLogout() {
     console.log('handleLogout');
     this.setState({isNavAvMenuOpen: false});
+    this.props.dispatch(login(null)).then(()=>{
+      browserHistory.push("/login");
+    });
   }
   handleSettings() {
     console.log('handleSettings');
@@ -161,3 +166,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default connect()(Header);

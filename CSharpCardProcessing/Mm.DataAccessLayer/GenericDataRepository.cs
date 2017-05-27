@@ -59,7 +59,7 @@ namespace Mm.DataAccessLayer
             return item;
         }
 
-        public void add(params T[] items)
+        public void Add(params T[] items)
         {
             using (var context = new CardProcessingEntities())
             {
@@ -71,7 +71,7 @@ namespace Mm.DataAccessLayer
             }
         }
 
-        public void update(params T[] items)
+        public void Update(params T[] items)
         {
             using (var context = new CardProcessingEntities())
             {
@@ -84,7 +84,7 @@ namespace Mm.DataAccessLayer
 
         }
 
-        public void remove(params T[] items)
+        public void Remove(params T[] items)
         {
             using (var context = new CardProcessingEntities())
             {

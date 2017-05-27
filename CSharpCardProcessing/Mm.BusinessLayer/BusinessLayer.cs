@@ -11,57 +11,68 @@ namespace Mm.BusinessLayer
     {
         private readonly IMasterRepository _masterRepository;
         private readonly IAgentRepository _agentRepository;
+        private readonly UserRepository _userRepository;
 
         public BusinessLayer()
         {
             _masterRepository = new MasterRepository();
             _agentRepository = new AgentRepository();
+            _userRepository = new UserRepository();
         }
 
         // Agent
-        public IList<DomainModel.Agent> GetAllAgent()
+        public IList<Agent> GetAllAgent()
         {
             return _agentRepository.GetAll();
         }
 
-        public DomainModel.Agent GetAgentById(int id)
+        public Agent GetAgentById(int id)
         {
             return _agentRepository.GetSingle(d => d.AgentId==id);
         }
 
-        public void AddAgent(params DomainModel.Agent[] agents)
+        public void AddAgent(params Agent[] agents)
         {
-            _agentRepository.add(agents);
+            _agentRepository.Add(agents);
         }
 
-        public void UpdateAgent(params DomainModel.Agent[] agents)
+        public void UpdateAgent(params Agent[] agents)
         {
-            _agentRepository.update(agents);
+            _agentRepository.Update(agents);
         }
 
-        public void RemoveAgent(params DomainModel.Agent[] agents)
+        public void RemoveAgent(params Agent[] agents)
         {
-            _agentRepository.remove(agents);
+            _agentRepository.Remove(agents);
         }
         // Master
-        public DomainModel.Master GetMasterById(int id)
+        public Master GetMasterById(int id)
         {
             return _masterRepository.GetSingle(d => d.MasterId == id);
         }
 
-        public void AddMaster(params DomainModel.Master[] masters)
+        public void AddMaster(params Master[] masters)
         {
-            _masterRepository.add(masters);
+            _masterRepository.Add(masters);
         }
 
-        public void UpdateMaster(params DomainModel.Master[] masters)
+        public void UpdateMaster(params Master[] masters)
         {
-            _masterRepository.update(masters);
+            _masterRepository.Update(masters);
         }
 
-        public void RemoveMaster(params DomainModel.Master[] masters)
+        public void RemoveMaster(params Master[] masters)
         {
-            _masterRepository.remove(masters);
+            _masterRepository.Remove(masters);
+        }
+
+        public User Login(string username, string password) {
+            // If the username or password not fill
+            if (username == null || password == null) {
+                return null;
+            }
+            // Encode the password for check on db
+            return _userRepository.Login(username, MD5Helper.GetMd5Hash(password));
         }
     }
 }

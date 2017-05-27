@@ -12,7 +12,8 @@ namespace Mm.DataAccessLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using Mm.DomainModel;
+
     public partial class CardProcessingEntities : DbContext
     {
         public CardProcessingEntities()

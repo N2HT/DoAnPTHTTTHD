@@ -22,5 +22,7 @@ namespace Mm.BusinessLayer
         void UpdateMaster(params Master[] masters);
         void RemoveMaster(params Master[] masters);
 
+        // User
+        User Login(string username, string password);
     }
 }

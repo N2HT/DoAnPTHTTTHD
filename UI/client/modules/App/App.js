@@ -25,6 +25,10 @@ export class App extends Component {
   }
 
   render() {
+    let isLoggedIn = false;
+    if(this.state.isMounted) {
+      isLoggedIn = localStorage.getItem("token");
+    }
     let location = this.props.location;
     return (
       <MuiThemeProvider muiTheme={this.muiThemeSetting}>
@@ -46,7 +50,7 @@ export class App extends Component {
                 },
               ]}
             />
-            {location.pathname !== '/login' && <Header />}
+            {this.state.isMounted && location.pathname !== '/login' && isLoggedIn && <Header />}
             <div className={styles.container}>
               {this.props.children}
             </div>

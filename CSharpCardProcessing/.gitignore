@@ -4,8 +4,8 @@ Mm.DataAccessLayer/bin/
 Mm.DataAccessLayer/obj/
 Mm.DomainModel/bin/
 Mm.DomainModel/obj/
-Mm.WebServices/bin/
-Mm.WebServices/obj/
+Mm.WebService/bin/
+Mm.WebService/obj/
 Mm.WebSite/bin/
 Mm.WebSite/obj/
 MyTest/bin/
