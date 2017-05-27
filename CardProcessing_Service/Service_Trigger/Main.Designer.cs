@@ -1,4 +1,6 @@
-﻿namespace Service_Trigger
+﻿using System.Drawing;
+
+namespace Service_Trigger
 {
 	partial class Main
 	{
@@ -29,6 +31,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.btnStart = new System.Windows.Forms.Button();
 			this.btnStop = new System.Windows.Forms.Button();
@@ -45,6 +48,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtSSIS = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.myNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
 			this.gbConfiguration.SuspendLayout();
 			this.SuspendLayout();
@@ -206,6 +210,15 @@
 			this.label1.TabIndex = 6;
 			this.label1.Text = "SSIS Package Location:";
 			// 
+			// myNotifyIcon
+			// 
+			this.myNotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.myNotifyIcon.BalloonTipTitle = "Triger Service Card Processing";
+			this.myNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("myNotifyIcon.Icon")));
+			this.myNotifyIcon.Text = "Trigger Service Card Processing";
+			this.myNotifyIcon.Visible = true;
+			this.myNotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.myNotifyIcon_MouseDoubleClick);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,11 +227,13 @@
 			this.Controls.Add(this.gbConfiguration);
 			this.Controls.Add(this.btnStop);
 			this.Controls.Add(this.btnStart);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximumSize = new System.Drawing.Size(640, 400);
 			this.MinimumSize = new System.Drawing.Size(640, 400);
 			this.Name = "Main";
 			this.Text = "Service";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+			this.Resize += new System.EventHandler(this.Main_Resize);
 			((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
 			this.gbConfiguration.ResumeLayout(false);
 			this.gbConfiguration.PerformLayout();
@@ -243,6 +258,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtSSIS;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.NotifyIcon myNotifyIcon;
 	}
 }
 

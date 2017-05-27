@@ -47,7 +47,6 @@ namespace Service_Trigger
 		{
 			InitializeComponent();
 			InitTextControl();
-
 		}
 
 		private void InitTextControl()
@@ -100,23 +99,26 @@ namespace Service_Trigger
 					var pkgResults = pkg.Execute(null, myVars, null, null, null);
 					if (pkgResults == DTSExecResult.Failure)
 					{
-						Log.Error($"Import \"{file.Name}\" failed. Move to \"{ErrorFolderPath}\"\n\n");
+						var newFileName = "Failed" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss_") + file.Name;
+						Log.Error($"Import \"{file.Name}\" failed. Move to \"{ErrorFolderPath}\". Rename file to \"{newFileName}\"\n\n");
 
-						File.Move(file.FullName, ErrorFolderPath + "\\" + DateTime.Now.ToString("Failed_dd_MM_yyyy_HH_mm_ss_") + file.Name);
+						File.Move(file.FullName, ErrorFolderPath + "\\" + newFileName);
 					}
 					else
 					{
-						Log.Info($"Import \"{file.Name}\" successfully. Move to \"{StoreFolderPath}\"\n\n");
+						var newFileName = "Completed" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss_") + file.Name;
+						Log.Info($"Import \"{file.Name}\" successfully. Move to \"{StoreFolderPath}\". Rename file to \"{newFileName}\"\n\n");
 
-						File.Move(file.FullName, StoreFolderPath + "\\" + DateTime.Now.ToString("Completed_dd_MM_yyyy_HH_mm_ss_") + file.Name);
+						File.Move(file.FullName, StoreFolderPath + "\\" + newFileName);
 					}
 				}
 				catch (Exception ex)
 				{
 					Log.Error(ex.ToString());
-					Log.Error($"Import \"{file.Name}\" failed. Move to \"{ErrorFolderPath}\"\n\n");
+					var newFileName = "Exception" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss_") + file.Name;
+					Log.Error($"Import \"{file.Name}\" failed. Move to \"{ErrorFolderPath}\". Rename file to \"{newFileName}\"\n\n");
 
-					File.Move(file.FullName, ErrorFolderPath + "\\" + DateTime.Now.ToString("Exception_dd_MM_yyyy_HH_mm_ss_") + file.Name);
+					File.Move(file.FullName, ErrorFolderPath + "\\" + newFileName);
 				}
 			}
 		}
@@ -168,7 +170,7 @@ namespace Service_Trigger
 				Log.Error(e);
 				return false;
 			}
-			
+
 		}
 
 		private void InitWatcher()
@@ -187,11 +189,10 @@ namespace Service_Trigger
 			try
 			{
 				var cmd = new OleDbCommand(
-					"select case when exists((select * from information_schema.tables where table_name = '" + _transactionTable +
-					"')) then 1 else 0 end");
+					$"select case when exists((select * from information_schema.tables where table_name = '{_transactionTable}')) then 1 else 0 end");
 				cmd.Connection = con;
 				con.Open();
-				exists = (int) cmd.ExecuteScalar() == 1;
+				exists = (int)cmd.ExecuteScalar() == 1;
 			}
 			catch (Exception e)
 			{
@@ -210,11 +211,11 @@ namespace Service_Trigger
 			XmlTextWriter writer = new XmlTextWriter(CacheFile, null);
 			Log.Info("Create new cache.xml file.");
 			string content = "<Path>" +
-									"<Package>" + PackageFilePath + "</Package>" +
-									"<Data>" + DataFolderPath + "</Data>" +
-									"<Store>" + StoreFolderPath + "</Store>" +
-									"<Error>" + ErrorFolderPath + "</Error>" +
-									"</Path>";
+							 $"<Package>{PackageFilePath}</Package>" +
+							 $"<Data>{DataFolderPath}</Data>" +
+							 $"<Store>{StoreFolderPath}</Store>" +
+							 $"<Error>{ErrorFolderPath}</Error>" +
+							 "</Path>";
 			var doc = new XmlDocument();
 			doc.LoadXml(content);
 
@@ -241,12 +242,12 @@ namespace Service_Trigger
 		{
 			if (!ValidateConnectionString())
 			{
-				MessageBox.Show(@"Connection String '" + _connectionString + @"' is incorrect. Please check ConnectionString value in configuration file.");
+				MessageBox.Show($@"Connection String '{_connectionString}' is incorrect. Please check ConnectionString value in configuration file.");
 				return;
 			}
 			if (!ValidateTableName())
 			{
-				MessageBox.Show(@"Table Name '" + _transactionTable + @"' is incorrect. Please check TransactionTable value in configuration file.");
+				MessageBox.Show($@"Table Name '{_transactionTable}' is incorrect. Please check TransactionTable value in configuration file.");
 				return;
 			}
 
@@ -324,11 +325,33 @@ namespace Service_Trigger
 		{
 			ValidateTextControl(txtError, _errorProvider);
 		}
-		#endregion
 
 		private void Main_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SavePath();
 		}
+
+		private void Main_Resize(object sender, EventArgs e)
+		{
+			switch (WindowState)
+			{
+				case FormWindowState.Minimized:
+					myNotifyIcon.BalloonTipText = @"Service Form has been Minimized.";
+					myNotifyIcon.Visible = true;
+					ShowInTaskbar = false;
+					myNotifyIcon.ShowBalloonTip(500);
+					break;
+				case FormWindowState.Normal:
+					myNotifyIcon.Visible = false;
+					ShowInTaskbar = true;
+					break;
+			}
+		}
+
+		private void myNotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			WindowState = FormWindowState.Normal;
+		}
+		#endregion
 	}
 }

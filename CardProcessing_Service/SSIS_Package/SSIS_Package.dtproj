@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-A6T85EE</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfjmUmxM8s0mbeIupw2rVUgAAAAACAAAAAAAQZgAAAAEAACAAAABCD7JBfV0j+c7eLDk2hU5QtGazdR1EBxLVCWb0OdZh9gAAAAAOgAAAAAIAACAAAAB3fIo6Xp20GXtc8t9bSCghtSXmR8vSJqwGjqm35cvHXZAAAADrcAwxdBVsdxUGi8zS5+8M5zcWCwxIKRbXJWzLRpFKpTNVPXxcFi9yBE+x20s0hRvhof7qixgKPXmPq+eZ9gL5LsUmUZIJEw6wYOe65/mSOL9XcWLPWNiVn8xQ4Jot05yLUWnemyKtFJ5wKRqZAW9xQAMXLfggV+uv0D6rH8zO6C6lxFWsmU/mCAgLZnDJI99AAAAAaKo8UXJVwBA5xNb7QhZlXJiW+62IodDh/pTUa0zgn9a830/T0N7SU22JvvPaPnmObvZeDBwpqBdbSX9H2SzAYQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfjmUmxM8s0mbeIupw2rVUgAAAAACAAAAAAAQZgAAAAEAACAAAAAKgMNAEp1g5qC7THVvtqfaKTn+ObQMchszPfOQGcVCBgAAAAAOgAAAAAIAACAAAACnTn73rLMplpwMKYFo1TtNSOKOvUt2vpTqpu047zTGQJAAAACkxsyYrt45ZTHo97dadtGus2I+ZGARARIBuFsI0TyGRPkSLNpw7stQVoHd072Q0OO+Y9s2fXFhCnmvxHwv15wH9LG7/Wn3ClNAeTO+GOlMr6IfVII/+TSmVlKTljs9FrKvxymA201XjBDT7FVYYifbCx+BQdAUZQi0M4OqX6V0WVDhiK2OBXRySmiUiQ14E/JAAAAA+ZYVQGaV1QGRuu/+omsLB3+OnZe7oDPcgy3mbbvPETp2kr1AvdACpd0M7sNGpHdsnAanDaq5bgJ3K4pKqsNaIQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,16 +42,31 @@
                 <SSIS:Property SSIS:Name="Name">CardProcessing_SSIS_Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">17</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">20</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{5DABBC12-7CAD-4A11-9194-6BD54B8101FA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{739D670A-D528-45AD-9C83-F2BCD97A7CCE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.CardProcessing.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=CardProcessing;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.LocalHost.CardProcessing.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
