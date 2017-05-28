@@ -13,10 +13,10 @@ namespace Mm.WebService.Controllers
 	public class MasterController : ApiController
 	{
 		[HttpPost]
-		[Route("api/master/updateMaster")]
+		[Route("api/master/update")]
 		[JwtAuthentication]
 		[Authorize]
-		public HttpResponseMessage UpdateMaster([FromBody]Master mt)
+		public HttpResponseMessage Update([FromBody]Master mt)
 		{
 			try
 			{
