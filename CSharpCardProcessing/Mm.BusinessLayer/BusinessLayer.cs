@@ -66,6 +66,10 @@ namespace Mm.BusinessLayer
 
 		#region Merchant
 
+		public Merchant GetMerchantById(int id)
+		{
+			return _merchantRepository.GetSingle(m => m.MerchantId == id);
+		}
 		public void AddMerchant(params Merchant[] merchants)
 		{
 			_merchantRepository.Add(merchants);

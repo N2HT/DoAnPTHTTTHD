@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Script.Serialization;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
@@ -24,7 +25,8 @@ namespace Mm.WebService.Controllers
 			}
 			catch (Exception e)
 			{
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
 
@@ -41,7 +43,8 @@ namespace Mm.WebService.Controllers
 			}
 			catch (Exception e)
 			{
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
 
@@ -58,7 +61,8 @@ namespace Mm.WebService.Controllers
 			}
 			catch (Exception e)
 			{
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
 
@@ -75,7 +79,29 @@ namespace Mm.WebService.Controllers
 			}
 			catch (Exception e)
 			{
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+			}
+		}
+
+		[HttpPost]
+		[Route("api/merchant/inactivate")]
+		[JwtAuthentication]
+		[Authorize]
+		public HttpResponseMessage Get([FromBody]int id)
+		{
+			
+			try
+			{
+				var mc = new BusinessLayer.BusinessLayer().GetMerchantById(id);
+				if (mc == null) return Request.CreateResponse(HttpStatusCode.NotFound, 0);
+				var json = new JavaScriptSerializer().Serialize(mc);
+				return Request.CreateResponse(HttpStatusCode.OK, json);
+			}
+			catch (Exception e)
+			{
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
 	}

@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Script.Serialization;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
@@ -25,7 +26,8 @@ namespace Mm.WebService.Controllers
 			}
 			catch (Exception e)
 			{
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+				var json = new JavaScriptSerializer().Serialize(e);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
 	}
