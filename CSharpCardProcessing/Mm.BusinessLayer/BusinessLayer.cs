@@ -18,7 +18,7 @@ namespace Mm.BusinessLayer
 			_merchantRepository = new MerchantRepository();
 		}
 
-		// Agent
+		#region Agent
 		public IList<Agent> GetAllAgent()
 		{
 			return _agentRepository.GetAll();
@@ -43,7 +43,23 @@ namespace Mm.BusinessLayer
 		{
 			_agentRepository.Remove(agents);
 		}
-		// Master
+
+		public void InactivateAgent(int agentId)
+		{
+			var ag = _agentRepository.GetSingle(m => m.AgentId == agentId);
+			ag.Activate = false;
+			_agentRepository.Update(ag);
+		}
+
+		public void ActivateAgent(int agentId)
+		{
+			var ag = _agentRepository.GetSingle(m => m.AgentId == agentId);
+			ag.Activate = true;
+			_agentRepository.Update(ag);
+		}
+		#endregion
+
+		#region Master
 		public Master GetMasterById(int id)
 		{
 			return _masterRepository.GetSingle(d => d.MasterId == id);
@@ -63,6 +79,7 @@ namespace Mm.BusinessLayer
 		{
 			_masterRepository.Remove(masters);
 		}
+		#endregion
 
 		#region Merchant
 

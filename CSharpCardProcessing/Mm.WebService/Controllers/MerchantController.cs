@@ -85,7 +85,7 @@ namespace Mm.WebService.Controllers
 		}
 
 		[HttpPost]
-		[Route("api/merchant/inactivate")]
+		[Route("api/merchant/get")]
 		[JwtAuthentication]
 		[Authorize]
 		public HttpResponseMessage Get([FromBody]int id)
