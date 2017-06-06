@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.password">123456</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost\MYPC/SQLEXPRESS:1433;databaseName=CardProcessing</property>
+    <property name="hibernate.connection.username">ntnhan</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.database.application">CardProcessing</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.search.autoregister_listeners">true</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.validator.apply_to_ddl">false</property>
+    <mapping resource="POJOs/TransactionDetails.hbm.xml"/>
+    <mapping resource="POJOs/Master.hbm.xml"/>
+    <mapping resource="POJOs/Agent.hbm.xml"/>
+    <mapping resource="POJOs/MerchantType.hbm.xml"/>
+    <mapping resource="POJOs/ReportMaster.hbm.xml"/>
+    <mapping resource="POJOs/ReportAgent.hbm.xml"/>
+    <mapping resource="POJOs/TransactionType.hbm.xml"/>
+    <mapping resource="POJOs/ReportType.hbm.xml"/>
+    <mapping resource="POJOs/Message.hbm.xml"/>
+    <mapping resource="POJOs/ReportMerchant.hbm.xml"/>
+    <mapping resource="POJOs/Privilege.hbm.xml"/>
+    <mapping resource="POJOs/Merchant.hbm.xml"/>
+    <mapping resource="POJOs/User.hbm.xml"/>
+    <mapping resource="POJOs/MessageType.hbm.xml"/>
+    <mapping resource="POJOs/Card.hbm.xml"/>
+    <mapping resource="POJOs/Area.hbm.xml"/>
+    <mapping resource="POJOs/CardType.hbm.xml"/>
+    <mapping resource="POJOs/AccountStatement.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

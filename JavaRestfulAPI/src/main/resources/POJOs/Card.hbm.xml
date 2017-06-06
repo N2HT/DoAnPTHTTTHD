@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2017 1:31:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Card" table="Card" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="cardId" type="int">
+            <column name="CardId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cardType" class="POJOs.CardType" fetch="select">
+            <column name="CardTypeId" />
+        </many-to-one>
+        <many-to-one name="master" class="POJOs.Master" fetch="select">
+            <column name="MasterId" />
+        </many-to-one>
+        <property name="cardNumber" type="serializable">
+            <column name="CardNumber" />
+        </property>
+        <set name="transactionDetailses" table="TransactionDetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CardId" />
+            </key>
+            <one-to-many class="POJOs.TransactionDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

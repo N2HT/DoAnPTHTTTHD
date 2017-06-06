@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2017 1:31:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.TransactionDetails" table="TransactionDetails" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="card" class="POJOs.Card" fetch="select">
+            <column name="CardId" />
+        </many-to-one>
+        <many-to-one name="merchant" class="POJOs.Merchant" fetch="select">
+            <column name="MerchantId" />
+        </many-to-one>
+        <many-to-one name="transactionType" class="POJOs.TransactionType" fetch="select">
+            <column name="TransactionTypeId" />
+        </many-to-one>
+        <property name="product" type="string">
+            <column name="Product" length="150" />
+        </property>
+        <property name="quantity" type="java.lang.Double">
+            <column name="Quantity" precision="53" scale="0" />
+        </property>
+        <property name="unitPrice" type="big_decimal">
+            <column name="UnitPrice" scale="4" />
+        </property>
+        <property name="transactionTime" type="timestamp">
+            <column name="TransactionTime" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

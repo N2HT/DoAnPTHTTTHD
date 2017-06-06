@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2017 1:31:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Message" table="Message" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="messageId" type="int">
+            <column name="MessageId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="messageType" class="POJOs.MessageType" fetch="select">
+            <column name="MessageTypeId" />
+        </many-to-one>
+        <many-to-one name="userByUserIdSend" class="POJOs.User" fetch="select">
+            <column name="UserIdSend" />
+        </many-to-one>
+        <many-to-one name="userByUserIdRecevie" class="POJOs.User" fetch="select">
+            <column name="UserIdRecevie" />
+        </many-to-one>
+        <property name="messageContent" type="string">
+            <column name="MessageContent" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="Time" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>
