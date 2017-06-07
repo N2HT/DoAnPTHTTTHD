@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CardProcessing_SSIS_Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{739D670A-D528-45AD-9C83-F2BCD97A7CCE}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{386DA54D-72A7-48F2-A965-2DE4B23F19C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -46,66 +46,66 @@
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Id"
-              DTS:DTSID="{AC94813F-C01C-4DD9-AA5E-8A8CAB3ED342}"
+              DTS:DTSID="{E30FCC39-8B7C-44AC-BE56-BBB6523D8DAC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MerchantId"
-              DTS:DTSID="{7D840C10-FBA6-4248-9B5B-290EA123CFF0}"
+              DTS:DTSID="{C1EF5CFC-467F-4F5C-BC74-7273E92C9E30}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="CardId"
-              DTS:DTSID="{0F13EBAD-3FC2-4018-A99F-5989AAF016CF}"
+              DTS:ObjectName="CardNumber"
+              DTS:DTSID="{789C3549-C5A6-470D-AA52-1D5CF0FF657C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="150"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Product"
-              DTS:DTSID="{0DCCE8D9-F589-4396-8046-6BF191B06D57}"
+              DTS:DTSID="{C8EF23F1-E185-4C21-A273-DD7BFC9213A3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quantity"
-              DTS:DTSID="{26A0DC05-699A-44B4-9AE8-B5F79EEBC32A}"
+              DTS:DTSID="{D9AF9A7F-9672-40FC-B10A-530A57C6CCE3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UnitPrice"
-              DTS:DTSID="{440A7165-95D3-4C64-BF62-B9D7F756C398}"
+              DTS:DTSID="{86B545E4-CB05-4BD9-83BB-ED8E662F9A60}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x0009_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionTime"
-              DTS:DTSID="{D2540052-B7A9-405D-B438-1C273EF2434A}"
+              DTS:DTSID="{A24BCDFB-ED9B-4649-871D-BF0295EC6FCF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -114,7 +114,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionType"
-              DTS:DTSID="{F75372AF-89F7-4395-9E10-4F4AF42EB39F}"
+              DTS:DTSID="{B6AD5CAF-1B1C-4230-AA6D-F0A29D6D4546}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -241,28 +241,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardId]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CardId]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardId]"
-                      name="CardId"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Quantity]"
                       codePage="1252"
                       dataType="str"
@@ -372,6 +350,28 @@
                           name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CardNumber]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardNumber]"
+                      name="CardNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -387,12 +387,6 @@
                       dataType="str"
                       length="50"
                       name="MerchantId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CardId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="CardId" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
                       codePage="1252"
@@ -423,6 +417,12 @@
                       dataType="str"
                       length="150"
                       name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CardNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CardNumber" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -551,14 +551,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[MerchantId]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[MerchantId]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].Columns[CardId]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CardId"
-                      externalMetadataColumnId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[CardId]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardId]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].Columns[TransactionTime]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -582,6 +574,14 @@
                       cachedName="Product"
                       externalMetadataColumnId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Product]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].Columns[CardNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CardNumber"
+                      externalMetadataColumnId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[CardNumber]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CardNumber]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -602,10 +602,6 @@
                       dataType="i4"
                       name="MerchantId" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[CardId]"
-                      dataType="i4"
-                      name="CardId" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeId]"
                       dataType="i4"
                       name="TransactionTypeId" />
@@ -619,6 +615,11 @@
                       dataType="str"
                       length="150"
                       name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[CardNumber]"
+                      dataType="wstr"
+                      length="100"
+                      name="CardNumber" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
