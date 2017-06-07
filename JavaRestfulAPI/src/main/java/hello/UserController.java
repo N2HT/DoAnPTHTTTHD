@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package hello;
-import POJOs.*;
+import model.Account;
 
 import java.util.List;
 
@@ -26,19 +26,22 @@ public class UserController {
 	EntityManager entityManager;
 	
     //@RequestMapping("POST", "/user")
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public Object getUsers(@RequestParam(value = "name", defaultValue = "World") String _name) {
 //        Object myobj;
 //        myobj = new Object() {
 //            public boolean success = true;
 //            public String name = _name;
 //        };
-        return this.getUsers();
+        return this.getAccounts();
     }
     
-    public List<User> getUsers() {
-    	  return entityManager
-    	     .createQuery("from [User]", User.class)
-    	     .getResultList();
+    public Account getAccounts() {
+        Account account = new Account(3);
+        
+        return account;
+//    	  return entityManager
+//    	     .createQuery("from Account", Account.class)
+//    	     .getResultList();
     	}
 }

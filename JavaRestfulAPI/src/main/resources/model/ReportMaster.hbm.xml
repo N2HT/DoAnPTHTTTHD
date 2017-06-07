@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2017 9:47:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ReportMaster" table="Report_Master" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="reportId" type="int">
+            <column name="ReportId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="reportType" class="model.ReportType" fetch="select">
+            <column name="ReportTypeId" />
+        </many-to-one>
+        <property name="masterId" type="java.lang.Integer">
+            <column name="MasterId" />
+        </property>
+        <property name="agent" type="java.lang.Integer">
+            <column name="Agent" />
+        </property>
+        <property name="merchant" type="java.lang.Integer">
+            <column name="Merchant" />
+        </property>
+        <property name="transactionType" type="java.lang.Integer">
+            <column name="TransactionType" />
+        </property>
+        <property name="area" type="java.lang.Integer">
+            <column name="Area" />
+        </property>
+        <property name="cardType" type="java.lang.Integer">
+            <column name="CardType" />
+        </property>
+        <property name="merchantType" type="java.lang.Integer">
+            <column name="MerchantType" />
+        </property>
+        <property name="saleAmount" type="big_decimal">
+            <column name="SaleAmount" scale="4" />
+        </property>
+        <property name="returmAmount" type="big_decimal">
+            <column name="ReturmAmount" scale="4" />
+        </property>
+        <property name="saleCount" type="java.lang.Integer">
+            <column name="SaleCount" />
+        </property>
+        <property name="returnCount" type="java.lang.Integer">
+            <column name="ReturnCount" />
+        </property>
+        <property name="netAmount" type="big_decimal">
+            <column name="NetAmount" scale="4" />
+        </property>
+        <property name="reportDate" type="date">
+            <column name="ReportDate" length="10" />
+        </property>
+        <property name="fromDate" type="date">
+            <column name="FromDate" length="10" />
+        </property>
+        <property name="toDate" type="date">
+            <column name="ToDate" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
