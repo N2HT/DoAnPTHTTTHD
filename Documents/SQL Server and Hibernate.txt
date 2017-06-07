@@ -1,0 +1,26 @@
+HOW TO CREATE NEW USER ON FOR SQL SERVER TO CONNECT TO HIBERNATE
+
+1. Connect to sql server with window authenticate
+2. Right click on server and choose Properties
+3. Choose security tab and change from 'Window authenticate mode' to 'SQL server and Window authenticate mode'
+4. Click OK
+5. Restart SQL server manager
+6. Open SQL server configuration manager and choose SQL sever services and restart SQL Server
+7. Choose SQL Server Network Configuration and next choose Protocols...
+8. Disable Named pipes if it is enabled
+
+// Create New user
+https://msdn.microsoft.com/en-us/library/aa337562(v=sql.105).aspx
+http://prntscr.com/fgn9t4
+9. Open Sql server manager and connect with window authenticate
+10. Choose tab Security -> Right click on Logins and choose New user
+11. Create user with SQL server authentication
+12. Choose User mapping tab and select your DB name
+13. Choose tab Sever Roles -> Choose sysadmin http://prntscr.com/fgnqmq
+14. Click OK
+// Login
+15. Login with User just created
+16. Change to new Password if have require
+17. Connected to SQL Server with new user
+// 
+18. Get the user info to fill to hibernate config

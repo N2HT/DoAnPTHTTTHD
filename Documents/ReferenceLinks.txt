@@ -1,0 +1,16 @@
+// Connect sql server and hibernate
+https://www.youtube.com/watch?v=IpCgVzv_3QE
+
+https://stackoverflow.com/questions/33487748/how-can-i-get-the-hibernate-reverse-engineering-wizard-to-find-tables-in-microso
+
+// Fix login with SQL authentication
+https://stackoverflow.com/questions/6072505/sql-server-2008-error-233
+http://prntscr.com/fgncd3
+
+// Generate models
+http://o7planning.org/en/10125/using-hibernate-tools-generate-entity-classes-from-tables
+//
+https://netbeans.org/kb/docs/web/hibernate-webapp.html
+
+// SpringFramework api method
+https://stackoverflow.com/questions/7714124/receiving-post-request-on-server-spring-framework-from-android-application
