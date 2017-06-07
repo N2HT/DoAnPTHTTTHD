@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CardProcessing_SSIS_Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{386DA54D-72A7-48F2-A965-2DE4B23F19C4}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{94D5AA3F-52A1-495B-8C8C-E8CA2CA16BE0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,70 +42,70 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\TemplateData.txt">
+          DTS:ConnectionString="D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\TemplateData.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Id"
-              DTS:DTSID="{E30FCC39-8B7C-44AC-BE56-BBB6523D8DAC}"
+              DTS:DTSID="{5D63CE76-011C-4863-B473-6BDF6458F885}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MerchantId"
-              DTS:DTSID="{C1EF5CFC-467F-4F5C-BC74-7273E92C9E30}"
+              DTS:DTSID="{57EFCB77-C1FA-4029-AAE5-E9422D86B39D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CardNumber"
-              DTS:DTSID="{789C3549-C5A6-470D-AA52-1D5CF0FF657C}"
+              DTS:DTSID="{73A56D61-E40E-469B-A4E0-9EC879528370}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="150"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Product"
-              DTS:DTSID="{C8EF23F1-E185-4C21-A273-DD7BFC9213A3}"
+              DTS:DTSID="{5430E3EE-7DCB-4714-83E9-B9FE3D74B0D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quantity"
-              DTS:DTSID="{D9AF9A7F-9672-40FC-B10A-530A57C6CCE3}"
+              DTS:DTSID="{06CD5840-CAC3-46B2-AEC4-EB1AF2CEC681}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UnitPrice"
-              DTS:DTSID="{86B545E4-CB05-4BD9-83BB-ED8E662F9A60}"
+              DTS:DTSID="{2CF8C245-922B-42D5-8191-C5D191F2758E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x0009_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionTime"
-              DTS:DTSID="{A24BCDFB-ED9B-4649-871D-BF0295EC6FCF}"
+              DTS:DTSID="{52F1ADCA-046B-4761-AC68-6D0AF64DD944}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -114,7 +114,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TransactionType"
-              DTS:DTSID="{B6AD5CAF-1B1C-4230-AA6D-F0A29D6D4546}"
+              DTS:DTSID="{55BEA7D9-9DFA-409F-BE57-D22C43D3BB70}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -138,7 +138,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="TransactionFilePath">
       <DTS:VariableValue
-        DTS:DataType="8">D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\TemplateData.txt</DTS:VariableValue>
+        DTS:DataType="8">D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\TemplateData.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -504,7 +504,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,FIRE_TRIGGERS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -617,7 +617,8 @@
                       name="Product" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Transaction Table.Inputs[OLE DB Destination Input].ExternalColumns[CardNumber]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="CardNumber" />
                   </externalMetadataColumns>
