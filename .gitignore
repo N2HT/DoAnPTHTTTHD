@@ -2,3 +2,7 @@
 CSharpCardProcessing/.vs/
 CSharpCardProcessing/Mm.BusinessLayer/obj/Debug/
 CSharpCardProcessing/Mm.WebService/obj/Debug/
+CSharpCardProcessing/Mm.BusinessLayer/bin/Debug/
+CSharpCardProcessing/Mm.BusinessLayer/obj/Debug/
+CSharpCardProcessing/Mm.WebService/bin/
+CSharpCardProcessing/Mm.WebService/obj/Debug/
