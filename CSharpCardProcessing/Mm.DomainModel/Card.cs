@@ -14,11 +14,6 @@ namespace Mm.DomainModel
     
     public partial class Card
     {
-        public Card()
-        {
-            this.TransactionDetails = new HashSet<TransactionDetail>();
-        }
-    
         public int CardId { get; set; }
         public Nullable<int> MasterId { get; set; }
         public string CardNumber { get; set; }
@@ -26,6 +21,5 @@ namespace Mm.DomainModel
     
         public virtual CardType CardType { get; set; }
         public virtual Master Master { get; set; }
-        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

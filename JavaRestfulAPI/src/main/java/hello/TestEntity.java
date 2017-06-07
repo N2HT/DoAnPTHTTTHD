@@ -1,9 +1,26 @@
 package hello;
 
-import org.springframework.boot.SpringApplication;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import model.Account;
 
 public class TestEntity {
-	 public static void main(String[] args) {
-	        
-	    }
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    public static void main(String[] args) {
+        TestEntity testE = new TestEntity();
+        List<Account> accounts = testE.getAccounts();
+        System.out.println(accounts);
+    }
+
+    public List<Account> getAccounts() {
+        return entityManager
+                .createQuery("from Account", Account.class)
+                .getResultList();
+    }
 }
