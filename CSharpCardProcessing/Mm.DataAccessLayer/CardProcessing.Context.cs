@@ -13,7 +13,7 @@ namespace Mm.DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Mm.DomainModel;
-
+    
     public partial class CardProcessingEntities : DbContext
     {
         public CardProcessingEntities()
@@ -26,6 +26,7 @@ namespace Mm.DataAccessLayer
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountStatement> AccountStatements { get; set; }
         public DbSet<Agent> Agents { get; set; }
         public DbSet<Area> Areas { get; set; }
@@ -44,6 +45,5 @@ namespace Mm.DataAccessLayer
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TransactionDetail> TransactionDetails { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
-        public DbSet<User> Users { get; set; }
     }
 }

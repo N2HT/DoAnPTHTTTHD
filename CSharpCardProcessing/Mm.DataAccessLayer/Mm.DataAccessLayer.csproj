@@ -64,7 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="CardProcessing.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CardProcessing.Designer.cs</LastGenOutput>

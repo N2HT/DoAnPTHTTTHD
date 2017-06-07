@@ -23,11 +23,11 @@ namespace Mm.DomainModel
     
         public int MasterId { get; set; }
         public string MasterName { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public Nullable<int> AccountId { get; set; }
     
+        public virtual Account Account { get; set; }
         public virtual ICollection<AccountStatement> AccountStatements { get; set; }
         public virtual ICollection<Agent> Agents { get; set; }
         public virtual ICollection<Card> Cards { get; set; }
-        public virtual User User { get; set; }
     }
 }

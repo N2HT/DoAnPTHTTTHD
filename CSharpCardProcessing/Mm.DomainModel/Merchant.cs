@@ -27,12 +27,12 @@ namespace Mm.DomainModel
         public Nullable<bool> Activate { get; set; }
         public Nullable<int> MerchantTypeId { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<int> AreaId { get; set; }
+        public Nullable<int> AccountId { get; set; }
     
+        public virtual Account Account { get; set; }
         public virtual Agent Agent { get; set; }
         public virtual Area Area { get; set; }
         public virtual MerchantType MerchantType { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

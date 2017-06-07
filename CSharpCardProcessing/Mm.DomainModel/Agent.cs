@@ -26,13 +26,13 @@ namespace Mm.DomainModel
         public Nullable<int> ParentAgentId { get; set; }
         public Nullable<bool> Activate { get; set; }
         public Nullable<int> AreaId { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public Nullable<int> AccountId { get; set; }
     
+        public virtual Account Account { get; set; }
         public virtual ICollection<Agent> Agent1 { get; set; }
         public virtual Agent Agent2 { get; set; }
         public virtual Area Area { get; set; }
         public virtual Master Master { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<Merchant> Merchants { get; set; }
     }
 }

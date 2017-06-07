@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>CardProcessing.tt</DependentUpon>
+    </Compile>
     <Compile Include="AccountStatement.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
@@ -56,11 +59,6 @@
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
     <Compile Include="Card.cs">
-      <DependentUpon>CardProcessing.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CardProcessing.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
     <Compile Include="CardType.cs">
@@ -104,9 +102,6 @@
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
     <Compile Include="TransactionType.cs">
-      <DependentUpon>CardProcessing.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
   </ItemGroup>

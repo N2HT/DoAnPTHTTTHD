@@ -22,7 +22,5 @@ namespace Mm.DomainModel
         public Nullable<System.DateTime> Time { get; set; }
     
         public virtual MessageType MessageType { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

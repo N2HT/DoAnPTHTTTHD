@@ -5,17 +5,17 @@ namespace Mm.DataAccessLayer
     public interface IMasterRepository:IGenericDataRepository<Master>{ }
     public interface IAgentRepository : IGenericDataRepository<Agent> { }
 	public interface IMerchantRepository: IGenericDataRepository<Merchant> { }
-	public interface IUserRepository : IGenericDataRepository<User> { }
+    public interface IAccountRepository : IGenericDataRepository<Account> { }
     public class MasterRepository : GenericDataRepository<Master>, IMasterRepository { }
     public class AgentRepository : GenericDataRepository<Agent>, IAgentRepository { }
 	public class MerchantRepository : GenericDataRepository<Merchant>, IMerchantRepository { }
-	public class UserRepository : GenericDataRepository<User>, IUserRepository {
-        public User Login(string username, string password) {
+    public class AccountRepository : GenericDataRepository<Account>, IAccountRepository {
+        public Account Login(string username, string password) {
             using (CardProcessingEntities ctx = new CardProcessingEntities()) {
-                if (ctx.Users.Any(item => item.UserName == username && item.Password == password)) {
-                    var user = ctx.Users
+                if (ctx.Accounts.Any(item => item.UserName == username && item.Password == password)) {
+                    var user = ctx.Accounts
                         .Where(item => item.UserName == username && item.Password == password)
-                        .First<User>();
+                        .First<Account>();
                     return user;
                 }
                 return null;

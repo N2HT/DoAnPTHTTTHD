@@ -16,12 +16,12 @@ namespace Mm.DomainModel
     {
         public Privilege()
         {
-            this.Users = new HashSet<User>();
+            this.Accounts = new HashSet<Account>();
         }
     
         public int PrivilegeId { get; set; }
         public string PrivilegeName { get; set; }
     
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

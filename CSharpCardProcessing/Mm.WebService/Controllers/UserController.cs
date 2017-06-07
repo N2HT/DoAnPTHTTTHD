@@ -25,7 +25,7 @@ namespace Mm.WebService.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, new {
                 user = new {
-                    id = user.UserId,
+                    id = user.AccountId,
                     username = user.UserName,
                     token = "Bearer " + AuthHelper.GenerateToken(user.UserName, "master", 30)
                 }

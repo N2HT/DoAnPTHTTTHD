@@ -7,14 +7,14 @@ namespace Mm.BusinessLayer
 	{
 		private readonly IMasterRepository _masterRepository;
 		private readonly IAgentRepository _agentRepository;
-		private readonly UserRepository _userRepository;
+		private readonly AccountRepository _userRepository;
 		private readonly IMerchantRepository _merchantRepository;
 
 		public BusinessLayer()
 		{
 			_masterRepository = new MasterRepository();
 			_agentRepository = new AgentRepository();
-			_userRepository = new UserRepository();
+			_userRepository = new AccountRepository();
 			_merchantRepository = new MerchantRepository();
 		}
 
@@ -116,7 +116,7 @@ namespace Mm.BusinessLayer
 		}
 		#endregion
 
-		public User Login(string username, string password)
+        public Account Login(string username, string password)
 		{
 			// If the username or password not fill
 			if (username == null || password == null)
