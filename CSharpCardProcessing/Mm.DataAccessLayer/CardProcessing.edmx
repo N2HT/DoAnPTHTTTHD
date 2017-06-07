@@ -51,7 +51,7 @@
           </Key>
           <Property Name="CardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MasterId" Type="int" />
-          <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CardTypeId" Type="int" />
         </EntityType>
         <EntityType Name="CardType">
@@ -183,16 +183,6 @@
           <Property Name="ReportTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ReportTypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TransactionDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -202,7 +192,7 @@
           <Property Name="Quantity" Type="float" />
           <Property Name="UnitPrice" Type="money" />
           <Property Name="MerchantId" Type="int" />
-          <Property Name="CardId" Type="int" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="100" />
           <Property Name="TransactionTypeId" Type="int" />
           <Property Name="TransactionTime" Type="datetime" />
         </EntityType>
@@ -405,18 +395,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransactionDetails_Card">
-          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Card">
-              <PropertyRef Name="CardId" />
-            </Principal>
-            <Dependent Role="TransactionDetails">
-              <PropertyRef Name="CardId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransactionDetails_Merchant">
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="0..1" />
           <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
@@ -470,7 +448,6 @@
           <EntitySet Name="Report_Master" EntityType="Self.Report_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Report_Merchant" EntityType="Self.Report_Merchant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReportType" EntityType="Self.ReportType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AccountStatement_Master" Association="Self.FK_AccountStatement_Master">
@@ -536,10 +513,6 @@
           <AssociationSet Name="FK_Report_Merchant_ReportType" Association="Self.FK_Report_Merchant_ReportType">
             <End Role="ReportType" EntitySet="ReportType" />
             <End Role="Report_Merchant" EntitySet="Report_Merchant" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransactionDetails_Card" Association="Self.FK_TransactionDetails_Card">
-            <End Role="Card" EntitySet="Card" />
-            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_TransactionDetails_Merchant" Association="Self.FK_TransactionDetails_Merchant">
             <End Role="Merchant" EntitySet="Merchant" />
@@ -618,11 +591,10 @@
           </Key>
           <Property Name="CardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MasterId" Type="Int32" />
-          <Property Name="CardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CardTypeId" Type="Int32" />
           <NavigationProperty Name="CardType" Relationship="Self.FK_Card_CardType" FromRole="Card" ToRole="CardType" />
           <NavigationProperty Name="Master" Relationship="Self.FK_Card_Master" FromRole="Card" ToRole="Master" />
-          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Card" FromRole="Card" ToRole="TransactionDetails" />
         </EntityType>
         <EntityType Name="CardType">
           <Key>
@@ -773,16 +745,6 @@
           <NavigationProperty Name="Report_Master" Relationship="Self.FK_Report_Master_ReportType" FromRole="ReportType" ToRole="Report_Master" />
           <NavigationProperty Name="Report_Merchant" Relationship="Self.FK_Report_Merchant_ReportType" FromRole="ReportType" ToRole="Report_Merchant" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TransactionDetail">
           <Key>
             <PropertyRef Name="Id" />
@@ -792,10 +754,9 @@
           <Property Name="Quantity" Type="Double" />
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="MerchantId" Type="Int32" />
-          <Property Name="CardId" Type="Int32" />
+          <Property Name="CardNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="TransactionTypeId" Type="Int32" />
           <Property Name="TransactionTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_TransactionDetails_Card" FromRole="TransactionDetails" ToRole="Card" />
           <NavigationProperty Name="Merchant" Relationship="Self.FK_TransactionDetails_Merchant" FromRole="TransactionDetails" ToRole="Merchant" />
           <NavigationProperty Name="TransactionType" Relationship="Self.FK_TransactionDetails_TransactionType" FromRole="TransactionDetails" ToRole="TransactionType" />
         </EntityType>
@@ -951,18 +912,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransactionDetails_Card">
-          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
-          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Card">
-              <PropertyRef Name="CardId" />
-            </Principal>
-            <Dependent Role="TransactionDetails">
-              <PropertyRef Name="CardId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Merchant_MerchantType">
           <End Role="MerchantType" Type="Self.MerchantType" Multiplicity="0..1" />
           <End Role="Merchant" Type="Self.Merchant" Multiplicity="*" />
@@ -1064,7 +1013,6 @@
           <EntitySet Name="Report_Master" EntityType="Self.Report_Master" />
           <EntitySet Name="Report_Merchant" EntityType="Self.Report_Merchant" />
           <EntitySet Name="ReportTypes" EntityType="Self.ReportType" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
           <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
           <AssociationSet Name="FK_Agent_User" Association="Self.FK_Agent_User">
@@ -1114,10 +1062,6 @@
           <AssociationSet Name="FK_Card_Master" Association="Self.FK_Card_Master">
             <End Role="Master" EntitySet="Masters" />
             <End Role="Card" EntitySet="Cards" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransactionDetails_Card" Association="Self.FK_TransactionDetails_Card">
-            <End Role="Card" EntitySet="Cards" />
-            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_Merchant_MerchantType" Association="Self.FK_Merchant_MerchantType">
             <End Role="MerchantType" EntitySet="MerchantTypes" />
@@ -1348,17 +1292,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CardProcessingModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TransactionDetails">
             <EntityTypeMapping TypeName="CardProcessingModel.TransactionDetail">
               <MappingFragment StoreEntitySet="TransactionDetails">
@@ -1367,7 +1300,7 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
-                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
                 <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
                 <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
               </MappingFragment>

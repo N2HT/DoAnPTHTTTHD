@@ -13,7 +13,7 @@ namespace Mm.DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Mm.DomainModel;
-    
+
     public partial class CardProcessingEntities : DbContext
     {
         public CardProcessingEntities()
@@ -42,7 +42,6 @@ namespace Mm.DataAccessLayer
         public DbSet<Report_Master> Report_Master { get; set; }
         public DbSet<Report_Merchant> Report_Merchant { get; set; }
         public DbSet<ReportType> ReportTypes { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TransactionDetail> TransactionDetails { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
     }

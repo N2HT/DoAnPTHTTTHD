@@ -95,9 +95,6 @@
     <Compile Include="Report_Merchant.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>CardProcessing.tt</DependentUpon>
-    </Compile>
     <Compile Include="TransactionDetail.cs">
       <DependentUpon>CardProcessing.tt</DependentUpon>
     </Compile>
