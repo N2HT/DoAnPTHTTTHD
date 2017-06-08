@@ -16,7 +16,7 @@ namespace Mm.WebService.Controllers
         [Route("api/agent/update")]
         [JwtAuthentication]
         [Authorize]
-        public HttpResponseMessage Update([FromBody]Agent ag)
+        public HttpResponseMessage Update(Agent ag)
         {
             try
             {
@@ -32,8 +32,8 @@ namespace Mm.WebService.Controllers
 
         [HttpPost]
         [Route("api/agent/add")]
-        [JwtAuthentication]
-        [Authorize]
+        //[JwtAuthentication]
+        //[Authorize]
         public HttpResponseMessage Add([FromBody]Agent ag)
         {
             try
@@ -48,11 +48,11 @@ namespace Mm.WebService.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/agent/activate")]
-        [JwtAuthentication]
-        [Authorize]
-        public HttpResponseMessage Activate([FromBody]int id)
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage Activate(int id)
         {
             try
             {
@@ -66,11 +66,11 @@ namespace Mm.WebService.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/agent/inactivate")]
-        [JwtAuthentication]
-        [Authorize]
-        public HttpResponseMessage Inactivate([FromBody]int id)
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage Inactivate(int id)
         {
             try
             {
@@ -84,19 +84,17 @@ namespace Mm.WebService.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/agent/get")]
-        [JwtAuthentication]
-        [Authorize]
-        public HttpResponseMessage Get([FromBody]int id)
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage Get(int id)
         {
-
             try
             {
                 var ag = new BusinessLayer.BusinessLayer().GetAgentById(id);
                 if (ag == null) return Request.CreateResponse(HttpStatusCode.NotFound, 0);
-                var json = new JavaScriptSerializer().Serialize(ag);
-                return Request.CreateResponse(HttpStatusCode.OK, json);
+                return Request.CreateResponse(HttpStatusCode.OK, ag);
             }
             catch (Exception e)
             {
@@ -104,6 +102,7 @@ namespace Mm.WebService.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
             }
         }
+
         /// <summary>
         /// Search agent with agent name
         /// </summary>
