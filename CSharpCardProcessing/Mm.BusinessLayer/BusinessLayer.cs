@@ -123,6 +123,15 @@ namespace Mm.BusinessLayer
             mc.Activate = true;
             _merchantRepository.Update(mc);
         }
+        /// <summary>
+        /// Search Merchant Bussiness
+        /// </summary>
+        /// <param name="agentName"> Merchant name</param>
+        /// <returns> List Merchant</returns>
+        public List<Merchant> SearchMerchant(string merchantName)
+        {
+            return _merchantRepository.GetList(item => item.MerchantName.Contains(merchantName)) as List<Merchant>;
+        }
         #endregion
 
         public Account Login(string username, string password)

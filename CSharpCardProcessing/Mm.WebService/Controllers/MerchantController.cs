@@ -104,5 +104,31 @@ namespace Mm.WebService.Controllers
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
 			}
 		}
-	}
+
+        /// <summary>
+        /// Search merchant with merchant name
+        /// </summary>
+        /// <param name="name"> Merchant Name</param>
+        /// <returns> List merchant filter by name</returns>
+        [HttpGet]
+        [Route("api/merchant/search")]
+        /*Alow authenticate*/
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage SearchMerchant(string name)
+        {
+            try
+            {
+                var result = new BusinessLayer.BusinessLayer().SearchMerchant(name);
+                if (result == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
+    }
 }
