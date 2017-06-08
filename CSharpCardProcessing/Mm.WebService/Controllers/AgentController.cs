@@ -12,7 +12,7 @@ namespace Mm.WebService.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AgentController : ApiController
     {
-        [HttpPost]
+        [HttpPut]
         [Route("api/agent/update")]
         [JwtAuthentication]
         [Authorize]
@@ -125,7 +125,8 @@ namespace Mm.WebService.Controllers
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
             }
         }
     }
