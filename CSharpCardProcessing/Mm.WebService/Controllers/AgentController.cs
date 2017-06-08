@@ -9,100 +9,124 @@ using Mm.WebService.Filters;
 
 namespace Mm.WebService.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
-	public class AgentController : ApiController
-	{
-		[HttpPost]
-		[Route("api/agent/update")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Update([FromBody]Agent ag)
-		{
-			try
-			{
-				new BusinessLayer.BusinessLayer().UpdateAgent(ag);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
-			}
-			catch (Exception e)
-			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
-			}
-		}
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class AgentController : ApiController
+    {
+        [HttpPost]
+        [Route("api/agent/update")]
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Update([FromBody]Agent ag)
+        {
+            try
+            {
+                new BusinessLayer.BusinessLayer().UpdateAgent(ag);
+                return Request.CreateResponse(HttpStatusCode.OK, 1);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
 
-		[HttpPost]
-		[Route("api/agent/add")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Add([FromBody]Agent ag)
-		{
-			try
-			{
-				new BusinessLayer.BusinessLayer().AddAgent(ag);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
-			}
-			catch (Exception e)
-			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
-			}
-		}
+        [HttpPost]
+        [Route("api/agent/add")]
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Add([FromBody]Agent ag)
+        {
+            try
+            {
+                new BusinessLayer.BusinessLayer().AddAgent(ag);
+                return Request.CreateResponse(HttpStatusCode.OK, 1);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
 
-		[HttpPost]
-		[Route("api/agent/activate")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Activate([FromBody]int id)
-		{
-			try
-			{
-				new BusinessLayer.BusinessLayer().ActivateAgent(id);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
-			}
-			catch (Exception e)
-			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
-			}
-		}
+        [HttpPost]
+        [Route("api/agent/activate")]
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Activate([FromBody]int id)
+        {
+            try
+            {
+                new BusinessLayer.BusinessLayer().ActivateAgent(id);
+                return Request.CreateResponse(HttpStatusCode.OK, 1);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
 
-		[HttpPost]
-		[Route("api/agent/inactivate")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Inactivate([FromBody]int id)
-		{
-			try
-			{
-				new BusinessLayer.BusinessLayer().InactivateAgent(id);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
-			}
-			catch (Exception e)
-			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
-			}
-		}
+        [HttpPost]
+        [Route("api/agent/inactivate")]
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Inactivate([FromBody]int id)
+        {
+            try
+            {
+                new BusinessLayer.BusinessLayer().InactivateAgent(id);
+                return Request.CreateResponse(HttpStatusCode.OK, 1);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
 
-		[HttpPost]
-		[Route("api/agent/get")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Get([FromBody]int id)
-		{
+        [HttpPost]
+        [Route("api/agent/get")]
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Get([FromBody]int id)
+        {
 
-			try
-			{
-				var ag = new BusinessLayer.BusinessLayer().GetAgentById(id);
-				if (ag == null) return Request.CreateResponse(HttpStatusCode.NotFound, 0);
-				var json = new JavaScriptSerializer().Serialize(ag);
-				return Request.CreateResponse(HttpStatusCode.OK, json);
-			}
-			catch (Exception e)
-			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
-			}
-		}
-	}
+            try
+            {
+                var ag = new BusinessLayer.BusinessLayer().GetAgentById(id);
+                if (ag == null) return Request.CreateResponse(HttpStatusCode.NotFound, 0);
+                var json = new JavaScriptSerializer().Serialize(ag);
+                return Request.CreateResponse(HttpStatusCode.OK, json);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+        }
+        /// <summary>
+        /// Search agent with agent name
+        /// </summary>
+        /// <param name="name"> Agent Name</param>
+        /// <returns> List agent filter by name</returns>
+        [HttpGet]
+        [Route("api/agent/search")]
+        /*Alow authenticate*/
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage SearchAgent(string name)
+        {
+            try
+            {
+                var result = new BusinessLayer.BusinessLayer().SearchAgent(name);
+                if (result == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+            }
+        }
+    }
 }
