@@ -129,5 +129,24 @@ namespace Mm.WebService.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
             }
         }
+
+        [HttpGet]
+        [Route("api/agent/getAll")]
+        public HttpResponseMessage getAllAgent()
+        {
+            try
+            {
+                var list = new BusinessLayer.BusinessLayer().GetAllAgent();
+                if (list == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound, 0);
+                return Request.CreateResponse(HttpStatusCode.OK, list);
+            }
+            catch (Exception e)
+            {
+                var json = new JavaScriptSerializer().Serialize(e);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+            }
+
+        }
     }
 }
