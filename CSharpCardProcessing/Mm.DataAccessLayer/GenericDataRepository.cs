@@ -52,6 +52,8 @@ namespace Mm.DataAccessLayer
             T item = null;
             using (var context = new CardProcessingEntities())
             {
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
                 IQueryable<T> dbquery = context.Set<T>();
                 // eager loading
                 foreach (Expression<Func<T, object>> navigationProperty in navigationproperties)
