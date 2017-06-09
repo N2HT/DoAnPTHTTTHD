@@ -13,10 +13,10 @@ namespace Mm.WebService.Controllers
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MasterController : ApiController
 	{
-		[HttpPost]
+		[HttpPut]
 		[Route("api/master/update")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Update([FromBody]Master mt)
 		{
 			try
