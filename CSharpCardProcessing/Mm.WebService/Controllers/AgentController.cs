@@ -142,6 +142,7 @@ namespace Mm.WebService.Controllers
         {
             try
             {
+                //Thèn Hiệp Điên
                 var list = new BusinessLayer.BusinessLayer().GetAllAgent();
                 if (list == null)
                     return Request.CreateResponse(HttpStatusCode.NotFound, 0);
