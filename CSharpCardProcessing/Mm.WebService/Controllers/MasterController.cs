@@ -9,7 +9,6 @@ using Mm.WebService.Filters;
 
 namespace Mm.WebService.Controllers
 {
-	//[Authorize]
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MasterController : ApiController
 	{
