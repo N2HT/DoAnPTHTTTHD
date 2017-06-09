@@ -27,7 +27,6 @@ namespace Mm.DomainModel
         public Nullable<int> SaleCount { get; set; }
         public Nullable<int> ReturnCount { get; set; }
         public Nullable<decimal> NetAmount { get; set; }
-        public Nullable<int> ReportTypeId { get; set; }
         public Nullable<System.DateTime> ReportDate { get; set; }
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }

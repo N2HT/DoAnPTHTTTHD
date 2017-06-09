@@ -62,9 +62,12 @@ namespace Mm.BusinessLayer
         /// </summary>
         /// <param name="agentName"> Agent name</param>
         /// <returns> List agent</returns>
-        public List<Agent> SearchAgent(string agentName)
+        public IList<Agent> SearchAgent(string agentName)
         {
-            return _agentRepository.GetList(item => item.AgentName.Contains(agentName)) as List<Agent>;
+            return _agentRepository.GetList(item => item.AgentName.Contains(agentName)
+            , area => area.Area
+            , ac => ac.Account
+            );
         }
         #endregion
 

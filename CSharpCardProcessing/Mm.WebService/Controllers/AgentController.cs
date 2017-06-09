@@ -6,6 +6,8 @@ using System.Web.Http.Cors;
 using System.Web.Script.Serialization;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Mm.WebService.Controllers
 {
@@ -120,7 +122,12 @@ namespace Mm.WebService.Controllers
                 var result = new BusinessLayer.BusinessLayer().SearchAgent(name);
                 if (result == null)
                     return Request.CreateResponse(HttpStatusCode.NotFound, 0);
-                return Request.CreateResponse(HttpStatusCode.OK, result);
+                var json = JsonConvert.SerializeObject(result, Formatting.Indented,         
+                new JsonSerializerSettings()
+                 {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore, 
+                });  
+                return Request.CreateResponse(HttpStatusCode.OK, json);
             }
             catch (Exception e)
             {

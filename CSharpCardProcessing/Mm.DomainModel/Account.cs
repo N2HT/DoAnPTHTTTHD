@@ -24,7 +24,6 @@ namespace Mm.DomainModel
         public int AccountId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public Nullable<int> PrivilegeId { get; set; }
         public Nullable<bool> Activate { get; set; }
     
         public virtual ICollection<Agent> Agents { get; set; }
