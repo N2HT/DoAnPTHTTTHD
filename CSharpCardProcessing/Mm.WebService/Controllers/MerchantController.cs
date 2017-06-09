@@ -12,10 +12,10 @@ namespace Mm.WebService.Controllers
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MerchantController : ApiController
 	{
-		[HttpPost]
+		[HttpPut]
 		[Route("api/merchant/update")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Update([FromBody]Merchant mt)
 		{
 			try
@@ -32,8 +32,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpPost]
 		[Route("api/merchant/add")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Add([FromBody]Merchant mt)
 		{
 			try
@@ -48,11 +48,11 @@ namespace Mm.WebService.Controllers
 			}
 		}
 
-		[HttpPost]
+		[HttpPut]
 		[Route("api/merchant/activate")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Activate([FromBody]int id)
+		//[JwtAuthentication]
+		//[Authorize]
+		public HttpResponseMessage Activate(int id)
 		{
 			try
 			{
@@ -66,11 +66,11 @@ namespace Mm.WebService.Controllers
 			}
 		}
 
-		[HttpPost]
+		[HttpPut]
 		[Route("api/merchant/inactivate")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Inactivate([FromBody]int id)
+		//[JwtAuthentication]
+		//[Authorize]
+		public HttpResponseMessage Inactivate(int id)
 		{
 			try
 			{
@@ -84,19 +84,18 @@ namespace Mm.WebService.Controllers
 			}
 		}
 
-		[HttpPost]
+		[HttpGet]
 		[Route("api/merchant/get")]
-		[JwtAuthentication]
-		[Authorize]
-		public HttpResponseMessage Get([FromBody]int id)
+		//[JwtAuthentication]
+		//[Authorize]
+		public HttpResponseMessage Get(int id)
 		{
 			
 			try
 			{
 				var mc = new BusinessLayer.BusinessLayer().GetMerchantById(id);
 				if (mc == null) return Request.CreateResponse(HttpStatusCode.NotFound, 0);
-				var json = new JavaScriptSerializer().Serialize(mc);
-				return Request.CreateResponse(HttpStatusCode.OK, json);
+				return Request.CreateResponse(HttpStatusCode.OK, mc);
 			}
 			catch (Exception e)
 			{
