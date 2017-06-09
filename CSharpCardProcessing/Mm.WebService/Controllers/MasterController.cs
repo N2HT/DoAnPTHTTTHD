@@ -4,18 +4,19 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Script.Serialization;
-using Mm.WebService.Filters;
 using Mm.DomainModel;
+using Mm.WebService.Filters;
 
 namespace Mm.WebService.Controllers
 {
+	//[Authorize]
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MasterController : ApiController
 	{
-		[HttpPut]
+		[HttpPost]
 		[Route("api/master/update")]
-		//[JwtAuthentication]
-		//[Authorize]
+		[JwtAuthentication]
+		[Authorize]
 		public HttpResponseMessage Update([FromBody]Master mt)
 		{
 			try

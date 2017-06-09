@@ -22,7 +22,11 @@ namespace Mm.DomainModel
     
         public int AgentId { get; set; }
         public string AgentName { get; set; }
+        public Nullable<int> MasterId { get; set; }
+        public Nullable<int> ParentAgentId { get; set; }
         public Nullable<bool> Activate { get; set; }
+        public Nullable<int> AreaId { get; set; }
+        public Nullable<int> AccountId { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual ICollection<Agent> Agent1 { get; set; }

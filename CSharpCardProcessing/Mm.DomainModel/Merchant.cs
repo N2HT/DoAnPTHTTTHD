@@ -22,8 +22,12 @@ namespace Mm.DomainModel
         public int MerchantId { get; set; }
         public string MerchantName { get; set; }
         public string Address { get; set; }
+        public Nullable<int> AgentId { get; set; }
         public Nullable<System.DateTime> BeginDay { get; set; }
         public Nullable<bool> Activate { get; set; }
+        public Nullable<int> MerchantTypeId { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<int> AccountId { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual Agent Agent { get; set; }

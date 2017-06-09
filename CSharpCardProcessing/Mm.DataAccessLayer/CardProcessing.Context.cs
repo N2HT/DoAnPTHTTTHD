@@ -9,17 +9,16 @@
 
 namespace Mm.DataAccessLayer
 {
-    using DomainModel;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Mm.DomainModel;
 
     public partial class CardProcessingEntities : DbContext
     {
         public CardProcessingEntities()
             : base("name=CardProcessingEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

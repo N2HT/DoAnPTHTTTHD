@@ -6,8 +6,6 @@ using System.Web.Http.Cors;
 using System.Web.Script.Serialization;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Mm.WebService.Controllers
 {
@@ -16,9 +14,9 @@ namespace Mm.WebService.Controllers
     {
         [HttpPut]
         [Route("api/agent/update")]
-        //[JwtAuthentication]
-        //[Authorize]
-        public HttpResponseMessage Update([FromBody]Agent ag)
+        [JwtAuthentication]
+        [Authorize]
+        public HttpResponseMessage Update(Agent ag)
         {
             try
             {
@@ -92,7 +90,6 @@ namespace Mm.WebService.Controllers
         //[Authorize]
         public HttpResponseMessage Get(int id)
         {
-
             try
             {
                 var ag = new BusinessLayer.BusinessLayer().GetAgentById(id);
@@ -105,6 +102,7 @@ namespace Mm.WebService.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
             }
         }
+
         /// <summary>
         /// Search agent with agent name
         /// </summary>
@@ -122,12 +120,7 @@ namespace Mm.WebService.Controllers
                 var result = new BusinessLayer.BusinessLayer().SearchAgent(name);
                 if (result == null)
                     return Request.CreateResponse(HttpStatusCode.NotFound, 0);
-                var json = JsonConvert.SerializeObject(result, Formatting.Indented,         
-                new JsonSerializerSettings()
-                 {
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore, 
-                });  
-                return Request.CreateResponse(HttpStatusCode.OK, json);
+                return Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
             {

@@ -17,6 +17,7 @@ namespace Mm.DomainModel
         public int MessageId { get; set; }
         public Nullable<int> UserIdSend { get; set; }
         public Nullable<int> UserIdRecevie { get; set; }
+        public Nullable<int> MessageTypeId { get; set; }
         public string MessageContent { get; set; }
         public Nullable<System.DateTime> Time { get; set; }
     

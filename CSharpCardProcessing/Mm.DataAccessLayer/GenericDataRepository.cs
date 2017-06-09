@@ -10,7 +10,6 @@ namespace Mm.DataAccessLayer
 {
     public class GenericDataRepository<T> : IGenericDataRepository<T> where T : class
     {
-
         public IList<T> GetAll(params System.Linq.Expressions.Expression<Func<T, object>>[] navigationproperties)
         {
             List<T> list = null;
@@ -34,8 +33,8 @@ namespace Mm.DataAccessLayer
             List<T> list = null;
             using (var context = new CardProcessingEntities())
             {
-               // context.Configuration.LazyLoadingEnabled = false;
-                //context.Configuration.ProxyCreationEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
                 IQueryable<T> dbquery = context.Set<T>();
                 // eager loading
                 foreach (Expression<Func<T, object>> navigationProperty in navigationproperties)
