@@ -1,48 +1,46 @@
 ﻿using System.Collections.Generic;
 using Mm.BusinessLayer.Interface;
-using Mm.DataAccessLayer;
+using Mm.DataAccessLayer.Implementation;
+using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
 
 namespace Mm.BusinessLayer.Implementation
 {
 	public class MerchantBusinessLayer : IMerchantBusinessLayer
 	{
-		private readonly IMerchantRepository _merchantRepository;
-		public MerchantBusinessLayer()
-		{
-			_merchantRepository = new MerchantRepository();
-		}
+		private IMerchantRepository _repository;
+		public IMerchantRepository Repository => _repository ?? (_repository = new MerchantRepository());
 
 		#region Merchant
 		public Merchant GetMerchantById(int id)
 		{
-			return _merchantRepository.GetSingle(m => m.MerchantId == id);
+			return Repository.GetSingle(m => m.MerchantId == id, me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
 		public void AddMerchant(params Merchant[] merchants)
 		{
-			_merchantRepository.Add(merchants);
+			Repository.Add(merchants);
 		}
 		public void UpdateMerchant(params Merchant[] merchants)
 		{
-			_merchantRepository.Update(merchants);
+			Repository.Update(merchants);
 		}
 
 		public void RemoveMerchant(params Merchant[] merchants)
 		{
-			_merchantRepository.Remove(merchants);
+			Repository.Remove(merchants);
 		}
 
 		public void InactivateMerchant(int merchantId)
 		{
-			var mc = _merchantRepository.GetSingle(m => m.MerchantId == merchantId);
+			var mc = Repository.GetSingle(m => m.MerchantId == merchantId);
 			mc.Activate = false;
-			_merchantRepository.Update(mc);
+			Repository.Update(mc);
 		}
 		public void ActivateMerchant(int merchantId)
 		{
-			var mc = _merchantRepository.GetSingle(m => m.MerchantId == merchantId);
+			var mc = Repository.GetSingle(m => m.MerchantId == merchantId);
 			mc.Activate = true;
-			_merchantRepository.Update(mc);
+			Repository.Update(mc);
 		}
 		/// <summary>
 		/// Search Merchant Bussiness
@@ -51,11 +49,11 @@ namespace Mm.BusinessLayer.Implementation
 		/// <returns> List Merchant</returns>
 		public IList<Merchant> SearchMerchant(string name)
 		{
-			return _merchantRepository.GetList(item => item.MerchantName.Contains(name));
+			return Repository.GetList(item => item.MerchantName.Contains(name), me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
 		public IList<Merchant> GetAllMerchant()
 		{
-			return _merchantRepository.GetAll(m => m.Account, m => m.Area, m => m.MerchantType);
+			return Repository.GetAll(me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
 		#endregion
 	}

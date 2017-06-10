@@ -1,56 +1,54 @@
 ﻿using System.Collections.Generic;
 using Mm.BusinessLayer.Interface;
-using Mm.DataAccessLayer;
+using Mm.DataAccessLayer.Implementation;
+using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
 
 namespace Mm.BusinessLayer.Implementation
 {
 	public class AgentBusinessLayer : IAgentBusinessLayer
 	{
-		private readonly IAgentRepository _agentRepository;
+		private IAgentRepository _repository;
+		public IAgentRepository Repository => _repository ?? (_repository = new AgentRepository());
 
-		public AgentBusinessLayer()
-		{
-			_agentRepository = new AgentRepository();
-		}
 		#region Agent
 		public IList<Agent> GetAllAgent()
 		{
-			return _agentRepository.GetAll(ac => ac.Account, ar => ar.Area);
+			return Repository.GetAll(ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
 		public Agent GetAgentById(int id)
 		{
-			return _agentRepository.GetSingle(d => d.AgentId == id);
+			return Repository.GetSingle(d => d.AgentId == id, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
 		public void AddAgent(params Agent[] agents)
 		{
-			_agentRepository.Add(agents);
+			Repository.Add(agents);
 		}
 
 		public void UpdateAgent(params Agent[] agents)
 		{
-			_agentRepository.Update(agents);
+			Repository.Update(agents);
 		}
 
 		public void RemoveAgent(params Agent[] agents)
 		{
-			_agentRepository.Remove(agents);
+			Repository.Remove(agents);
 		}
 
 		public void InactivateAgent(int agentId)
 		{
-			var ag = _agentRepository.GetSingle(m => m.AgentId == agentId);
+			var ag = Repository.GetSingle(m => m.AgentId == agentId);
 			ag.Activate = false;
-			_agentRepository.Update(ag);
+			Repository.Update(ag);
 		}
 
 		public void ActivateAgent(int agentId)
 		{
-			var ag = _agentRepository.GetSingle(m => m.AgentId == agentId);
+			var ag = Repository.GetSingle(m => m.AgentId == agentId);
 			ag.Activate = true;
-			_agentRepository.Update(ag);
+			Repository.Update(ag);
 		}
 		/// <summary>
 		/// Search Agent Bussiness
@@ -59,7 +57,7 @@ namespace Mm.BusinessLayer.Implementation
 		/// <returns> List agent</returns>
 		public IList<Agent> SearchAgent(string agentName)
 		{
-			return _agentRepository.GetList(item => item.AgentName.Contains(agentName));
+			return Repository.GetList(item => item.AgentName.Contains(agentName), ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 		#endregion
 	}

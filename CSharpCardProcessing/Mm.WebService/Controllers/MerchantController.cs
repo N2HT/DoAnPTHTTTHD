@@ -14,7 +14,6 @@ namespace Mm.WebService.Controllers
 	public class MerchantController : ApiController
 	{
 		private IMerchantBusinessLayer _businessLayer;
-
 		public IMerchantBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MerchantBusinessLayer());
 
 		[HttpPut]
