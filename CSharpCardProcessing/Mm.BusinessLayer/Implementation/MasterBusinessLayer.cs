@@ -1,36 +1,38 @@
 ﻿using Mm.BusinessLayer.Interface;
-using Mm.DataAccessLayer;
+using Mm.DataAccessLayer.Implementation;
+using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
 
 namespace Mm.BusinessLayer.Implementation
 {
 	public class MasterBusinessLayer : IMasterBusinessLayer
 	{
-		private readonly IMasterRepository _masterRepository;
+		private IMasterRepository _repository;
+		public IMasterRepository Repository => _repository ?? (_repository = new MasterRepository());
 		public MasterBusinessLayer()
 		{
-			_masterRepository = new MasterRepository();
+			_repository = new MasterRepository();
 		}
 
 		#region Master
 		public Master GetMasterById(int id)
 		{
-			return _masterRepository.GetSingle(d => d.MasterId == id);
+			return Repository.GetSingle(d => d.MasterId == id, m => m.Account);
 		}
 
 		public void AddMaster(params Master[] masters)
 		{
-			_masterRepository.Add(masters);
+			Repository.Add(masters);
 		}
 
 		public void UpdateMaster(params Master[] masters)
 		{
-			_masterRepository.Update(masters);
+			Repository.Update(masters);
 		}
 
 		public void RemoveMaster(params Master[] masters)
 		{
-			_masterRepository.Remove(masters);
+			Repository.Remove(masters);
 		}
 		#endregion
 	}

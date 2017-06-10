@@ -1,16 +1,14 @@
 ﻿using Mm.BusinessLayer.Interface;
-using Mm.DataAccessLayer;
+using Mm.DataAccessLayer.Implementation;
+using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
 
 namespace Mm.BusinessLayer.Implementation
 {
 	public class AccountBusinessLayer : IAccountBusinessLayer
 	{
-		private readonly AccountRepository _userRepository;
-		public AccountBusinessLayer()
-		{
-			_userRepository = new AccountRepository();
-		}
+		private IAccountRepository _repository;
+		public IAccountRepository Repository => _repository ?? (_repository = new AccountRepository());
 		public Account Login(string username, string password)
 		{
 			// If the username or password not fill
@@ -19,7 +17,7 @@ namespace Mm.BusinessLayer.Implementation
 				return null;
 			}
 			// Encode the password for check on db
-			return _userRepository.Login(username, MD5Helper.GetMd5Hash(password));
+			return Repository.Login(username, MD5Helper.GetMd5Hash(password));
 		}
 	}
 }

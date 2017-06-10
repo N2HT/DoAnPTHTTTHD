@@ -58,9 +58,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CardProcessing.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GenericDataRepository.cs" />
-    <Compile Include="IMasterRepository.cs" />
-    <Compile Include="IGenericDataRepository.cs" />
+    <Compile Include="Implementation\AccountRepository.cs" />
+    <Compile Include="Implementation\AgentRepository.cs" />
+    <Compile Include="Implementation\GenericDataRepository.cs" />
+    <Compile Include="Implementation\MasterRepository.cs" />
+    <Compile Include="Implementation\MerchantRepository.cs" />
+    <Compile Include="Interface\IAccountRepository.cs" />
+    <Compile Include="Interface\IAgentRepository.cs" />
+    <Compile Include="Interface\IMasterRepository.cs" />
+    <Compile Include="Interface\IGenericDataRepository.cs" />
+    <Compile Include="Interface\IMerchantRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
