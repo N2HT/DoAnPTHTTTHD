@@ -22,30 +22,36 @@ public class MasterAPI {
     //    @Autowired
     public MasterService masterService = new MasterService();
 
+    //http://localhost:8080/api/masters
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<String> list() {
         try {
             Gson gson = new Gson();
-
             List<Master> masters = masterService.getall();
-
             String jsonMasters = gson.toJson(masters);
+
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
             return new ResponseEntity<String>(jsonMasters, responseHeaders, HttpStatus.OK);
-//            return masters;
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
     }
 
+    //run: http://localhost:8080/api/masters/1
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Master findById(@PathVariable("id") int id) {
+    public ResponseEntity<String> findById(@PathVariable("id") int id) {
         try {
+            Gson gson = new Gson();
             Master master = masterService.getById(id);
-            return master;
+            String jsonMaster = gson.toJson(master);
+
+            HttpHeaders responseHeaders = new HttpHeaders();
+            responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            return new ResponseEntity<String>(jsonMaster, responseHeaders, HttpStatus.OK);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
