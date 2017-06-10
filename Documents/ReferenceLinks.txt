@@ -14,3 +14,5 @@ https://netbeans.org/kb/docs/web/hibernate-webapp.html
 
 // SpringFramework api method
 https://stackoverflow.com/questions/7714124/receiving-post-request-on-server-spring-framework-from-android-application
+//
+https://spring.io/guides/gs/rest-service/
