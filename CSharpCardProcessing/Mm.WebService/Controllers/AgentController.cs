@@ -18,8 +18,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpPut]
 		[Route("api/agent/update")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Update(Agent ag)
 		{
 			try
@@ -35,8 +35,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpPost]
 		[Route("api/agent/add")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Add([FromBody]Agent ag)
 		{
 			try
@@ -52,8 +52,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpPut]
 		[Route("api/agent/activate")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Activate(int id)
 		{
 			try
@@ -69,8 +69,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpPut]
 		[Route("api/agent/inactivate")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Inactivate(int id)
 		{
 			try
@@ -86,8 +86,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpGet]
 		[Route("api/agent/get")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage Get(int id)
 		{
 			try
@@ -109,8 +109,8 @@ namespace Mm.WebService.Controllers
 		[HttpGet]
 		[Route("api/agent/search")]
 		/*Alow authenticate*/
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage SearchAgent(string name)
 		{
 			try
@@ -126,8 +126,8 @@ namespace Mm.WebService.Controllers
 
 		[HttpGet]
 		[Route("api/agent/getAll")]
-		[JwtAuthentication]
-		[Authorize]
+		//[JwtAuthentication]
+		//[Authorize]
 		public HttpResponseMessage GetAllAgent()
 		{
 			try
