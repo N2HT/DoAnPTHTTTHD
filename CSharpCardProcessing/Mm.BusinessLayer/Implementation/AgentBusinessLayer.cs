@@ -16,8 +16,11 @@ namespace Mm.BusinessLayer.Implementation
 		{
 			return Repository.GetAll(ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
-
-		public Agent GetAgentById(int id)
+        public IList<Agent> GetAllAgentWithPaging(int limit, int upset)
+        {
+            return Repository.GetAllWithPaging(limit, upset, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
+        }
+        public Agent GetAgentById(int id)
 		{
 			return Repository.GetSingle(d => d.AgentId == id, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
