@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Mm.BusinessLayer.Implementation;
+using Mm.BusinessLayer.Interface;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
@@ -11,9 +13,9 @@ namespace Mm.WebService.Controllers
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MasterController : ApiController
 	{
-		private BusinessLayer.BusinessLayer _businessLayer;
+		private IMasterBusinessLayer _businessLayer;
 
-		public BusinessLayer.BusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new BusinessLayer.BusinessLayer());
+		public IMasterBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MasterBusinessLayer());
 		[HttpPut]
 		[Route("api/master/update")]
 		[JwtAuthentication]

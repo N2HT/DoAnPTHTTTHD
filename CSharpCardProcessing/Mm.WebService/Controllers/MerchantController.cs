@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Mm.BusinessLayer.Implementation;
+using Mm.BusinessLayer.Interface;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
@@ -11,9 +13,9 @@ namespace Mm.WebService.Controllers
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MerchantController : ApiController
 	{
-		private BusinessLayer.BusinessLayer _businessLayer;
+		private IMerchantBusinessLayer _businessLayer;
 
-		public BusinessLayer.BusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new BusinessLayer.BusinessLayer());
+		public IMerchantBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MerchantBusinessLayer());
 
 		[HttpPut]
 		[Route("api/merchant/update")]

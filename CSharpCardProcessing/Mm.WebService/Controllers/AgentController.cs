@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Mm.BusinessLayer.Implementation;
+using Mm.BusinessLayer.Interface;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
@@ -11,8 +13,8 @@ namespace Mm.WebService.Controllers
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class AgentController : ApiController
 	{
-		private BusinessLayer.BusinessLayer _businessLayer;
-		public BusinessLayer.BusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new BusinessLayer.BusinessLayer());
+		private IAgentBusinessLayer _businessLayer;
+		public IAgentBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new AgentBusinessLayer());
 
 		[HttpPut]
 		[Route("api/agent/update")]
