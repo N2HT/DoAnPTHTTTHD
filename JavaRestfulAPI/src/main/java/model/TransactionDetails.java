@@ -1,5 +1,5 @@
 package model;
-// Generated Jun 7, 2017 9:47:47 PM by Hibernate Tools 4.3.1
+// Generated Jun 10, 2017 12:17:09 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -12,12 +12,12 @@ public class TransactionDetails  implements java.io.Serializable {
 
 
      private int id;
-     private Card card;
      private Merchant merchant;
      private TransactionType transactionType;
      private String product;
      private Double quantity;
      private BigDecimal unitPrice;
+     private String cardNumber;
      private Date transactionTime;
 
     public TransactionDetails() {
@@ -27,14 +27,14 @@ public class TransactionDetails  implements java.io.Serializable {
     public TransactionDetails(int id) {
         this.id = id;
     }
-    public TransactionDetails(int id, Card card, Merchant merchant, TransactionType transactionType, String product, Double quantity, BigDecimal unitPrice, Date transactionTime) {
+    public TransactionDetails(int id, Merchant merchant, TransactionType transactionType, String product, Double quantity, BigDecimal unitPrice, String cardNumber, Date transactionTime) {
        this.id = id;
-       this.card = card;
        this.merchant = merchant;
        this.transactionType = transactionType;
        this.product = product;
        this.quantity = quantity;
        this.unitPrice = unitPrice;
+       this.cardNumber = cardNumber;
        this.transactionTime = transactionTime;
     }
    
@@ -44,13 +44,6 @@ public class TransactionDetails  implements java.io.Serializable {
     
     public void setId(int id) {
         this.id = id;
-    }
-    public Card getCard() {
-        return this.card;
-    }
-    
-    public void setCard(Card card) {
-        this.card = card;
     }
     public Merchant getMerchant() {
         return this.merchant;
@@ -86,6 +79,13 @@ public class TransactionDetails  implements java.io.Serializable {
     
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
+    }
+    public String getCardNumber() {
+        return this.cardNumber;
+    }
+    
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
     public Date getTransactionTime() {
         return this.transactionTime;

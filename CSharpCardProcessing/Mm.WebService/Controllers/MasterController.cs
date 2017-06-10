@@ -3,17 +3,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Script.Serialization;
 using Mm.DomainModel;
 using Mm.WebService.Filters;
 
 namespace Mm.WebService.Controllers
 {
-	//[Authorize]
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class MasterController : ApiController
 	{
-		[HttpPost]
+		private BusinessLayer.BusinessLayer _businessLayer;
+
+		public BusinessLayer.BusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new BusinessLayer.BusinessLayer());
+		[HttpPut]
 		[Route("api/master/update")]
 		[JwtAuthentication]
 		[Authorize]
@@ -21,13 +22,12 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				new BusinessLayer.BusinessLayer().UpdateMaster(mt);
+				BusinessLayer.UpdateMaster(mt);
 				return Request.CreateResponse(HttpStatusCode.OK, 1);
 			}
 			catch (Exception e)
 			{
-				var json = new JavaScriptSerializer().Serialize(e);
-				return Request.CreateResponse(HttpStatusCode.InternalServerError, json);
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
 			}
 		}
 	}

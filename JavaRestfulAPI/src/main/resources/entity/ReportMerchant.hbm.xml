@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.ReportMerchant" table="Report_Merchant" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="reportId" type="int">
+            <column name="ReportId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="reportType" class="entity.ReportType" fetch="select">
+            <column name="ReportTypeId" />
+        </many-to-one>
+        <property name="merchantId" type="java.lang.Integer">
+            <column name="MerchantId" />
+        </property>
+        <property name="transactionType" type="java.lang.Integer">
+            <column name="TransactionType" />
+        </property>
+        <property name="cardType" type="serializable">
+            <column name="CardType" />
+        </property>
+        <property name="saleAmount" type="big_decimal">
+            <column name="SaleAmount" scale="4" />
+        </property>
+        <property name="returnAmount" type="big_decimal">
+            <column name="ReturnAmount" scale="4" />
+        </property>
+        <property name="saleCount" type="java.lang.Integer">
+            <column name="SaleCount" />
+        </property>
+        <property name="returnCount" type="java.lang.Integer">
+            <column name="ReturnCount" />
+        </property>
+        <property name="netAmount" type="big_decimal">
+            <column name="NetAmount" scale="4" />
+        </property>
+        <property name="reportDate" type="date">
+            <column name="ReportDate" length="10" />
+        </property>
+        <property name="fromDate" type="date">
+            <column name="FromDate" length="10" />
+        </property>
+        <property name="toDate" type="date">
+            <column name="ToDate" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
