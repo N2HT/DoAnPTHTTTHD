@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 7, 2017 9:47:48 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 10, 2017 12:17:11 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.TransactionDetails" table="TransactionDetails" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="id" type="int">
             <column name="Id" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="card" class="model.Card" fetch="select">
-            <column name="CardId" />
-        </many-to-one>
         <many-to-one name="merchant" class="model.Merchant" fetch="select">
             <column name="MerchantId" />
         </many-to-one>
@@ -25,6 +22,9 @@
         </property>
         <property name="unitPrice" type="big_decimal">
             <column name="UnitPrice" scale="4" />
+        </property>
+        <property name="cardNumber" type="string">
+            <column name="CardNumber" length="100" />
         </property>
         <property name="transactionTime" type="timestamp">
             <column name="TransactionTime" length="23" />

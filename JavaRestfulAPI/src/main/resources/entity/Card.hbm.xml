@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Card" table="Card" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="cardId" type="int">
+            <column name="CardId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cardType" class="entity.CardType" fetch="select">
+            <column name="CardTypeId" />
+        </many-to-one>
+        <many-to-one name="master" class="entity.Master" fetch="select">
+            <column name="MasterId" />
+        </many-to-one>
+        <property name="cardNumber" type="string">
+            <column name="CardNumber" length="100" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>
