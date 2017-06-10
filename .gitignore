@@ -6,3 +6,6 @@ CSharpCardProcessing/Mm.BusinessLayer/bin/Debug/
 CSharpCardProcessing/Mm.BusinessLayer/obj/Debug/
 CSharpCardProcessing/Mm.WebService/bin/
 CSharpCardProcessing/Mm.WebService/obj/Debug/
+JavaRestfulAPI/.idea/
+JavaRestfulAPI/java-restful-api.iml
+CSharpCardProcessing/Mm.DomainModel/CardProcessing.cs
