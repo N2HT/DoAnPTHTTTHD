@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2017 12:17:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="controller.API.model.CardType" table="CardType" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="cardTypeId" type="int">
+            <column name="CardTypeId" />
+            <generator class="assigned" />
+        </id>
+        <property name="cardTypeName" type="serializable">
+            <column name="CardTypeName" />
+        </property>
+        <set name="cards" table="Card" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CardTypeId" />
+            </key>
+            <one-to-many class="controller.API.model.Card" />
+        </set>
+    </class>
+</hibernate-mapping>

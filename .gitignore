@@ -13,3 +13,4 @@ CSharpCardProcessing/Mm.DomainModel/CardProcessing.cs
 JavaRestfulAPI/.idea/
 JavaRestfulAPI/java-restful-api.iml
 JavaRestfulAPI/src/test/java/controller/
+JavaRestfulAPI/src/main/resources/hibernate.cfg.xml
