@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
-import model.Account;
+import entity.Account;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

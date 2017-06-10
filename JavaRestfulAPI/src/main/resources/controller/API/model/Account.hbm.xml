@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2017 12:17:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="controller.API.model.Account" table="Account" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="accountId" type="int">
+            <column name="AccountId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="privilege" class="controller.API.model.Privilege" fetch="select">
+            <column name="PrivilegeId" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="UserName" length="50" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="50" />
+        </property>
+        <property name="activate" type="java.lang.Boolean">
+            <column name="Activate" />
+        </property>
+        <set name="masters" table="Master" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="controller.API.model.Master" />
+        </set>
+        <set name="agents" table="Agent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="controller.API.model.Agent" />
+        </set>
+        <set name="merchants" table="Merchant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AccountId" />
+            </key>
+            <one-to-many class="controller.API.model.Merchant" />
+        </set>
+    </class>
+</hibernate-mapping>

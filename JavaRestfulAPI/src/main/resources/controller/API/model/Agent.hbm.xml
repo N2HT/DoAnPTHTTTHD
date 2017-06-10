@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2017 12:17:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="controller.API.model.Agent" table="Agent" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
+        <id name="agentId" type="int">
+            <column name="AgentId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="account" class="controller.API.model.Account" fetch="select">
+            <column name="AccountId" />
+        </many-to-one>
+        <many-to-one name="agent" class="controller.API.model.Agent" fetch="select">
+            <column name="ParentAgentId" />
+        </many-to-one>
+        <many-to-one name="area" class="controller.API.model.Area" fetch="select">
+            <column name="AreaId" />
+        </many-to-one>
+        <many-to-one name="master" class="controller.API.model.Master" fetch="select">
+            <column name="MasterId" />
+        </many-to-one>
+        <property name="agentName" type="serializable">
+            <column name="AgentName" />
+        </property>
+        <property name="activate" type="java.lang.Boolean">
+            <column name="Activate" />
+        </property>
+        <set name="agents" table="Agent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ParentAgentId" />
+            </key>
+            <one-to-many class="controller.API.model.Agent" />
+        </set>
+        <set name="merchants" table="Merchant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AgentId" />
+            </key>
+            <one-to-many class="controller.API.model.Merchant" />
+        </set>
+    </class>
+</hibernate-mapping>
