@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="CardProcessing" match-schema="dbo"/>
-  <table-filter match-name="Account"/>
-  <table-filter match-name="AccountStatement"/>
-  <table-filter match-name="MessageType"/>
-  <table-filter match-name="MerchantType"/>
-  <table-filter match-name="Message"/>
-  <table-filter match-name="Master"/>
-  <table-filter match-name="Area"/>
-  <table-filter match-name="Agent"/>
-  <table-filter match-name="Card"/>
-  <table-filter match-name="Report_Agent"/>
-  <table-filter match-name="ReportType"/>
-  <table-filter match-name="CardType"/>
-  <table-filter match-name="Privilege"/>
-  <table-filter match-name="TransactionType"/>
-  <table-filter match-name="Report_Merchant"/>
-  <table-filter match-name="Report_Master"/>
-  <table-filter match-name="TransactionDetails"/>
-  <table-filter match-name="Merchant"/>
+    <schema-selection match-catalog="CardProcessing" match-schema="dbo"/>
+    <table-filter match-name="Account"/>
+    <table-filter match-name="AccountStatement"/>
+    <table-filter match-name="MessageType"/>
+    <table-filter match-name="MerchantType"/>
+    <table-filter match-name="Message"/>
+    <table-filter match-name="Master"/>
+    <table-filter match-name="Area"/>
+    <table-filter match-name="Agent"/>
+    <table-filter match-name="Card"/>
+    <table-filter match-name="Report_Agent"/>
+    <table-filter match-name="ReportType"/>
+    <table-filter match-name="CardType"/>
+    <table-filter match-name="Privilege"/>
+    <table-filter match-name="TransactionType"/>
+    <table-filter match-name="Report_Merchant"/>
+    <table-filter match-name="Report_Master"/>
+    <table-filter match-name="TransactionDetails"/>
+    <table-filter match-name="Merchant"/>
 </hibernate-reverse-engineering>

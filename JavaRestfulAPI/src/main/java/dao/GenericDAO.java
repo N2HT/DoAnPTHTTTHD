@@ -1,9 +1,9 @@
 package dao;
 
-import utils.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import utils.HibernateUtil;
 
 import java.util.List;
 
@@ -20,8 +20,8 @@ public class GenericDAO<T> implements IGenericDAO<T> {
     }
 
     protected Session getSession() {
-        //return HibernateUtil.getSessionFactory().getCurrentSession();
-        return sessionFactory.getCurrentSession();
+        return HibernateUtil.getSessionFactory().getCurrentSession();
+//        return sessionFactory.getCurrentSession();
     }
 
     @Override

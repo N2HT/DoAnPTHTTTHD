@@ -24,7 +24,7 @@ public class Privilege  implements java.io.Serializable {
 
 
      private int privilegeId;
-     private Serializable privilegeName;
+     private String privilegeName;
      private Set<Account> accounts = new HashSet<Account>(0);
 
     public Privilege() {
@@ -34,7 +34,7 @@ public class Privilege  implements java.io.Serializable {
     public Privilege(int privilegeId) {
         this.privilegeId = privilegeId;
     }
-    public Privilege(int privilegeId, Serializable privilegeName, Set<Account> accounts) {
+    public Privilege(int privilegeId, String privilegeName, Set<Account> accounts) {
        this.privilegeId = privilegeId;
        this.privilegeName = privilegeName;
        this.accounts = accounts;
@@ -54,11 +54,11 @@ public class Privilege  implements java.io.Serializable {
 
     
     @Column(name="PrivilegeName")
-    public Serializable getPrivilegeName() {
+    public String getPrivilegeName() {
         return this.privilegeName;
     }
     
-    public void setPrivilegeName(Serializable privilegeName) {
+    public void setPrivilegeName(String privilegeName) {
         this.privilegeName = privilegeName;
     }
 

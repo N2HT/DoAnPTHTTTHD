@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MasterService implements IMasterService {
 
-    private MasterDaoImpl masterDao;
+    private MasterDaoImpl masterDao = new MasterDaoImpl();
     @Override
     public Master getById(int id) throws Exception {
         return masterDao.getByID(id);
@@ -36,6 +36,6 @@ public class MasterService implements IMasterService {
 
     @Override
     public List getall() throws Exception {
-        return null;
+        return masterDao.getall(Master.class);
     }
 }

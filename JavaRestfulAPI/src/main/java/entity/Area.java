@@ -24,7 +24,7 @@ public class Area  implements java.io.Serializable {
 
 
      private int areaId;
-     private Serializable areaName;
+     private String areaName;
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
      private Set<Agent> agents = new HashSet<Agent>(0);
 
@@ -35,7 +35,7 @@ public class Area  implements java.io.Serializable {
     public Area(int areaId) {
         this.areaId = areaId;
     }
-    public Area(int areaId, Serializable areaName, Set<Merchant> merchants, Set<Agent> agents) {
+    public Area(int areaId, String areaName, Set<Merchant> merchants, Set<Agent> agents) {
        this.areaId = areaId;
        this.areaName = areaName;
        this.merchants = merchants;
@@ -56,11 +56,11 @@ public class Area  implements java.io.Serializable {
 
     
     @Column(name="AreaName")
-    public Serializable getAreaName() {
+    public String getAreaName() {
         return this.areaName;
     }
     
-    public void setAreaName(Serializable areaName) {
+    public void setAreaName(String areaName) {
         this.areaName = areaName;
     }
 

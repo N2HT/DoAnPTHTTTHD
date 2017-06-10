@@ -24,7 +24,7 @@ public class CardType  implements java.io.Serializable {
 
 
      private int cardTypeId;
-     private Serializable cardTypeName;
+     private String cardTypeName;
      private Set<Card> cards = new HashSet<Card>(0);
 
     public CardType() {
@@ -34,7 +34,7 @@ public class CardType  implements java.io.Serializable {
     public CardType(int cardTypeId) {
         this.cardTypeId = cardTypeId;
     }
-    public CardType(int cardTypeId, Serializable cardTypeName, Set<Card> cards) {
+    public CardType(int cardTypeId, String cardTypeName, Set<Card> cards) {
        this.cardTypeId = cardTypeId;
        this.cardTypeName = cardTypeName;
        this.cards = cards;
@@ -54,11 +54,11 @@ public class CardType  implements java.io.Serializable {
 
     
     @Column(name="CardTypeName")
-    public Serializable getCardTypeName() {
+    public String getCardTypeName() {
         return this.cardTypeName;
     }
     
-    public void setCardTypeName(Serializable cardTypeName) {
+    public void setCardTypeName(String cardTypeName) {
         this.cardTypeName = cardTypeName;
     }
 

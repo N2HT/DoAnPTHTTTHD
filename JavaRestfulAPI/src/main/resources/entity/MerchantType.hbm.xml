@@ -8,7 +8,7 @@
             <column name="MerchantTypeId" />
             <generator class="assigned" />
         </id>
-        <property name="merchantTypeName" type="serializable">
+        <property name="merchantTypeName" type="string">
             <column name="MerchantTypeName" />
         </property>
         <set name="merchants" table="Merchant" inverse="true" lazy="true" fetch="select">
