@@ -141,5 +141,22 @@ namespace Mm.WebService.Controllers
 			}
 
 		}
-	}
+        [HttpGet]
+        [Route("api/agent/getWithPaging")]
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage GetAllAgentWithPaging(int limit, int upset)
+        {
+            try
+            {
+                var list = BusinessLayer.GetAllAgentWithPaging(limit, upset);
+                return list == null ? Request.CreateResponse(HttpStatusCode.NotFound, 0) : Request.CreateResponse(HttpStatusCode.OK, list);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+            }
+
+        }
+    }
 }

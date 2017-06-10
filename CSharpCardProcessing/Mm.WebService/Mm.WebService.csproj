@@ -91,6 +91,7 @@
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
+    <Compile Include="Controllers\SendMessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Filters\AuthenticationFailureResult.cs" />

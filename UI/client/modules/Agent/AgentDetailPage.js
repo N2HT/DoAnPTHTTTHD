@@ -26,7 +26,7 @@ export default class AgentDetailPage extends React.Component {
           </IconButton>
         </Subheader>
         <div>
-          
+
         </div>
       </div>
     );
