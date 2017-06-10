@@ -4,9 +4,9 @@
   <session-factory>
     <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.password">123456</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost\MYPC/SQLEXPRESS:1433;databaseName=CardProcessing</property>
-    <property name="hibernate.connection.username">ntnhan</property>
+    <property name="hibernate.connection.password">1</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://NTTTUE:1433;databaseName=CardProcessing</property>
+    <property name="hibernate.connection.username">java</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.database.application">CardProcessing</property>
     <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
