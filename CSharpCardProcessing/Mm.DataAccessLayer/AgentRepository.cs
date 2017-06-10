@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mm.BusinessLayer
+namespace Mm.DataAccessLayer
 {
-    
-    class TestClass
+    class AgentRepository
     {
-        
-        public void test()
-        {
-
-        }
     }
 }

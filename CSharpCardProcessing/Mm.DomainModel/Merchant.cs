@@ -26,7 +26,7 @@ namespace Mm.DomainModel
         public Nullable<System.DateTime> BeginDay { get; set; }
         public Nullable<bool> Activate { get; set; }
         public Nullable<int> MerchantTypeId { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public Nullable<int> AreaId { get; set; }
         public Nullable<int> AccountId { get; set; }
     
         public virtual Account Account { get; set; }
