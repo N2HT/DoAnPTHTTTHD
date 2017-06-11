@@ -9,5 +9,6 @@ namespace Mm.BusinessLayer.Interface
         Account GetAccountById(int id);
         Account GetAccountByUsername(string id);
         IList<Account> Get();
+		bool IsExists(string username);
 	}
 }

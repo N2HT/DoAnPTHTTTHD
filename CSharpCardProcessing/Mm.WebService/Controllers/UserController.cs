@@ -71,13 +71,23 @@ namespace Mm.WebService.Controllers {
         }
         [HttpGet]
         [Route("api/user/get")]
-        //[JwtAuthentication]
-        //[Authorize]
+        [JwtAuthentication]
+        [Authorize]
         public HttpResponseMessage Get()
         {
             return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.Get());
         }
-    }
+
+	    [HttpGet]
+	    [Route("api/user/isExists")]
+	    [JwtAuthentication]
+	    [Authorize]
+	    public HttpResponseMessage IsExists(string username)
+	    {
+		    return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.IsExists(username));
+	    }
+
+	}
     public class LoginInfo {
         public string Username { get; set; }
         public string Password { get; set; }
