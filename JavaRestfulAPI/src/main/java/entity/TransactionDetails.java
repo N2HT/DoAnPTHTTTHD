@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class TransactionDetails  implements java.io.Serializable {
+public class TransactionDetails {
 
 
      private int id;

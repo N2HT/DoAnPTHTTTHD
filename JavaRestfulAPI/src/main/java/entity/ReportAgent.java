@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class ReportAgent  implements java.io.Serializable {
+public class ReportAgent {
 
 
      private int reportId;

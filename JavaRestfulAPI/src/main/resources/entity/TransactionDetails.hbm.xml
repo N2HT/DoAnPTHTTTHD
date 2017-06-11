@@ -14,7 +14,7 @@
         <many-to-one name="transactionType" class="entity.TransactionType" fetch="select">
             <column name="TransactionTypeId" />
         </many-to-one>
-        <property name="product" type="string">
+        <property name="product" type="java.lang.String">
             <column name="Product" length="150" />
         </property>
         <property name="quantity" type="java.lang.Double">
@@ -23,7 +23,7 @@
         <property name="unitPrice" type="big_decimal">
             <column name="UnitPrice" scale="4" />
         </property>
-        <property name="cardNumber" type="string">
+        <property name="cardNumber" type="java.lang.String">
             <column name="CardNumber" length="100" />
         </property>
         <property name="transactionTime" type="timestamp">

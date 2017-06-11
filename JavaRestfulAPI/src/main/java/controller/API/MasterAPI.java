@@ -1,5 +1,6 @@
 package controller.API;
 
+import com.google.gson.GsonBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import service.Impl.MasterService;
 import com.google.gson.Gson;
 import entity.Master;
+import utils.HibernateProxyTypeAdapter;
 
 import java.util.List;
 
@@ -26,10 +28,19 @@ public class MasterAPI {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<String> list() {
         try {
+            GsonBuilder b = new GsonBuilder();
+            b.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
+//            Gson gson = b.create();
             Gson gson = new Gson();
             List<Master> masters = masterService.getall();
-            String jsonMasters = gson.toJson(masters);
+            String jsonMasters = "";
 
+            for (Master master :
+                    masters) {
+
+                jsonMasters += gson.toJson(master);
+            }
+//            String jsonMasters = gson.toJson(masters);
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
             return new ResponseEntity<String>(jsonMasters, responseHeaders, HttpStatus.OK);

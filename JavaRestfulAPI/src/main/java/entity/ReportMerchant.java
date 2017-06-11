@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class ReportMerchant  implements java.io.Serializable {
+public class ReportMerchant {
 
 
      private int reportId;
@@ -31,7 +31,7 @@ public class ReportMerchant  implements java.io.Serializable {
      private ReportType reportType;
      private Integer merchantId;
      private Integer transactionType;
-     private Serializable cardType;
+     private String cardType;
      private BigDecimal saleAmount;
      private BigDecimal returnAmount;
      private Integer saleCount;
@@ -48,7 +48,7 @@ public class ReportMerchant  implements java.io.Serializable {
     public ReportMerchant(int reportId) {
         this.reportId = reportId;
     }
-    public ReportMerchant(int reportId, ReportAgent reportAgent, ReportType reportType, Integer merchantId, Integer transactionType, Serializable cardType, BigDecimal saleAmount, BigDecimal returnAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate) {
+    public ReportMerchant(int reportId, ReportAgent reportAgent, ReportType reportType, Integer merchantId, Integer transactionType, String cardType, BigDecimal saleAmount, BigDecimal returnAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate) {
        this.reportId = reportId;
        this.reportAgent = reportAgent;
        this.reportType = reportType;
@@ -119,11 +119,11 @@ public class ReportMerchant  implements java.io.Serializable {
 
     
     @Column(name="CardType")
-    public Serializable getCardType() {
+    public String getCardType() {
         return this.cardType;
     }
     
-    public void setCardType(Serializable cardType) {
+    public void setCardType(String cardType) {
         this.cardType = cardType;
     }
 

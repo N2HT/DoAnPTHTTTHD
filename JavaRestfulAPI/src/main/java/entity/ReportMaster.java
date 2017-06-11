@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class ReportMaster  implements java.io.Serializable {
+public class ReportMaster {
 
 
      private int reportId;

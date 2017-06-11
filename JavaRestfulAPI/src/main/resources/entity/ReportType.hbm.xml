@@ -8,7 +8,7 @@
             <column name="ReportTypeId" />
             <generator class="assigned" />
         </id>
-        <property name="reportTypeName" type="serializable">
+        <property name="reportTypeName" type="java.lang.String">
             <column name="ReportTypeName" />
         </property>
         <set name="reportMasters" table="Report_Master" inverse="true" lazy="true" fetch="select">

@@ -22,12 +22,7 @@ public class GenericDAO<T> implements IGenericDAO<T> {
     }
 
     protected Session getSession() {
-        if (session != null)
-            return session;
-        else {
-            session = HibernateUtil.getSessionFactory().getCurrentSession();
-            return session;
-        }
+        return HibernateUtil.getSessionFactory().getCurrentSession();
     }
 
     @Override

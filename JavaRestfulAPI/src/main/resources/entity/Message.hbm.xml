@@ -17,7 +17,7 @@
         <property name="userIdRecevie" type="java.lang.Integer">
             <column name="UserIdRecevie" />
         </property>
-        <property name="messageContent" type="string">
+        <property name="messageContent" type="java.lang.String">
             <column name="MessageContent" />
         </property>
         <property name="time" type="timestamp">

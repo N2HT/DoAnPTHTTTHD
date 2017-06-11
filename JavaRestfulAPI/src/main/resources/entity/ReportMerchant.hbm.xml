@@ -20,7 +20,7 @@
         <property name="transactionType" type="java.lang.Integer">
             <column name="TransactionType" />
         </property>
-        <property name="cardType" type="serializable">
+        <property name="cardType" type="java.lang.String">
             <column name="CardType" />
         </property>
         <property name="saleAmount" type="big_decimal">

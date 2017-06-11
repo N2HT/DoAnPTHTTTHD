@@ -11,10 +11,10 @@
         <many-to-one name="privilege" class="entity.Privilege" fetch="select">
             <column name="PrivilegeId" />
         </many-to-one>
-        <property name="userName" type="string">
+        <property name="userName" type="java.lang.String">
             <column name="UserName" length="50" />
         </property>
-        <property name="password" type="string">
+        <property name="password" type="java.lang.String">
             <column name="Password" length="50" />
         </property>
         <property name="activate" type="java.lang.Boolean">

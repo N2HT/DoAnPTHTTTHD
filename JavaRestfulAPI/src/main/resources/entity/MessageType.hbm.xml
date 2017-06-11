@@ -8,7 +8,7 @@
             <column name="MessageTypeId" />
             <generator class="assigned" />
         </id>
-        <property name="messageTypeName" type="serializable">
+        <property name="messageTypeName" type="java.lang.String">
             <column name="MessageTypeName" />
         </property>
         <set name="messages" table="Message" inverse="true" lazy="true" fetch="select">

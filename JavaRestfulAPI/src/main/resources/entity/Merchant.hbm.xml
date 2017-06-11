@@ -20,10 +20,10 @@
         <many-to-one name="merchantType" class="entity.MerchantType" fetch="select">
             <column name="MerchantTypeId" />
         </many-to-one>
-        <property name="merchantName" type="serializable">
+        <property name="merchantName" type="java.lang.String">
             <column name="MerchantName" />
         </property>
-        <property name="address" type="serializable">
+        <property name="address" type="java.lang.String">
             <column name="Address" />
         </property>
         <property name="beginDay" type="date">

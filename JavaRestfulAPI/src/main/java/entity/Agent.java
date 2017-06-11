@@ -22,7 +22,7 @@ import javax.persistence.Table;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class Agent  implements java.io.Serializable {
+public class Agent {
 
 
      private int agentId;
@@ -30,7 +30,7 @@ public class Agent  implements java.io.Serializable {
      private Agent agent;
      private Area area;
      private Master master;
-     private Serializable agentName;
+     private String agentName;
      private Boolean activate;
      private Set<Agent> agents = new HashSet<Agent>(0);
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
@@ -42,7 +42,7 @@ public class Agent  implements java.io.Serializable {
     public Agent(int agentId) {
         this.agentId = agentId;
     }
-    public Agent(int agentId, Account account, Agent agent, Area area, Master master, Serializable agentName, Boolean activate, Set<Agent> agents, Set<Merchant> merchants) {
+    public Agent(int agentId, Account account, Agent agent, Area area, Master master, String agentName, Boolean activate, Set<Agent> agents, Set<Merchant> merchants) {
        this.agentId = agentId;
        this.account = account;
        this.agent = agent;
@@ -108,11 +108,11 @@ public class Agent  implements java.io.Serializable {
 
     
     @Column(name="AgentName")
-    public Serializable getAgentName() {
+    public String getAgentName() {
         return this.agentName;
     }
     
-    public void setAgentName(Serializable agentName) {
+    public void setAgentName(String agentName) {
         this.agentName = agentName;
     }
 

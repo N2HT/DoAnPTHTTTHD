@@ -8,7 +8,7 @@
             <column name="PrivilegeId" />
             <generator class="assigned" />
         </id>
-        <property name="privilegeName" type="serializable">
+        <property name="privilegeName" type="java.lang.String">
             <column name="PrivilegeName" />
         </property>
         <set name="accounts" table="Account" inverse="true" lazy="true" fetch="select">

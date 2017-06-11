@@ -20,11 +20,11 @@ import javax.persistence.Table;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class MessageType  implements java.io.Serializable {
+public class MessageType {
 
 
      private int messageTypeId;
-     private Serializable messageTypeName;
+     private String messageTypeName;
      private Set<Message> messages = new HashSet<Message>(0);
 
     public MessageType() {
@@ -34,7 +34,7 @@ public class MessageType  implements java.io.Serializable {
     public MessageType(int messageTypeId) {
         this.messageTypeId = messageTypeId;
     }
-    public MessageType(int messageTypeId, Serializable messageTypeName, Set<Message> messages) {
+    public MessageType(int messageTypeId, String messageTypeName, Set<Message> messages) {
        this.messageTypeId = messageTypeId;
        this.messageTypeName = messageTypeName;
        this.messages = messages;
@@ -54,11 +54,11 @@ public class MessageType  implements java.io.Serializable {
 
     
     @Column(name="MessageTypeName")
-    public Serializable getMessageTypeName() {
+    public String getMessageTypeName() {
         return this.messageTypeName;
     }
     
-    public void setMessageTypeName(Serializable messageTypeName) {
+    public void setMessageTypeName(String messageTypeName) {
         this.messageTypeName = messageTypeName;
     }
 
