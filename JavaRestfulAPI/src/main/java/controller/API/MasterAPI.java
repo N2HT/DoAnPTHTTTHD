@@ -23,7 +23,7 @@ public class MasterAPI {
     public MasterService masterService = new MasterService();
 
     //http://localhost:8080/api/masters
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<String> list() {
         try {
             Gson gson = new Gson();
@@ -37,7 +37,8 @@ public class MasterAPI {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+        return new ResponseEntity<String>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 
     //run: http://localhost:8080/api/masters/1
@@ -55,7 +56,8 @@ public class MasterAPI {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+        return new ResponseEntity<String>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 
 

@@ -25,12 +25,17 @@ public class ReportMerchantService implements IReportMerchantService {
     }
 
     @Override
-    public Object get(Long id) throws Exception {
+    public Object get(int id) throws Exception {
         return null;
     }
 
     @Override
     public List getall() throws Exception {
         return reportMerchantDAO.getall(ReportMerchant.class);
+    }
+
+    @Override
+    public List getListWithHQL(String HQL) throws Exception {
+        return null;
     }
 }

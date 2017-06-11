@@ -26,12 +26,17 @@ public class ReportAgentService implements IReportAgentService {
     }
 
     @Override
-    public Object get(Long id) throws Exception {
+    public Object get(int id) throws Exception {
         return null;
     }
 
     @Override
     public List getall() throws Exception {
         return reportAgentDAO.getall(ReportAgent.class);
+    }
+
+    @Override
+    public List getListWithHQL(String HQL) throws Exception {
+        return null;
     }
 }

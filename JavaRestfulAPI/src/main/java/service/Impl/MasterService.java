@@ -30,12 +30,17 @@ public class MasterService implements IMasterService {
     }
 
     @Override
-    public Object get(Long id) throws Exception {
+    public Object get(int id) throws Exception {
         return null;
     }
 
     @Override
     public List getall() throws Exception {
         return masterDao.getall(Master.class);
+    }
+
+    @Override
+    public List getListWithHQL(String HQL) throws Exception {
+        return null;
     }
 }

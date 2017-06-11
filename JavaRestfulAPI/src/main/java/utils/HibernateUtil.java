@@ -22,7 +22,10 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        if (sessionFactory != null)
+            return sessionFactory;
+        else
+            return buildSessionFactory();
     }
 
     public static void shutdown() {
