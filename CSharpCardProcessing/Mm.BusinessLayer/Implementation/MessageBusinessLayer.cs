@@ -13,7 +13,13 @@ namespace Mm.BusinessLayer.Implementation
     public class MessageBusinessLayer : IMessageBusinessLayer
     {
         private IMessageRepository _repository;
-        public IMessageRepository Repository => _repository ?? (_repository = new MessageRepository());
+        public IMessageRepository Repository {
+            get {
+                if (_repository == null)
+                    _repository = new MessageRepository();
+                return _repository;
+            }
+        }
 
         public List<Message> Get()
         {

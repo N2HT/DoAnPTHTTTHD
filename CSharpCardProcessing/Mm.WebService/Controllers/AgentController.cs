@@ -14,7 +14,13 @@ namespace Mm.WebService.Controllers
 	public class AgentController : ApiController
 	{
 		private IAgentBusinessLayer _businessLayer;
-		public IAgentBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new AgentBusinessLayer());
+        public IAgentBusinessLayer BusinessLayer {
+            get {
+                if (_businessLayer == null)
+                    _businessLayer = new AgentBusinessLayer();
+                return _businessLayer;
+            }
+        }
 
 		[HttpPut]
 		[Route("api/agent/update")]

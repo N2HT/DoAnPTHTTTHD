@@ -14,7 +14,13 @@ namespace Mm.WebService.Controllers
 	public class MerchantController : ApiController
 	{
 		private IMerchantBusinessLayer _businessLayer;
-		public IMerchantBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MerchantBusinessLayer());
+        public IMerchantBusinessLayer BusinessLayer {
+            get {
+                if (_businessLayer == null)
+                    _businessLayer = new MerchantBusinessLayer();
+                return _businessLayer;
+            }
+        }
 
 		[HttpPut]
 		[Route("api/merchant/update")]

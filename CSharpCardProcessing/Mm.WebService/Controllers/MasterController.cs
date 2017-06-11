@@ -14,8 +14,13 @@ namespace Mm.WebService.Controllers
 	public class MasterController : ApiController
 	{
 		private IMasterBusinessLayer _businessLayer;
-
-		public IMasterBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MasterBusinessLayer());
+        public IMasterBusinessLayer BusinessLayer {
+            get {
+                if (_businessLayer == null)
+                    _businessLayer = new MasterBusinessLayer();
+                return _businessLayer;
+            }
+        }
 		[HttpPut]
 		[Route("api/master/update")]
 		[JwtAuthentication]

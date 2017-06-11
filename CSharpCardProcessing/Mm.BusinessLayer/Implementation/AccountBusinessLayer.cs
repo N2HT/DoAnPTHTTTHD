@@ -8,7 +8,13 @@ namespace Mm.BusinessLayer.Implementation
 	public class AccountBusinessLayer : IAccountBusinessLayer
 	{
 		private IAccountRepository _repository;
-		public IAccountRepository Repository => _repository ?? (_repository = new AccountRepository());
+        public IAccountRepository Repository {
+            get {
+                if (_repository == null)
+                    _repository = new AccountRepository();
+                return _repository;
+            }
+        }
 		public Account Login(string username, string password)
 		{
 			// If the username or password not fill

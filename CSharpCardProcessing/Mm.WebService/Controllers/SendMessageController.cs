@@ -15,7 +15,13 @@ namespace Mm.WebService.Controllers
     public class SendMessageController : ApiController
     {
         private IMessageBusinessLayer _businessLayer;
-        public IMessageBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new MessageBusinessLayer());
+        public IMessageBusinessLayer BusinessLayer {
+            get {
+                if (_businessLayer == null)
+                    _businessLayer = new MessageBusinessLayer();
+                return _businessLayer;
+            }
+        }
 
         [HttpPost]
         [Route("api/message/send")]
