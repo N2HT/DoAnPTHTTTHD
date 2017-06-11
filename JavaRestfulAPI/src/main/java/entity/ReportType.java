@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class ReportType  implements java.io.Serializable {
 
 
      private int reportTypeId;
-     private String reportTypeName;
+     private Serializable reportTypeName;
      private Set<ReportMaster> reportMasters = new HashSet<ReportMaster>(0);
      private Set<ReportMerchant> reportMerchants = new HashSet<ReportMerchant>(0);
      private Set<ReportAgent> reportAgents = new HashSet<ReportAgent>(0);
@@ -36,7 +36,7 @@ public class ReportType  implements java.io.Serializable {
     public ReportType(int reportTypeId) {
         this.reportTypeId = reportTypeId;
     }
-    public ReportType(int reportTypeId, String reportTypeName, Set<ReportMaster> reportMasters, Set<ReportMerchant> reportMerchants, Set<ReportAgent> reportAgents) {
+    public ReportType(int reportTypeId, Serializable reportTypeName, Set<ReportMaster> reportMasters, Set<ReportMerchant> reportMerchants, Set<ReportAgent> reportAgents) {
        this.reportTypeId = reportTypeId;
        this.reportTypeName = reportTypeName;
        this.reportMasters = reportMasters;
@@ -58,11 +58,11 @@ public class ReportType  implements java.io.Serializable {
 
     
     @Column(name="ReportTypeName")
-    public String getReportTypeName() {
+    public Serializable getReportTypeName() {
         return this.reportTypeName;
     }
     
-    public void setReportTypeName(String reportTypeName) {
+    public void setReportTypeName(Serializable reportTypeName) {
         this.reportTypeName = reportTypeName;
     }
 

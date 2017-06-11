@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.ReportAgent" table="Report_Agent" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="reportId" type="int">
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="reportMaster" class="entity.ReportMaster" fetch="select">
+            <column name="ParentReportId" />
+        </many-to-one>
         <many-to-one name="reportType" class="entity.ReportType" fetch="select">
             <column name="ReportTypeId" />
         </many-to-one>
@@ -53,5 +56,11 @@
         <property name="toDate" type="date">
             <column name="ToDate" length="10" />
         </property>
+        <set name="reportMerchants" table="Report_Merchant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ParentReportId" />
+            </key>
+            <one-to-many class="entity.ReportMerchant" />
+        </set>
     </class>
 </hibernate-mapping>

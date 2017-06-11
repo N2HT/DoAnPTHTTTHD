@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.MerchantType" table="MerchantType" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="merchantTypeId" type="int">
             <column name="MerchantTypeId" />
             <generator class="assigned" />
         </id>
-        <property name="merchantTypeName" type="string">
+        <property name="merchantTypeName" type="serializable">
             <column name="MerchantTypeName" />
         </property>
         <set name="merchants" table="Merchant" inverse="true" lazy="true" fetch="select">

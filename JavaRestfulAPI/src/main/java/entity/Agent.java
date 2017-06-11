@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -30,7 +30,7 @@ public class Agent  implements java.io.Serializable {
      private Agent agent;
      private Area area;
      private Master master;
-     private String agentName;
+     private Serializable agentName;
      private Boolean activate;
      private Set<Agent> agents = new HashSet<Agent>(0);
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
@@ -42,7 +42,7 @@ public class Agent  implements java.io.Serializable {
     public Agent(int agentId) {
         this.agentId = agentId;
     }
-    public Agent(int agentId, Account account, Agent agent, Area area, Master master, String agentName, Boolean activate, Set<Agent> agents, Set<Merchant> merchants) {
+    public Agent(int agentId, Account account, Agent agent, Area area, Master master, Serializable agentName, Boolean activate, Set<Agent> agents, Set<Merchant> merchants) {
        this.agentId = agentId;
        this.account = account;
        this.agent = agent;
@@ -108,11 +108,11 @@ public class Agent  implements java.io.Serializable {
 
     
     @Column(name="AgentName")
-    public String getAgentName() {
+    public Serializable getAgentName() {
         return this.agentName;
     }
     
-    public void setAgentName(String agentName) {
+    public void setAgentName(Serializable agentName) {
         this.agentName = agentName;
     }
 

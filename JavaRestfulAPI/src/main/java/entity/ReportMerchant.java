@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -27,10 +27,11 @@ public class ReportMerchant  implements java.io.Serializable {
 
 
      private int reportId;
+     private ReportAgent reportAgent;
      private ReportType reportType;
      private Integer merchantId;
      private Integer transactionType;
-     private String cardType;
+     private Serializable cardType;
      private BigDecimal saleAmount;
      private BigDecimal returnAmount;
      private Integer saleCount;
@@ -47,8 +48,9 @@ public class ReportMerchant  implements java.io.Serializable {
     public ReportMerchant(int reportId) {
         this.reportId = reportId;
     }
-    public ReportMerchant(int reportId, ReportType reportType, Integer merchantId, Integer transactionType, String cardType, BigDecimal saleAmount, BigDecimal returnAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate) {
+    public ReportMerchant(int reportId, ReportAgent reportAgent, ReportType reportType, Integer merchantId, Integer transactionType, Serializable cardType, BigDecimal saleAmount, BigDecimal returnAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate) {
        this.reportId = reportId;
+       this.reportAgent = reportAgent;
        this.reportType = reportType;
        this.merchantId = merchantId;
        this.transactionType = transactionType;
@@ -73,6 +75,16 @@ public class ReportMerchant  implements java.io.Serializable {
     
     public void setReportId(int reportId) {
         this.reportId = reportId;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ParentReportId")
+    public ReportAgent getReportAgent() {
+        return this.reportAgent;
+    }
+    
+    public void setReportAgent(ReportAgent reportAgent) {
+        this.reportAgent = reportAgent;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -107,11 +119,11 @@ public class ReportMerchant  implements java.io.Serializable {
 
     
     @Column(name="CardType")
-    public String getCardType() {
+    public Serializable getCardType() {
         return this.cardType;
     }
     
-    public void setCardType(String cardType) {
+    public void setCardType(Serializable cardType) {
         this.cardType = cardType;
     }
 

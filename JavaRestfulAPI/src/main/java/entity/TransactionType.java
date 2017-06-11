@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class TransactionType  implements java.io.Serializable {
 
 
      private int transactionTypeId;
-     private String transactionTypeName;
+     private Serializable transactionTypeName;
      private Set<TransactionDetails> transactionDetailses = new HashSet<TransactionDetails>(0);
 
     public TransactionType() {
@@ -34,7 +34,7 @@ public class TransactionType  implements java.io.Serializable {
     public TransactionType(int transactionTypeId) {
         this.transactionTypeId = transactionTypeId;
     }
-    public TransactionType(int transactionTypeId, String transactionTypeName, Set<TransactionDetails> transactionDetailses) {
+    public TransactionType(int transactionTypeId, Serializable transactionTypeName, Set<TransactionDetails> transactionDetailses) {
        this.transactionTypeId = transactionTypeId;
        this.transactionTypeName = transactionTypeName;
        this.transactionDetailses = transactionDetailses;
@@ -54,11 +54,11 @@ public class TransactionType  implements java.io.Serializable {
 
     
     @Column(name="TransactionTypeName")
-    public String getTransactionTypeName() {
+    public Serializable getTransactionTypeName() {
         return this.transactionTypeName;
     }
     
-    public void setTransactionTypeName(String transactionTypeName) {
+    public void setTransactionTypeName(Serializable transactionTypeName) {
         this.transactionTypeName = transactionTypeName;
     }
 

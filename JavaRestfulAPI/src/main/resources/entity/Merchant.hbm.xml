@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Merchant" table="Merchant" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="merchantId" type="int">
@@ -20,10 +20,10 @@
         <many-to-one name="merchantType" class="entity.MerchantType" fetch="select">
             <column name="MerchantTypeId" />
         </many-to-one>
-        <property name="merchantName" type="string">
+        <property name="merchantName" type="serializable">
             <column name="MerchantName" />
         </property>
-        <property name="address" type="string">
+        <property name="address" type="serializable">
             <column name="Address" />
         </property>
         <property name="beginDay" type="date">

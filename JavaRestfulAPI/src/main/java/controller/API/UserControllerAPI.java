@@ -19,7 +19,7 @@ import security.AuthCheck;
 @RequestMapping(value = "/api")
 public class UserControllerAPI {
     @RequestMapping(value = "/token", method = RequestMethod.GET)
-    public @ResponseBody Object token(@RequestHeader(value="JAuthorization") String _token) {
+    public @ResponseBody Object token(@RequestHeader(value="Authorization") String _token) {
         boolean result = AuthCheck.VerifyToken(_token);
         Object myobj;
         myobj = new Object() {

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Agent" table="Agent" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="agentId" type="int">
@@ -20,7 +20,7 @@
         <many-to-one name="master" class="entity.Master" fetch="select">
             <column name="MasterId" />
         </many-to-one>
-        <property name="agentName" type="string">
+        <property name="agentName" type="serializable">
             <column name="AgentName" />
         </property>
         <property name="activate" type="java.lang.Boolean">

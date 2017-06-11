@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.ReportMaster" table="Report_Master" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="reportId" type="int">
@@ -35,8 +35,8 @@
         <property name="saleAmount" type="big_decimal">
             <column name="SaleAmount" scale="4" />
         </property>
-        <property name="returmAmount" type="big_decimal">
-            <column name="ReturmAmount" scale="4" />
+        <property name="returnAmount" type="big_decimal">
+            <column name="ReturnAmount" scale="4" />
         </property>
         <property name="saleCount" type="java.lang.Integer">
             <column name="SaleCount" />
@@ -56,5 +56,11 @@
         <property name="toDate" type="date">
             <column name="ToDate" length="10" />
         </property>
+        <set name="reportAgents" table="Report_Agent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ParentReportId" />
+            </key>
+            <one-to-many class="entity.ReportAgent" />
+        </set>
     </class>
 </hibernate-mapping>

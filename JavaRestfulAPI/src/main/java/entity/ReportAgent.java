@@ -1,15 +1,18 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +29,7 @@ public class ReportAgent  implements java.io.Serializable {
 
 
      private int reportId;
+     private ReportMaster reportMaster;
      private ReportType reportType;
      private Integer agentId;
      private Integer transactionType;
@@ -41,6 +45,7 @@ public class ReportAgent  implements java.io.Serializable {
      private Date reportDate;
      private Date fromDate;
      private Date toDate;
+     private Set<ReportMerchant> reportMerchants = new HashSet<ReportMerchant>(0);
 
     public ReportAgent() {
     }
@@ -49,8 +54,9 @@ public class ReportAgent  implements java.io.Serializable {
     public ReportAgent(int reportId) {
         this.reportId = reportId;
     }
-    public ReportAgent(int reportId, ReportType reportType, Integer agentId, Integer transactionType, Integer merchant, Integer area, Integer cardType, Integer merchantType, BigDecimal saleAmount, BigDecimal returnAmount, BigDecimal saleCount, BigDecimal returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate) {
+    public ReportAgent(int reportId, ReportMaster reportMaster, ReportType reportType, Integer agentId, Integer transactionType, Integer merchant, Integer area, Integer cardType, Integer merchantType, BigDecimal saleAmount, BigDecimal returnAmount, BigDecimal saleCount, BigDecimal returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate, Set<ReportMerchant> reportMerchants) {
        this.reportId = reportId;
+       this.reportMaster = reportMaster;
        this.reportType = reportType;
        this.agentId = agentId;
        this.transactionType = transactionType;
@@ -66,6 +72,7 @@ public class ReportAgent  implements java.io.Serializable {
        this.reportDate = reportDate;
        this.fromDate = fromDate;
        this.toDate = toDate;
+       this.reportMerchants = reportMerchants;
     }
    
      @Id 
@@ -78,6 +85,16 @@ public class ReportAgent  implements java.io.Serializable {
     
     public void setReportId(int reportId) {
         this.reportId = reportId;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ParentReportId")
+    public ReportMaster getReportMaster() {
+        return this.reportMaster;
+    }
+    
+    public void setReportMaster(ReportMaster reportMaster) {
+        this.reportMaster = reportMaster;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -228,6 +245,15 @@ public class ReportAgent  implements java.io.Serializable {
     
     public void setToDate(Date toDate) {
         this.toDate = toDate;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="reportAgent")
+    public Set<ReportMerchant> getReportMerchants() {
+        return this.reportMerchants;
+    }
+    
+    public void setReportMerchants(Set<ReportMerchant> reportMerchants) {
+        this.reportMerchants = reportMerchants;
     }
 
 

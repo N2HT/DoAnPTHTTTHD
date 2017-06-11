@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class Privilege  implements java.io.Serializable {
 
 
      private int privilegeId;
-     private String privilegeName;
+     private Serializable privilegeName;
      private Set<Account> accounts = new HashSet<Account>(0);
 
     public Privilege() {
@@ -34,7 +34,7 @@ public class Privilege  implements java.io.Serializable {
     public Privilege(int privilegeId) {
         this.privilegeId = privilegeId;
     }
-    public Privilege(int privilegeId, String privilegeName, Set<Account> accounts) {
+    public Privilege(int privilegeId, Serializable privilegeName, Set<Account> accounts) {
        this.privilegeId = privilegeId;
        this.privilegeName = privilegeName;
        this.accounts = accounts;
@@ -54,11 +54,11 @@ public class Privilege  implements java.io.Serializable {
 
     
     @Column(name="PrivilegeName")
-    public String getPrivilegeName() {
+    public Serializable getPrivilegeName() {
         return this.privilegeName;
     }
     
-    public void setPrivilegeName(String privilegeName) {
+    public void setPrivilegeName(Serializable privilegeName) {
         this.privilegeName = privilegeName;
     }
 
