@@ -2,6 +2,8 @@
 using Mm.DataAccessLayer.Implementation;
 using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Mm.BusinessLayer.Implementation
 {
@@ -25,5 +27,9 @@ namespace Mm.BusinessLayer.Implementation
 			// Encode the password for check on db
 			return Repository.Login(username, MD5Helper.GetMd5Hash(password));
 		}
+        public IList<Account> Get()
+        {
+            return Repository.GetAll();
+        }
 	}
 }

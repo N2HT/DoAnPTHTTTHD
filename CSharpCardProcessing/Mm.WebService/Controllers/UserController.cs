@@ -41,6 +41,14 @@ namespace Mm.WebService.Controllers {
         public HttpResponseMessage Test() {
             return Request.CreateResponse(HttpStatusCode.OK, new { message = "Sucess" });
         }
+        [HttpGet]
+        [Route("api/user/get")]
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage Get()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.Get());
+        }
     }
     public class LoginInfo {
         public string Username { get; set; }

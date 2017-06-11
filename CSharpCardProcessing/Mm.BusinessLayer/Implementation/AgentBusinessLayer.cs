@@ -32,9 +32,10 @@ namespace Mm.BusinessLayer.Implementation
 			return Repository.GetSingle(d => d.AgentId == id, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
-		public void AddAgent(params Agent[] agents)
+		public Agent AddAgent(params Agent[] agents)
 		{
-			Repository.Add(agents);
+			var a = Repository.Add(agents);
+            return Repository.GetSingle(b => b.AgentId == a.AgentId, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
 		public void UpdateAgent(params Agent[] agents)
