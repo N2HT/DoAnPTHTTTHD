@@ -11,6 +11,7 @@ import java.util.List;
 public class GenericDAO<T> implements IGenericDAO<T> {
 
     private SessionFactory sessionFactory;
+    private Session session;
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
@@ -21,7 +22,12 @@ public class GenericDAO<T> implements IGenericDAO<T> {
     }
 
     protected Session getSession() {
-        return HibernateUtil.getSessionFactory().getCurrentSession();
+        if (session != null)
+            return session;
+        else {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            return session;
+        }
     }
 
     @Override
@@ -32,8 +38,6 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
     }
 
@@ -46,8 +50,6 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             return true;
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
     }
 
@@ -60,10 +62,7 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             return true;
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
-
     }
 
     @Override
@@ -75,8 +74,6 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
         return t1;
     }
@@ -91,24 +88,22 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
         return list;
     }
 
     public List<T> getByHQL(String hql, Class<T> t) throws Exception {
-        List<T> list = null;
+        List list = null;
         try {
             getSession().beginTransaction();
+//            String sql = "from ReportMaster where saleAmount > 1";
             Query query = getSession().createQuery(hql);
+//            query.setParameter("value", 1);
             list = query.list();
             getSession().getTransaction().commit();
 
         } catch (Exception e) {
             throw e;
-        } finally {
-            getSession().close();
         }
         return list;
     }
