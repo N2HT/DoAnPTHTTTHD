@@ -26,14 +26,17 @@ namespace Mm.BusinessLayer.Implementation
 				return null;
 			}
 			// Encode the password for check on db
-            var user = Repository.GetSingle(item => item.UserName == username.Trim() && item.Password == MD5Helper.GetMd5Hash(password), a => a.Privilege);
+            var user = Repository.GetSingle(item => item.UserName == username.Trim() && item.Password == MD5Helper.GetMd5Hash(password),
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
             return user;
 		}
         public Account GetAccountById(int id) {
-            return Repository.GetSingle(item => item.AccountId == id, a => a.Privilege);
+            return Repository.GetSingle(item => item.AccountId == id,
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
         }
         public Account GetAccountByUsername(string username) {
-            return Repository.GetSingle(item => item.UserName == username.Trim(), a => a.Privilege);
+            return Repository.GetSingle(item => item.UserName == username.Trim(),
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
         }
         public IList<Account> Get()
         {

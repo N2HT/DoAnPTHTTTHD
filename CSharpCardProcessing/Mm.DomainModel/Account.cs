@@ -14,21 +14,14 @@ namespace Mm.DomainModel
     
     public partial class Account
     {
-        public Account()
-        {
-            this.Agents = new HashSet<Agent>();
-            this.Masters = new HashSet<Master>();
-            this.Merchants = new HashSet<Merchant>();
-        }
-    
         public int AccountId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public Nullable<bool> Activate { get; set; }
+        public bool Activate { get; set; }
     
-        public virtual ICollection<Agent> Agents { get; set; }
-        public virtual ICollection<Master> Masters { get; set; }
-        public virtual ICollection<Merchant> Merchants { get; set; }
+        public virtual Agent Agent { get; set; }
+        public virtual Master Master { get; set; }
+        public virtual Merchant Merchant { get; set; }
         public virtual Privilege Privilege { get; set; }
     }
 }
