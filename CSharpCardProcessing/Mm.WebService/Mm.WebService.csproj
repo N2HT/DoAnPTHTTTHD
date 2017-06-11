@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
     <Compile Include="Controllers\SendMessageController.cs" />

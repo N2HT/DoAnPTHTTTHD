@@ -27,6 +27,7 @@ export default class AgentPage extends React.Component {
   }
   render() {
     return (
+
       <div>
         <Helmet title="Agents" />
         <Subheader style={{fontSize: '1.5em'}}>
@@ -48,7 +49,7 @@ export default class AgentPage extends React.Component {
           <TableBody displayRowCheckbox={false}>
             {
               this.state.agents.map((agent, index) => {
-                return (
+                  return (
                   <TableRow key={index}>
                     <TableRowColumn>{agent.AgentId}</TableRowColumn>
                     <TableRowColumn>{agent.AgentName}</TableRowColumn>

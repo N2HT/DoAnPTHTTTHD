@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Mm.BusinessLayer.Interface;
 using Mm.DataAccessLayer.Implementation;
 using Mm.DataAccessLayer.Interface;
@@ -63,5 +64,5 @@ namespace Mm.BusinessLayer.Implementation
 			return Repository.GetList(item => item.AgentName.Contains(agentName), ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 		#endregion
-	}
+    }
 }

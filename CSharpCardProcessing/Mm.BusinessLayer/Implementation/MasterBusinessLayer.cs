@@ -1,4 +1,6 @@
-﻿using Mm.BusinessLayer.Interface;
+﻿using System;
+using System.Collections.Generic;
+using Mm.BusinessLayer.Interface;
 using Mm.DataAccessLayer.Implementation;
 using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
@@ -34,6 +36,11 @@ namespace Mm.BusinessLayer.Implementation
 		{
 			Repository.Remove(masters);
 		}
-		#endregion
-	}
+
+        public IList<Master> Get()
+        {
+            return Repository.GetAll();
+        }
+        #endregion
+    }
 }

@@ -60,6 +60,8 @@
     <Compile Include="Implementation\AccountBusinessLayer.cs" />
     <Compile Include="Implementation\AgentBusinessLayer.cs" />
     <Compile Include="Helper\AuthHelper.cs" />
+    <Compile Include="Implementation\AreaBusinessLayer.cs" />
+    <Compile Include="Implementation\Interface\IAreaBusinessLayer.cs" />
     <Compile Include="Implementation\Interface\IAccountBusinessLayer.cs" />
     <Compile Include="Implementation\Interface\IAgentBusinessLayer.cs" />
     <Compile Include="Helper\MD5Helper.cs" />

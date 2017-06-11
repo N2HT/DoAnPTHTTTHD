@@ -60,12 +60,14 @@
     </Compile>
     <Compile Include="Implementation\AccountRepository.cs" />
     <Compile Include="Implementation\AgentRepository.cs" />
+    <Compile Include="Implementation\AreaReponsitory.cs" />
     <Compile Include="Implementation\GenericDataRepository.cs" />
     <Compile Include="Implementation\MasterRepository.cs" />
     <Compile Include="Implementation\MerchantRepository.cs" />
     <Compile Include="Implementation\MessageRepository.cs" />
     <Compile Include="Interface\IAccountRepository.cs" />
     <Compile Include="Interface\IAgentRepository.cs" />
+    <Compile Include="Interface\IAreaReponsitory.cs" />
     <Compile Include="Interface\IMasterRepository.cs" />
     <Compile Include="Interface\IGenericDataRepository.cs" />
     <Compile Include="Interface\IMerchantRepository.cs" />

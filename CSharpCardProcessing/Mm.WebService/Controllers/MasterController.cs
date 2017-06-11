@@ -32,5 +32,18 @@ namespace Mm.WebService.Controllers
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
 			}
 		}
-	}
+        [HttpGet]
+        [Route("api/master/get")]
+        public HttpResponseMessage Get()
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.Get());
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e);
+            }
+        }
+    }
 }

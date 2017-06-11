@@ -14,12 +14,10 @@ namespace Mm.BusinessLayer.Implementation
     {
         private IMessageRepository _repository;
         public IMessageRepository Repository => _repository ?? (_repository = new MessageRepository());
-
         public List<Message> Get()
         {
             return Repository.GetAll().ToList();
         }
-
         void IMessageBusinessLayer.SendMessage(params Message[] mes)
         {
             Repository.Add(mes);
