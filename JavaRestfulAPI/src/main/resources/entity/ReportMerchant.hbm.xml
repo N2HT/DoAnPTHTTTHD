@@ -8,10 +8,10 @@
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="reportAgent" class="entity.ReportAgent" fetch="select">
+        <many-to-one name="reportAgent" class="entity.ReportAgent" fetch="select" lazy="false">
             <column name="ParentReportId" />
         </many-to-one>
-        <many-to-one name="reportType" class="entity.ReportType" fetch="select">
+        <many-to-one name="reportType" class="entity.ReportType" fetch="select" lazy="false">
             <column name="ReportTypeId" />
         </many-to-one>
         <property name="merchantId" type="java.lang.Integer">

@@ -8,7 +8,7 @@
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="reportType" class="entity.ReportType" fetch="select">
+        <many-to-one name="reportType" class="entity.ReportType" fetch="select" lazy="false">
             <column name="ReportTypeId" />
         </many-to-one>
         <property name="masterId" type="java.lang.Integer">
@@ -35,8 +35,8 @@
         <property name="saleAmount" type="big_decimal">
             <column name="SaleAmount" scale="4" />
         </property>
-        <property name="returnAmount" type="big_decimal">
-            <column name="ReturnAmount" scale="4" />
+        <property name="returmAmount" type="big_decimal">
+            <column name="ReturmAmount" scale="4" />
         </property>
         <property name="saleCount" type="java.lang.Integer">
             <column name="SaleCount" />
@@ -56,7 +56,7 @@
         <property name="toDate" type="date">
             <column name="ToDate" length="10" />
         </property>
-        <set name="reportAgents" table="Report_Agent" inverse="true" lazy="true" fetch="select">
+        <set name="reportAgents" table="Report_Agent" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="ParentReportId" />
             </key>

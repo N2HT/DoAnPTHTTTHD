@@ -91,9 +91,7 @@ public class GenericDAO<T> implements IGenericDAO<T> {
         List list = null;
         try {
             getSession().beginTransaction();
-//            String sql = "from ReportMaster where saleAmount > 1";
             Query query = getSession().createQuery(hql);
-//            query.setParameter("value", 1);
             list = query.list();
             getSession().getTransaction().commit();
 
