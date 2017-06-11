@@ -2,6 +2,9 @@ package entity;
 // Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
@@ -38,7 +41,7 @@ public class ReportMaster {
     private Integer cardType;
     private Integer merchantType;
     private BigDecimal saleAmount;
-    private BigDecimal ReturmAmount;
+    private BigDecimal returmAmount;
     private Integer saleCount;
     private Integer returnCount;
     private BigDecimal netAmount;
@@ -55,7 +58,7 @@ public class ReportMaster {
         this.reportId = reportId;
     }
 
-    public ReportMaster(int reportId, ReportType reportType, Integer masterId, Integer agent, Integer merchant, Integer transactionType, Integer area, Integer cardType, Integer merchantType, BigDecimal saleAmount, BigDecimal ReturmAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate, Set<ReportAgent> reportAgents) {
+    public ReportMaster(int reportId, ReportType reportType, Integer masterId, Integer agent, Integer merchant, Integer transactionType, Integer area, Integer cardType, Integer merchantType, BigDecimal saleAmount, BigDecimal returmAmount, Integer saleCount, Integer returnCount, BigDecimal netAmount, Date reportDate, Date fromDate, Date toDate, Set<ReportAgent> reportAgents) {
         this.reportId = reportId;
         this.reportType = reportType;
         this.masterId = masterId;
@@ -66,7 +69,7 @@ public class ReportMaster {
         this.cardType = cardType;
         this.merchantType = merchantType;
         this.saleAmount = saleAmount;
-        this.ReturmAmount = ReturmAmount;
+        this.returmAmount = returmAmount;
         this.saleCount = saleCount;
         this.returnCount = returnCount;
         this.netAmount = netAmount;
@@ -90,6 +93,7 @@ public class ReportMaster {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ReportTypeId")
+    @JsonIgnore
     public ReportType getReportType() {
         return this.reportType;
     }
@@ -181,11 +185,11 @@ public class ReportMaster {
 
     @Column(name = "ReturmAmount", scale = 4)
     public BigDecimal getReturmAmount() {
-        return this.ReturmAmount;
+        return this.returmAmount;
     }
 
     public void setReturmAmount(BigDecimal ReturmAmount) {
-        this.ReturmAmount = ReturmAmount;
+        this.returmAmount = ReturmAmount;
     }
 
 
@@ -248,7 +252,8 @@ public class ReportMaster {
         this.toDate = toDate;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "reportMaster")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "reportMaster")
+//    @JsonManagedReference
     public Set<ReportAgent> getReportAgents() {
         return this.reportAgents;
     }

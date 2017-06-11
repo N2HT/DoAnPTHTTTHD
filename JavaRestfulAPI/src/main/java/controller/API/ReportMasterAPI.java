@@ -1,5 +1,7 @@
 package controller.API;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
 import entity.Master;
 import entity.ReportMaster;
@@ -57,13 +59,16 @@ public class ReportMasterAPI {
     @RequestMapping(value = "/master/{id}", method = RequestMethod.GET)
     public ResponseEntity<String> findByMasterId(@PathVariable("id") int id) {
         try {
-            Gson gson = new Gson();
+            ObjectMapper mp = new ObjectMapper();
+            mp.enable(SerializationFeature.INDENT_OUTPUT);
+
             List<ReportMaster> reportMasters = reportMasterService.getByMasterID(id);
-            String jsonMaster = gson.toJson(reportMasters);
+
+            String json = mp.writeValueAsString(reportMasters);
 
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
-            return new ResponseEntity<String>(jsonMaster, responseHeaders, HttpStatus.OK);
+            return new ResponseEntity<String>(json, responseHeaders, HttpStatus.OK);
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -2,6 +2,9 @@ package entity;
 // Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -86,6 +89,7 @@ public class ReportMerchant {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ParentReportId")
+    @JsonIgnore
     public ReportAgent getReportAgent() {
         return this.reportAgent;
     }
@@ -146,6 +150,7 @@ public class ReportMerchant {
 
 
     @Column(name = "returnAmount", scale = 4)
+    @JsonIgnore
     public BigDecimal getreturnAmount() {
         return this.returnAmount;
     }
