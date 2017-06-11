@@ -24,13 +24,13 @@ namespace Mm.WebService.Controllers {
         public HttpResponseMessage Login([FromBody]LoginInfo loginInfo) {
             var user = BusinessLayer.Login(loginInfo.Username, loginInfo.Password);
             if (user == null) {
-                return Request.CreateResponse(HttpStatusCode.Unauthorized, new { message = "Authenticate failed" });
+                return Request.CreateResponse(HttpStatusCode.Unauthorized, new { message = "Authenticate failed!" });
             }
             return Request.CreateResponse(HttpStatusCode.OK, new {
                 user = new {
                     id = user.AccountId,
                     username = user.UserName,
-                    token = "Bearer " + AuthHelper.GenerateToken(user.UserName, "master", 30)
+                    token = AuthHelper.GenerateToken(user.UserName, user.Privilege.PrivilegeName, 720)
                 }
             });
         }

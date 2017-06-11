@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class MessageType  implements java.io.Serializable {
 
 
      private int messageTypeId;
-     private String messageTypeName;
+     private Serializable messageTypeName;
      private Set<Message> messages = new HashSet<Message>(0);
 
     public MessageType() {
@@ -34,7 +34,7 @@ public class MessageType  implements java.io.Serializable {
     public MessageType(int messageTypeId) {
         this.messageTypeId = messageTypeId;
     }
-    public MessageType(int messageTypeId, String messageTypeName, Set<Message> messages) {
+    public MessageType(int messageTypeId, Serializable messageTypeName, Set<Message> messages) {
        this.messageTypeId = messageTypeId;
        this.messageTypeName = messageTypeName;
        this.messages = messages;
@@ -54,11 +54,11 @@ public class MessageType  implements java.io.Serializable {
 
     
     @Column(name="MessageTypeName")
-    public String getMessageTypeName() {
+    public Serializable getMessageTypeName() {
         return this.messageTypeName;
     }
     
-    public void setMessageTypeName(String messageTypeName) {
+    public void setMessageTypeName(Serializable messageTypeName) {
         this.messageTypeName = messageTypeName;
     }
 

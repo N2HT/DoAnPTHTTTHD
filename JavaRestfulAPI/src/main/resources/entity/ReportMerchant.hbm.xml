@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2017 7:33:46 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.ReportMerchant" table="Report_Merchant" schema="dbo" catalog="CardProcessing" optimistic-lock="version">
         <id name="reportId" type="int">
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="reportAgent" class="entity.ReportAgent" fetch="select">
+            <column name="ParentReportId" />
+        </many-to-one>
         <many-to-one name="reportType" class="entity.ReportType" fetch="select">
             <column name="ReportTypeId" />
         </many-to-one>
@@ -17,7 +20,7 @@
         <property name="transactionType" type="java.lang.Integer">
             <column name="TransactionType" />
         </property>
-        <property name="cardType" type="string">
+        <property name="cardType" type="serializable">
             <column name="CardType" />
         </property>
         <property name="saleAmount" type="big_decimal">

@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class CardType  implements java.io.Serializable {
 
 
      private int cardTypeId;
-     private String cardTypeName;
+     private Serializable cardTypeName;
      private Set<Card> cards = new HashSet<Card>(0);
 
     public CardType() {
@@ -34,7 +34,7 @@ public class CardType  implements java.io.Serializable {
     public CardType(int cardTypeId) {
         this.cardTypeId = cardTypeId;
     }
-    public CardType(int cardTypeId, String cardTypeName, Set<Card> cards) {
+    public CardType(int cardTypeId, Serializable cardTypeName, Set<Card> cards) {
        this.cardTypeId = cardTypeId;
        this.cardTypeName = cardTypeName;
        this.cards = cards;
@@ -54,11 +54,11 @@ public class CardType  implements java.io.Serializable {
 
     
     @Column(name="CardTypeName")
-    public String getCardTypeName() {
+    public Serializable getCardTypeName() {
         return this.cardTypeName;
     }
     
-    public void setCardTypeName(String cardTypeName) {
+    public void setCardTypeName(Serializable cardTypeName) {
         this.cardTypeName = cardTypeName;
     }
 

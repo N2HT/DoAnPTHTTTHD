@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 10, 2017 12:19:01 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class MerchantType  implements java.io.Serializable {
 
 
      private int merchantTypeId;
-     private String merchantTypeName;
+     private Serializable merchantTypeName;
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
 
     public MerchantType() {
@@ -34,7 +34,7 @@ public class MerchantType  implements java.io.Serializable {
     public MerchantType(int merchantTypeId) {
         this.merchantTypeId = merchantTypeId;
     }
-    public MerchantType(int merchantTypeId, String merchantTypeName, Set<Merchant> merchants) {
+    public MerchantType(int merchantTypeId, Serializable merchantTypeName, Set<Merchant> merchants) {
        this.merchantTypeId = merchantTypeId;
        this.merchantTypeName = merchantTypeName;
        this.merchants = merchants;
@@ -54,11 +54,11 @@ public class MerchantType  implements java.io.Serializable {
 
     
     @Column(name="MerchantTypeName")
-    public String getMerchantTypeName() {
+    public Serializable getMerchantTypeName() {
         return this.merchantTypeName;
     }
     
-    public void setMerchantTypeName(String merchantTypeName) {
+    public void setMerchantTypeName(Serializable merchantTypeName) {
         this.merchantTypeName = merchantTypeName;
     }
 
