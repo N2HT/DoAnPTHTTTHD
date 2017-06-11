@@ -18,9 +18,7 @@ namespace Mm.DomainModel
         public string Product { get; set; }
         public Nullable<double> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
-        public Nullable<int> MerchantId { get; set; }
         public string CardNumber { get; set; }
-        public Nullable<int> TransactionTypeId { get; set; }
         public Nullable<System.DateTime> TransactionTime { get; set; }
     
         public virtual Merchant Merchant { get; set; }

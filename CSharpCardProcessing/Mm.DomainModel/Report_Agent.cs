@@ -14,6 +14,11 @@ namespace Mm.DomainModel
     
     public partial class Report_Agent
     {
+        public Report_Agent()
+        {
+            this.Report_Merchant = new HashSet<Report_Merchant>();
+        }
+    
         public int ReportId { get; set; }
         public Nullable<int> AgentId { get; set; }
         public Nullable<int> TransactionType { get; set; }
@@ -26,11 +31,12 @@ namespace Mm.DomainModel
         public Nullable<decimal> SaleCount { get; set; }
         public Nullable<decimal> ReturnCount { get; set; }
         public Nullable<decimal> NetAmount { get; set; }
-        public Nullable<int> ReportTypeId { get; set; }
         public Nullable<System.DateTime> ReportDate { get; set; }
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }
     
+        public virtual Report_Master Report_Master { get; set; }
         public virtual ReportType ReportType { get; set; }
+        public virtual ICollection<Report_Merchant> Report_Merchant { get; set; }
     }
 }

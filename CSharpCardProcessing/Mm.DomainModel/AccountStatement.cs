@@ -16,7 +16,6 @@ namespace Mm.DomainModel
     {
         public int Id { get; set; }
         public Nullable<int> CardId { get; set; }
-        public Nullable<int> MasterId { get; set; }
         public Nullable<int> Month { get; set; }
         public Nullable<int> Year { get; set; }
         public Nullable<decimal> TotalPrice { get; set; }
