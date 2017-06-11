@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import security.AuthCheck;
 
 /**
  *
@@ -18,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api")
 public class UserControllerAPI {
     @RequestMapping(value = "/token", method = RequestMethod.GET)
-    public @ResponseBody Object token(@RequestHeader(value="Authorization") String _token) {
+    public @ResponseBody Object token(@RequestHeader(value="JAuthorization") String _token) {
+        boolean result = AuthCheck.VerifyToken(_token);
         Object myobj;
         myobj = new Object() {
-            public boolean success = true;
+            public boolean success = result;
             public String token = _token;
         };
         return myobj;

@@ -1,12 +1,10 @@
-﻿using Mm.BusinessLayer.Implementation;
+﻿using System;
 using Mm.BusinessLayer.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Mm.BusinessLayer.Implementation;
 
 namespace Mm.WebService.Controllers
 {
@@ -15,7 +13,15 @@ namespace Mm.WebService.Controllers
     public class AreaController : ApiController
     {
         private IAreaBusinessLayer _businessLayer;
-        public IAreaBusinessLayer BusinessLayer => _businessLayer ?? (_businessLayer = new AreaBusinessLayer());
+        public IAreaBusinessLayer BusinessLayer
+        {
+            get
+            {
+                if (_businessLayer == null)
+                    _businessLayer = new AreaBusinessLayer();
+                return _businessLayer;
+            }
+        }
 
         [HttpGet]
         [Route("api/area/get")]
@@ -23,7 +29,7 @@ namespace Mm.WebService.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.GetAllAgent());
+                return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.Get());
             }
             catch (Exception e)
             {
