@@ -65,20 +65,16 @@ class LoginPage extends React.Component {
     }
   }
   handleButtonLogin() {
-    console.log('Button Login clicked');
+    this.setState({showLoginNotice: false});
     // todo: let auth here
     this.props.dispatch(login(this.state.username, this.state.password)).then((data)=>{
-      console.log('data');
-      console.log(data);
       // If authentication succeed
-      if( data.user && data.user.token ) {
+      if( data.loginInfo && data.loginInfo.user
+        && data.loginInfo.user.AccountId && data.loginInfo.token ) {
         browserHistory.push('/');
       } else {
         this.setState({showLoginNotice: true});
       }
-    }).catch((data)=>{
-      console.log('data');
-      console.log(data);
     });
   };
   render() {
@@ -110,7 +106,7 @@ class LoginPage extends React.Component {
         <Divider />
         <TextField onChange={(e)=>{this.setState({username: e.target.value})}} hintText="Username" style={styles.textField} underlineShow={false} fullWidth={true} />
         <Divider />
-        <TextField onChange={(e)=>{this.setState({password: e.target.value})}} hintText="Password" type="password" style={styles.textField} underlineShow={false} fullWidth={true} />
+        <TextField onChange={(e)=>{this.setState({password: e.target.value})}} onKeyPress={this.handleKeyPress} hintText="Password" type="password" style={styles.textField} underlineShow={false} fullWidth={true} />
         <Divider />
         <div style={{margin: 20}}>
           <FlatButton label="Login" style={styles.buttonLogin}
@@ -121,6 +117,12 @@ class LoginPage extends React.Component {
       </Paper>
     );
   }
+  handleKeyPress = (e) => {
+    if ( e.key === 'Enter' ) {
+      e.preventDefault();
+      this.handleButtonLogin();
+    }
+  };
 }
 
 export default connect()(LoginPage);

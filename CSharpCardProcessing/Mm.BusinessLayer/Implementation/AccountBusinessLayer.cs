@@ -24,7 +24,14 @@ namespace Mm.BusinessLayer.Implementation
 				return null;
 			}
 			// Encode the password for check on db
-            return Repository.GetSingle(item => item.UserName == username && item.Password == MD5Helper.GetMd5Hash(password), a => a.Privilege);
+            var user = Repository.GetSingle(item => item.UserName == username && item.Password == MD5Helper.GetMd5Hash(password), a => a.Privilege);
+            return user;
 		}
+        public Account GetAccountById(int id) {
+            return Repository.GetSingle(item => item.AccountId == id, a => a.Privilege);
+        }
+        public Account GetAccountByUsername(string username) {
+            return Repository.GetSingle(item => item.UserName == username, a => a.Privilege);
+        }
 	}
 }

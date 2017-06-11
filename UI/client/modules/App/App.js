@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
+import {connect} from 'react-redux';
 
 // Import Style
 import styles from './App.css';
@@ -12,6 +13,7 @@ import Header from './components/Header/Header';
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
+import { getUser } from '../Account/AccountReducer';
 
 export class App extends Component {
   constructor(props) {
@@ -26,8 +28,9 @@ export class App extends Component {
 
   render() {
     let isLoggedIn = false;
+    let user = this.props.user;
     if(this.state.isMounted) {
-      isLoggedIn = localStorage.getItem("token");
+      isLoggedIn = user && user.AccountId;
     }
     let location = this.props.location;
     return (
@@ -62,7 +65,14 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  user: PropTypes.object
 };
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    user: getUser(state)
+  };
+}
+
+export default connect(mapStateToProps)(App);
