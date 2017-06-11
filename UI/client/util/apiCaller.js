@@ -13,7 +13,11 @@ export default function callApi(endpoint, method = 'get', body) {
     token = localStorage.getItem("token");
   }
   return fetch(`${API_URL}/${endpoint}`, {
-    headers: { 'content-type': 'application/json', 'authorization': token },
+    headers: {
+      'content-type': 'application/json',
+      'authorization': "Bearer " + token,
+      'JAuthorization': token
+    },
     method,
     body: JSON.stringify(body),
   })
