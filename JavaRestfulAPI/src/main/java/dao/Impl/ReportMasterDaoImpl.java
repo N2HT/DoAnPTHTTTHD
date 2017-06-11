@@ -25,7 +25,7 @@ public class ReportMasterDaoImpl extends GenericDAO<ReportMaster> implements IRe
     @Override
     public List<ReportMaster> getByMasterID(int masterID) throws Exception {
 
-        String hql = "from Report_Master rm where rm.MasterId = " + masterID;
+        String hql = "from ReportMaster where masterId = " + masterID;
         return super.getByHQL(hql, ReportMaster.class);
     }
 }

@@ -21,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Home/pages/AboutPage/AboutPage');
   require('./modules/Account/pages/LoginPage/LoginPage');
   require('./modules/Agent/AgentPage');
+  require('./modules/Agent/AgentPageUpdate');
   require('./modules/Merchant/MerchantPage');
   require('./modules/Report/ReportPage');
 }
@@ -46,13 +47,21 @@ export default (
         }}
       />
       <Route
-        path="/agent/new"
-        getComponent={(nextState, cb) => {
-          require.ensure([], require => {
-            cb(null, require('./modules/Agent/NewAgentPage').default);
-          });
-        }}
-      />
+      path="/agent/new"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Agent/NewAgentPage').default);
+        });
+      }}
+    />
+      <Route
+      path="/agent/update"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Agent/AgentPageUpdate').default);
+        });
+      }}
+    />
       <Route
         path="/merchants"
         getComponent={(nextState, cb) => {

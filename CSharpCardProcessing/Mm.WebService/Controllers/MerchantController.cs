@@ -96,7 +96,6 @@ namespace Mm.WebService.Controllers
 		[Authorize]
 		public HttpResponseMessage Get(int id)
 		{
-
 			try
 			{
 				var mc = BusinessLayer.GetMerchantById(id);
