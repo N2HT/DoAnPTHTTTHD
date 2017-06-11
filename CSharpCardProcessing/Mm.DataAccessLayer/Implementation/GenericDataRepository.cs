@@ -65,15 +65,19 @@ namespace Mm.DataAccessLayer.Implementation
             return item;
         }
 
-        public void Add(params T[] items)
+        public T Add(params T[] items)
         {
             using (var context = new CardProcessingEntities())
             {
+                T rs = null;
                 foreach (T item in items)
                 {
                     context.Entry(item).State = System.Data.EntityState.Added;
+                    rs = item;
                 }
                 context.SaveChanges();
+
+                return rs;
             }
         }
 

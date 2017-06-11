@@ -19,7 +19,7 @@ import javax.persistence.Table;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class AccountStatement  implements java.io.Serializable {
+public class AccountStatement {
 
 
      private int id;

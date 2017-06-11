@@ -10,7 +10,7 @@ namespace Mm.DataAccessLayer.Interface
         IList<T> GetAllWithPaging(int limit, int upset, params Expression<Func<T, object>>[] navigationproperties);
         IList<T> GetList(Func<T, bool> where, params Expression<Func<T, object>>[] navigationproperties);
 		T GetSingle(Func<T, bool> where, params Expression<Func<T, object>>[] navigationproperties);
-		void Add(params T[] items);
+		T Add(params T[] items);
 		void Update(params T[] items);
 		void Remove(params T[] items);
 	}

@@ -69,6 +69,14 @@ namespace Mm.WebService.Controllers {
             user.Password = null;
             return Request.CreateResponse(HttpStatusCode.OK, user);
         }
+        [HttpGet]
+        [Route("api/user/get")]
+        //[JwtAuthentication]
+        //[Authorize]
+        public HttpResponseMessage Get()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.Get());
+        }
     }
     public class LoginInfo {
         public string Username { get; set; }

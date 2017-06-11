@@ -47,8 +47,8 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				BusinessLayer.AddAgent(ag);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
+				var rs = BusinessLayer.AddAgent(ag);
+				return Request.CreateResponse(HttpStatusCode.OK, rs);
 			}
 			catch (Exception e)
 			{

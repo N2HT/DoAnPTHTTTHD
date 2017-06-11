@@ -2,7 +2,8 @@
 using Mm.DataAccessLayer.Implementation;
 using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
-using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Mm.BusinessLayer.Implementation
 {
@@ -32,6 +33,10 @@ namespace Mm.BusinessLayer.Implementation
         }
         public Account GetAccountByUsername(string username) {
             return Repository.GetSingle(item => item.UserName == username, a => a.Privilege);
+        }
+        public IList<Account> Get()
+        {
+            return Repository.GetAll();
         }
 	}
 }

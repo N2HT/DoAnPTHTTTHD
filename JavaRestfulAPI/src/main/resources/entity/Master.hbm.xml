@@ -11,22 +11,22 @@
         <many-to-one name="account" class="entity.Account" fetch="select">
             <column name="AccountId" />
         </many-to-one>
-        <property name="masterName" type="serializable">
+        <property name="masterName" type="java.lang.String">
             <column name="MasterName" />
         </property>
-        <set name="cards" table="Card" inverse="true" lazy="true" fetch="select">
+        <set name="cards" table="Card" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="MasterId" />
             </key>
             <one-to-many class="entity.Card" />
         </set>
-        <set name="accountStatements" table="AccountStatement" inverse="true" lazy="true" fetch="select">
+        <set name="accountStatements" table="AccountStatement" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="MasterId" />
             </key>
             <one-to-many class="entity.AccountStatement" />
         </set>
-        <set name="agents" table="Agent" inverse="true" lazy="true" fetch="select">
+        <set name="agents" table="Agent" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="MasterId" />
             </key>
