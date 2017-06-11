@@ -17,18 +17,19 @@ namespace Mm.BusinessLayer.Implementation
             }
         }
 
-		#region Merchant
 		public Merchant GetMerchantById(int id)
 		{
 			return Repository.GetSingle(m => m.MerchantId == id, me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
-		public void AddMerchant(params Merchant[] merchants)
+		public Merchant AddMerchant(params Merchant[] merchants)
 		{
-			Repository.Add(merchants);
+			var m = Repository.Add(merchants);
+			return Repository.GetSingle(x => x.MerchantId == m.MerchantId, me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
-		public void UpdateMerchant(params Merchant[] merchants)
+		public Merchant UpdateMerchant(params Merchant[] merchants)
 		{
-			Repository.Update(merchants);
+			var m = Repository.Update(merchants);
+			return Repository.GetSingle(x => x.MerchantId == m.MerchantId, me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
 
 		public void RemoveMerchant(params Merchant[] merchants)
@@ -61,6 +62,6 @@ namespace Mm.BusinessLayer.Implementation
 		{
 			return Repository.GetAll(me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
-		#endregion
+
 	}
 }

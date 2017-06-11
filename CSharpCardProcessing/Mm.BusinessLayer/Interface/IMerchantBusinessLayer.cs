@@ -7,8 +7,8 @@ namespace Mm.BusinessLayer.Interface
 	{
 		IList<Merchant> GetAllMerchant(); 
 		Merchant GetMerchantById(int id);
-		void AddMerchant(params Merchant[] masters);
-		void UpdateMerchant(params Merchant[] masters);
+		Merchant AddMerchant(params Merchant[] masters);
+		Merchant UpdateMerchant(params Merchant[] masters);
 		void RemoveMerchant(params Merchant[] masters);
 		void ActivateMerchant(int id);
 		void InactivateMerchant(int id);

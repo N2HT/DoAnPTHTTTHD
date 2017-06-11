@@ -11,7 +11,7 @@ namespace Mm.DataAccessLayer.Interface
         IList<T> GetList(Func<T, bool> where, params Expression<Func<T, object>>[] navigationproperties);
 		T GetSingle(Func<T, bool> where, params Expression<Func<T, object>>[] navigationproperties);
 		T Add(params T[] items);
-		void Update(params T[] items);
+		T Update(params T[] items);
 		void Remove(params T[] items);
 	}
 }

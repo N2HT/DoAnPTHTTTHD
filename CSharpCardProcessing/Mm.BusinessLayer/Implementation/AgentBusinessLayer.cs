@@ -18,7 +18,6 @@ namespace Mm.BusinessLayer.Implementation
             }
         }
 
-		#region Agent
 		public IList<Agent> GetAllAgent()
 		{
 			return Repository.GetAll(ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
@@ -38,9 +37,10 @@ namespace Mm.BusinessLayer.Implementation
             return Repository.GetSingle(b => b.AgentId == a.AgentId, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
-		public void UpdateAgent(params Agent[] agents)
+		public Agent UpdateAgent(params Agent[] agents)
 		{
-			Repository.Update(agents);
+			var a = Repository.Update(agents);
+			return Repository.GetSingle(b => b.AgentId == a.AgentId, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
 		public void RemoveAgent(params Agent[] agents)
@@ -70,6 +70,5 @@ namespace Mm.BusinessLayer.Implementation
 		{
 			return Repository.GetList(item => item.AgentName.Contains(agentName), ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
-		#endregion
     }
 }
