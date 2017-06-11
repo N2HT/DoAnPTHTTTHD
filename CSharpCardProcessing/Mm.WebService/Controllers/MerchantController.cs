@@ -30,8 +30,7 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				BusinessLayer.UpdateMerchant(mt);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
+				return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.UpdateMerchant(mt));
 			}
 			catch (Exception e)
 			{
@@ -47,8 +46,7 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				BusinessLayer.AddMerchant(mt);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
+				return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.AddMerchant(mt));
 			}
 			catch (Exception e)
 			{

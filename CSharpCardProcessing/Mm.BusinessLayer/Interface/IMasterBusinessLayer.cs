@@ -7,8 +7,8 @@ namespace Mm.BusinessLayer.Interface
 	{
         IList<Master> Get();
         Master GetMasterById(int id);
-		void AddMaster(params Master[] masters);
-		void UpdateMaster(params Master[] masters);
+		Master AddMaster(params Master[] masters);
+		Master UpdateMaster(params Master[] masters);
 		void RemoveMaster(params Master[] masters);
 	}
 }

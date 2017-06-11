@@ -9,7 +9,7 @@ namespace Mm.BusinessLayer.Interface
         IList<Agent> GetAllAgentWithPaging(int limit, int upset);
         Agent GetAgentById(int id);
         Agent AddAgent(params Agent[] agents);
-        void UpdateAgent(params Agent[] agents);
+        Agent UpdateAgent(params Agent[] agents);
         void RemoveAgent(params Agent[] agents);
         void ActivateAgent(int id);
         void InactivateAgent(int id);

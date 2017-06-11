@@ -22,20 +22,21 @@ namespace Mm.BusinessLayer.Implementation
 			_repository = new MasterRepository();
 		}
 
-		#region Master
 		public Master GetMasterById(int id)
 		{
 			return Repository.GetSingle(d => d.MasterId == id, m => m.Account);
 		}
 
-		public void AddMaster(params Master[] masters)
+		public Master AddMaster(params Master[] masters)
 		{
-			Repository.Add(masters);
+			var mt = Repository.Add(masters);
+			return Repository.GetSingle(d => d.MasterId == mt.MasterId, m => m.Account);
 		}
 
-		public void UpdateMaster(params Master[] masters)
+		public Master UpdateMaster(params Master[] masters)
 		{
-			Repository.Update(masters);
+			var mt = Repository.Update(masters);
+			return Repository.GetSingle(d => d.MasterId == mt.MasterId, m => m.Account);
 		}
 
 		public void RemoveMaster(params Master[] masters)
@@ -47,6 +48,5 @@ namespace Mm.BusinessLayer.Implementation
         {
             return Repository.GetAll();
         }
-        #endregion
     }
 }
