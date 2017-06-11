@@ -10,6 +10,7 @@ import java.util.List;
 public class ReportMasterService implements IReportMasterService {
     private ReportMasterDaoImpl reportMasterDAO = new ReportMasterDaoImpl();
 
+
     @Override
     public void create(Object o) throws Exception {
 
@@ -26,12 +27,21 @@ public class ReportMasterService implements IReportMasterService {
     }
 
     @Override
-    public Object get(Long id) throws Exception {
-        return null;
+    public ReportMaster get(int id) throws Exception {
+        return reportMasterDAO.get(id, ReportMaster.class);
     }
 
     @Override
     public List getall() throws Exception {
         return reportMasterDAO.getall(ReportMaster.class);
+    }
+
+    @Override
+    public List getListWithHQL(String HQL) throws Exception {
+        return reportMasterDAO.getByHQL(HQL, ReportMaster.class);
+    }
+
+    public List getByMasterID(int masterId) throws Exception {
+        return reportMasterDAO.getByMasterID(masterId);
     }
 }

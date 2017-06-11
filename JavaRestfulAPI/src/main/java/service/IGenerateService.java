@@ -9,7 +9,11 @@ public interface IGenerateService<T> {
 
     boolean delete(Long id) throws Exception;
 
-    T get(Long id) throws Exception;
+    T get(int id) throws Exception;
 
     List<T> getall() throws Exception;
+
+    List<T> getListWithHQL(String HQL) throws Exception;
+
+
 }

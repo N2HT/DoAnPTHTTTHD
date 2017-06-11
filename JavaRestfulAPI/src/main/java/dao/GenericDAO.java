@@ -1,6 +1,7 @@
 package dao;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import utils.HibernateUtil;
@@ -21,7 +22,6 @@ public class GenericDAO<T> implements IGenericDAO<T> {
 
     protected Session getSession() {
         return HibernateUtil.getSessionFactory().getCurrentSession();
-//        return sessionFactory.getCurrentSession();
     }
 
     @Override
@@ -32,6 +32,8 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
+        } finally {
+            getSession().close();
         }
     }
 
@@ -44,6 +46,8 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             return true;
         } catch (Exception e) {
             throw e;
+        } finally {
+            getSession().close();
         }
     }
 
@@ -56,6 +60,8 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             return true;
         } catch (Exception e) {
             throw e;
+        } finally {
+            getSession().close();
         }
 
     }
@@ -69,6 +75,8 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
+        } finally {
+            getSession().close();
         }
         return t1;
     }
@@ -83,8 +91,25 @@ public class GenericDAO<T> implements IGenericDAO<T> {
             getSession().getTransaction().commit();
         } catch (Exception e) {
             throw e;
+        } finally {
+            getSession().close();
         }
         return list;
     }
-    //...........
+
+    public List<T> getByHQL(String hql, Class<T> t) throws Exception {
+        List<T> list = null;
+        try {
+            getSession().beginTransaction();
+            Query query = getSession().createQuery(hql);
+            list = query.list();
+            getSession().getTransaction().commit();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            getSession().close();
+        }
+        return list;
+    }
 }

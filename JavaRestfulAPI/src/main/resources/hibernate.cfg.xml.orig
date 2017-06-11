@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<<<<<<< HEAD
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.password">12345</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://HAICONGA:1433;databaseName=CardProcessing
+        </property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.database.application">CardProcessing</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.query.factory_class">
+=======
+  <session-factory>
+    <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.password">123456</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost\MYPC/SQLEXPRESS:1433;databaseName=CardProcessing</property>
+    <property name="hibernate.connection.username">ntnhan</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.database.application">CardProcessing</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.query.factory_class">
+>>>>>>> 27c989618fbc7bd20535d55f182746ff4970b39f
+            org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory
+        </property>
+    <property name="hibernate.use_nationalized_character_data">true</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
+    <property name="hibernate.search.autoregister_listeners">true</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.validator.apply_to_ddl">false</property>
+    <mapping resource="entity/ReportMerchant.hbm.xml"/>
+    <mapping resource="entity/Merchant.hbm.xml"/>
+    <mapping resource="entity/TransactionDetails.hbm.xml"/>
+    <mapping resource="entity/TransactionType.hbm.xml"/>
+    <mapping resource="entity/Area.hbm.xml"/>
+    <mapping resource="entity/ReportAgent.hbm.xml"/>
+    <mapping resource="entity/Account.hbm.xml"/>
+    <mapping resource="entity/MerchantType.hbm.xml"/>
+    <mapping resource="entity/ReportMaster.hbm.xml"/>
+    <mapping resource="entity/Card.hbm.xml"/>
+    <mapping resource="entity/AccountStatement.hbm.xml"/>
+    <mapping resource="entity/Agent.hbm.xml"/>
+    <mapping resource="entity/MessageType.hbm.xml"/>
+    <mapping resource="entity/Master.hbm.xml"/>
+    <mapping resource="entity/CardType.hbm.xml"/>
+    <mapping resource="entity/Message.hbm.xml"/>
+    <mapping resource="entity/Privilege.hbm.xml"/>
+    <mapping resource="entity/ReportType.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

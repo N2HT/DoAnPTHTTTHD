@@ -10,7 +10,13 @@ namespace Mm.BusinessLayer.Implementation
 	public class MasterBusinessLayer : IMasterBusinessLayer
 	{
 		private IMasterRepository _repository;
-		public IMasterRepository Repository => _repository ?? (_repository = new MasterRepository());
+        public IMasterRepository Repository {
+            get {
+                if (_repository == null)
+                    _repository = new MasterRepository();
+                return _repository;
+            }
+        }
 		public MasterBusinessLayer()
 		{
 			_repository = new MasterRepository();

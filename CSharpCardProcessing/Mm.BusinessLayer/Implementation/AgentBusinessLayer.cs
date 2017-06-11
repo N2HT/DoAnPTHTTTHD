@@ -10,7 +10,13 @@ namespace Mm.BusinessLayer.Implementation
 	public class AgentBusinessLayer : IAgentBusinessLayer
 	{
 		private IAgentRepository _repository;
-		public IAgentRepository Repository => _repository ?? (_repository = new AgentRepository());
+        public IAgentRepository Repository {
+            get {
+                if (_repository == null)
+                    _repository = new AgentRepository();
+                return _repository;
+            }
+        }
 
 		#region Agent
 		public IList<Agent> GetAllAgent()

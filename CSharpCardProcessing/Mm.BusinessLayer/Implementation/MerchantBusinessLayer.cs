@@ -9,7 +9,13 @@ namespace Mm.BusinessLayer.Implementation
 	public class MerchantBusinessLayer : IMerchantBusinessLayer
 	{
 		private IMerchantRepository _repository;
-		public IMerchantRepository Repository => _repository ?? (_repository = new MerchantRepository());
+        public IMerchantRepository Repository {
+            get {
+                if (_repository == null)
+                    _repository = new MerchantRepository();
+                return _repository;
+            }
+        }
 
 		#region Merchant
 		public Merchant GetMerchantById(int id)

@@ -1,18 +1,13 @@
 package service.Impl;
 
-import dao.Impl.MasterDaoImpl;
-import entity.Master;
-import service.IMasterService;
+import dao.Impl.ReportMerchantDaoImpl;
+import entity.ReportMerchant;
+import service.IReportMerchantService;
 
 import java.util.List;
 
-public class MasterService implements IMasterService {
-
-    private MasterDaoImpl masterDao = new MasterDaoImpl();
-    @Override
-    public Master getById(int id) throws Exception {
-        return masterDao.getByID(id);
-    }
+public class ReportMerchantService implements IReportMerchantService {
+    private ReportMerchantDaoImpl reportMerchantDAO = new ReportMerchantDaoImpl();
 
     @Override
     public void create(Object o) throws Exception {
@@ -36,7 +31,7 @@ public class MasterService implements IMasterService {
 
     @Override
     public List getall() throws Exception {
-        return masterDao.getall(Master.class);
+        return reportMerchantDAO.getall(ReportMerchant.class);
     }
 
     @Override

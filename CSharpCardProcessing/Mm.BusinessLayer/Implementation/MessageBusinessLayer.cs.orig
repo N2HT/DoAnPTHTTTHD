@@ -13,6 +13,9 @@ namespace Mm.BusinessLayer.Implementation
     public class MessageBusinessLayer : IMessageBusinessLayer
     {
         private IMessageRepository _repository;
+<<<<<<< HEAD
+        public IMessageRepository Repository => _repository ?? (_repository = new MessageRepository());
+=======
         public IMessageRepository Repository {
             get {
                 if (_repository == null)
@@ -20,6 +23,8 @@ namespace Mm.BusinessLayer.Implementation
                 return _repository;
             }
         }
+
+>>>>>>> 27c989618fbc7bd20535d55f182746ff4970b39f
         public List<Message> Get()
         {
             return Repository.GetAll().ToList();
