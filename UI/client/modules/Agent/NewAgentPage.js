@@ -67,32 +67,49 @@ export default class NewAgentPage extends React.Component {
     selected: [1],
     isDialogOpen: false,
     dropValueMaster: -1,
-    dropValueParens:-1,
+    dropValueparents: -1,
+    dropValueArea: -1,
+    dropValueAccount: -1,
+    textValue: '',
+    isToogleChage: false,
     // array mater
     masters: [],
-    parens:[],
-    areas:[]
+    parents: [],
+    areas: [],
+    accounts: []
   };
+
   componentWillMount() {
     apiCaller('master/get').then((result) => {
-      if(result[0]) {
-        this.setState({masters : result});
+      if (result[0]) {
+        this.setState({masters: result});
       }
     });
     apiCaller('agent/getAll').then((result) => {
-      if(result[0]) {
-        this.setState({parens : result});
+      if (result[0]) {
+        this.setState({parents: result});
       }
     });
-    apiCaller('agent/getAll').then((result) => {
-      if(result[0]) {
-        this.setState({parens : result});
+    apiCaller('area/get').then((result) => {
+      if (result[0]) {
+        this.setState({areas: result});
+      }
+    });
+    apiCaller('user/get').then((result) => {
+      if (result[0]) {
+        this.setState({accounts: result});
       }
     });
   }
+
   // dropdown
-  handleChangeMaster = (event, index, value) => this.setState({dropValueMaster:value});
-  handleChangeParent = (event, index, value) => this.setState({dropValueParens:value});
+  handleChangeMaster = (event, index, value) => this.setState({dropValueMaster: value});
+  handleChangeParent = (event, index, value) => this.setState({dropValueparents: value});
+  handleChangeArea = (event, index, value) => this.setState({dropValueArea: value});
+  handleChangeAccount = (event, index, value) => this.setState({dropValueAccount: value});
+  handleTextChange = (event) => this.setState({textValue: event.target.value});
+  handleToogleChange = (event, isInputChecked) => this.setState({isToogleChage: isInputChecked});
+
   isSelected = (index) => {
     return this.state.selected.indexOf(index) !== -1;
   };
@@ -113,7 +130,23 @@ export default class NewAgentPage extends React.Component {
   };
   handleSubmit = () => {
     console.log('handleSubmit');
-    ///
+    let agent = {
+      AgentName: this.state.textValue,
+      MasterId: this.state.dropValueMaster,
+      ParentAgentId: this.state.dropValueparents,
+      Activate: this.state.isToogleChage,
+      AreaId: this.state.dropValueArea,
+      AccountId: this.state.dropValueAccount
+    };
+    apiCaller('agent/add', 'post', agent).then((result) => {
+      console.log('result', result);
+      if(result.AgentId) {
+        this.setState((prevState) => ({parents: [...prevState.parents, result]}));
+        alert('Save done');
+      } else {
+        alert('Save failed');
+      }
+    });
     this.setState({isDialogOpen: false});
   };
 
@@ -132,96 +165,92 @@ export default class NewAgentPage extends React.Component {
       />,
     ];
     return (
-    <div>
-      <FlatButton onClick={this.handleAdd} label="Add" labelPosition="before" primary={true} icon={<ContentAdd />}/>
-      <Table onRowSelection={this.handleRowSelection}>
-        <TableHeader>
-          <TableRow>
-            <TableHeaderColumn>ID</TableHeaderColumn>
-            <TableHeaderColumn>Name</TableHeaderColumn>
-            <TableHeaderColumn>Status</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow selected={this.isSelected(0)}>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>John Smith</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow selected={this.isSelected(1)}>
-            <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>Randal White</TableRowColumn>
-            <TableRowColumn>Unemployed</TableRowColumn>
-          </TableRow>
-          <TableRow selected={this.isSelected(2)}>
-            <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>Stephanie Sanders</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn selected={this.isSelected(3)}>4</TableRowColumn>
-            <TableRowColumn>Steve Brown</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <Dialog
-        title="Dialog With Actions"
-        actions={actions}
-        modal={false}
-        open={this.state.isDialogOpen}
-        onRequestClose={this.handleClose}
-        autoScrollBodyContent={true}
-      >
-        <div>
-          <TextField
-            hintText="Agent Name"
-          />
-          <br />
-          <DropDownMenu value={this.state.dropValueMaster} onChange={this.handleChangeMaster}>
-          {
-            this.state.masters.map((mater, index) => {
-              return (
-                <MenuItem key={index} value={mater.MasterId} primaryText={mater.MasterName}/>
-                )
-            })
-          }
-        </DropDownMenu>
-          <br />
-          <DropDownMenu value={this.state.dropValueParens} onChange={this.handleChangeParent}>
+      <div>
+        <FlatButton onClick={this.handleAdd} label="Add" labelPosition="before" primary={true} icon={<ContentAdd />}/>
+        <Table style={{height: '100%'}} onRowSelection={this.handleRowSelection}>
+          <TableHeader displaySelectAll={false}
+                       adjustForCheckbox={false}>
+            <TableRow>
+              <TableHeaderColumn>ID</TableHeaderColumn>
+              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>Area</TableHeaderColumn>
+              <TableHeaderColumn>Status</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody displayRowCheckbox={false}>
             {
-              this.state.parens.map((paren, index) => {
+              this.state.parents.map((agent, index) => {
                 return (
-                  <MenuItem key={index} value={paren.AgentId} primaryText={paren.AgentName}/>
-                )
+                  <TableRow key={index}>
+                    <TableRowColumn>{agent.AgentId}</TableRowColumn>
+                    <TableRowColumn>{agent.AgentName}</TableRowColumn>
+                    <TableRowColumn>{agent.Area?agent.Area.AreaName:''}</TableRowColumn>
+                    <TableRowColumn>{agent.Activate ? 'Active' : 'In Active'}</TableRowColumn>
+                  </TableRow>)
               })
             }
-          </DropDownMenu>
-          <br />
-          <Toggle
-            label="Active"
-            style={styles.toggle}
-          />
-          <br />
-          <DropDownMenu value={this.state.dropValueArea} onChange={this.handleChangeArea}>
-            {
-              this.state.areas.map((area, index) => {
-                return (
-                  <MenuItem key={index} value={area.AreaId} primaryText={area.AreaName}/>
-                )
-              })
-            }
-          </DropDownMenu>
-          <br />
-          <DropDownMenu value={this.state.dropValue} onChange={this.handleChange}>
-            <MenuItem value={1} label="Account" primaryText="Morning" />
-            <MenuItem value={2} primaryText="Afternoon" />
-            <MenuItem value={3} primaryText="Evening" />
-            <MenuItem value={4} primaryText="Night" />
-          </DropDownMenu>
-        </div>
-      </Dialog>
-    </div>
+          </TableBody>
+        </Table>
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={false}
+          open={this.state.isDialogOpen}
+          onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
+        >
+          <div>
+            <TextField onChange={this.handleTextChange} value={this.state.textValue}
+                       hintText="Agent Name"
+            />
+            <br />
+            <DropDownMenu value={this.state.dropValueMaster} onChange={this.handleChangeMaster}>
+              {
+                this.state.masters.map((mater, index) => {
+                  return (
+                    <MenuItem key={index} value={mater.MasterId} primaryText={mater.MasterName}/>
+                  )
+                })
+              }
+            </DropDownMenu>
+            <br />
+            <DropDownMenu value={this.state.dropValueparents} onChange={this.handleChangeParent}>
+              {
+                this.state.parents.map((paren, index) => {
+                  return (
+                    <MenuItem key={index} value={paren.AgentId} primaryText={paren.AgentName}/>
+                  )
+                })
+              }
+            </DropDownMenu>
+            <br />
+            <Toggle onToggle={this.handleToogleChange}
+                    label="Active"
+                    style={styles.toggle}
+            />
+            <br />
+            <DropDownMenu value={this.state.dropValueArea} onChange={this.handleChangeArea}>
+              {
+                this.state.areas.map((area, index) => {
+                  return (
+                    <MenuItem key={index} value={area.AreaId} primaryText={area.AreaName}/>
+                  )
+                })
+              }
+            </DropDownMenu>
+            <br />
+            <DropDownMenu value={this.state.dropValueAccount} onChange={this.handleChangeAccount}>
+              {
+                this.state.accounts.map((account, index) => {
+                  return (
+                    <MenuItem key={index} value={account.AccountId} primaryText={account.UserName}/>
+                  )
+                })
+              }
+            </DropDownMenu>
+          </div>
+        </Dialog>
+      </div>
     );
   }
 }
