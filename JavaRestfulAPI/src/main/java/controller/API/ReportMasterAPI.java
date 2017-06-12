@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:3333")
 @RequestMapping(value = "/api/report-master", produces = "application/json;charset=UTF-8")
 public class ReportMasterAPI {
     private ReportMasterService reportMasterService = new ReportMasterService();
