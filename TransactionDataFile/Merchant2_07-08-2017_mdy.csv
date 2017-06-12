@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,2,58,Toughjoyfax,3.9,67.00,07/08/2017,2
+2,2,26,Fixflex,0.6,24.91,07/08/2017,2
+3,2,36,Fintone,2.9,47.47,07/08/2017,1
+4,2,76,Namfix,6.2,1.54,07/08/2017,1
+5,2,31,Wrapsafe,8.7,97.45,07/08/2017,2
+6,2,31,Voyatouch,6.7,81.81,07/08/2017,2
+7,2,37,Holdlamis,11.2,17.10,07/08/2017,2
+8,2,97,Keylex,4.1,31.13,07/08/2017,2
+9,2,1,Veribet,8.1,60.65,07/08/2017,1
+10,2,85,Alphazap,14.0,13.05,07/08/2017,2

@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,9,11,Zoolab,13.6,9.92,07/08/2017,1
+2,9,23,Stronghold,12.0,29.33,07/08/2017,1
+3,9,5,Zathin,3.7,53.63,07/08/2017,2
+4,9,46,Stim,2.3,33.97,07/08/2017,1
+5,9,85,Veribet,4.5,45.91,07/08/2017,2
+6,9,26,Zontrax,10.9,93.78,07/08/2017,2
+7,9,43,Y-find,1.3,35.78,07/08/2017,1
+8,9,65,Wrapsafe,1.5,24.54,07/08/2017,2
+9,9,39,Aerified,6.1,67.82,07/08/2017,1
+10,9,66,Aerified,13.5,78.04,07/08/2017,2
