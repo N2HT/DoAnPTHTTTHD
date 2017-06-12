@@ -43,8 +43,35 @@ public class ReportMerchantDaoImpl extends GenericDAO<ReportMerchant> implements
             getSession().getTransaction().commit();
 
         } catch (Exception ex) {
-            if(ex.getMessage().equals("could not extract ResultSet")){
-                return  null;
+            if (ex.getMessage().equals("could not extract ResultSet")) {
+                return null;
+            }
+            throw ex;
+        }
+        return list;
+    }
+
+    @Override
+    public List<ReportMerchant> getReportFromToDate(int merchantID, Date fromDate, Date toDate) throws Exception {
+        List list = null;
+        try {
+            String strToDate = dateFormat.format(toDate);
+
+            String strFromDate = dateFormat.format(fromDate);
+
+            getSession().beginTransaction();
+            Query query = getSession().createSQLQuery("sp_GetReportMerchant @merchantid = :merchantID, @fromdate = :fromDate, @todate= :toDate"
+            ).addEntity(ReportMerchant.class);
+            query.setParameter("merchantID", merchantID)
+                    .setParameter("fromDate", strFromDate)
+                    .setParameter("toDate", strToDate);
+
+            list = query.list();
+            getSession().getTransaction().commit();
+
+        } catch (Exception ex) {
+            if (ex.getMessage().equals("could not extract ResultSet")) {
+                return null;
             }
             throw ex;
         }

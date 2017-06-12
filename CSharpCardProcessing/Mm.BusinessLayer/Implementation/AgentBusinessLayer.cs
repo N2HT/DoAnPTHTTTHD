@@ -28,7 +28,7 @@ namespace Mm.BusinessLayer.Implementation
         }
         public Agent GetAgentById(int id)
 		{
-			return Repository.GetSingle(d => d.AgentId == id, ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
+			return Repository.GetSingle(d => d.AgentId == id, ac => ac.Account, ac => ac.Account.Privilege, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
 
 		public Agent AddAgent(params Agent[] agents)
@@ -68,7 +68,7 @@ namespace Mm.BusinessLayer.Implementation
 		/// <returns> List agent</returns>
 		public IList<Agent> SearchAgent(string agentName)
 		{
-			return Repository.GetList(item => item.AgentName.Contains(agentName), ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
+			return Repository.GetList(item => item.AgentName.ToLower().Contains(agentName), ac => ac.Account, ar => ar.Area, ag => ag.Agent2, at => at.Master);
 		}
     }
 }

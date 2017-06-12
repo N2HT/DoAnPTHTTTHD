@@ -53,4 +53,31 @@ public class ReportAgentDaoImpl extends GenericDAO<ReportAgent> implements IRepo
         }
         return list;
     }
+
+    @Override
+    public List<ReportAgent> getReportFromToDate(int agentID, Date fromDate, Date toDate) throws Exception {
+        List list = null;
+        try {
+            String strToDate = dateFormat.format(toDate);
+
+            String strFromDate = dateFormat.format(fromDate);
+
+            getSession().beginTransaction();
+            Query query = getSession().createSQLQuery("sp_GetReportAgent @agentid = :agentID, @fromdate = :fromDate, @todate= :toDate"
+            ).addEntity(ReportAgent.class);
+            query.setParameter("agentID", agentID)
+                    .setParameter("fromDate", strFromDate)
+                    .setParameter("toDate", strToDate);
+
+            list = query.list();
+            getSession().getTransaction().commit();
+
+        } catch (Exception ex) {
+            if (ex.getMessage().equals("could not extract ResultSet")) {
+                return null;
+            }
+            throw ex;
+        }
+        return list;
+    }
 }

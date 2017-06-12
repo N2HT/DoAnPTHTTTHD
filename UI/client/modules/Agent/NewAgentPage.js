@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
-import Toggle from 'material-ui/Toggle';
+import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {getUser} from '../Account/AccountReducer';
 import MD5 from 'md5';
@@ -71,11 +71,11 @@ const styles = {
 };
 class NewAgentPage extends React.Component {
   state = {
-    selected: [],
+    selectedRows: [],
     isDialogOpen: false,
     // array mater
     masters: [],
-    parents: [],
+    agents: [],
     areas: [],
     dropValueArea: -1,
     agentName: '',
@@ -92,8 +92,8 @@ class NewAgentPage extends React.Component {
   componentWillMount() {
     apiCaller('agent/getAll').then((result) => {
       if (result[0]) {
-        console.log('parents', result);
-        this.setState({parents: result});
+        console.log('agents', result);
+        this.setState({agents: result});
       }
     });
     apiCaller('area/get').then((result) => {
@@ -114,8 +114,17 @@ class NewAgentPage extends React.Component {
 
   handleRowSelection = (selectedRows) => {
     this.setState({
-      selected: selectedRows,
+      selectedRows: selectedRows
     });
+    let selectedAgent = this.state.agents[selectedRows];
+    console.log('selected rows', selectedRows);
+    console.log('selectedAgent', selectedAgent);
+    if(selectedAgent) {
+      // Go to detail page
+      browserHistory.push(`/agent/details?id=${selectedAgent.AgentId}`);
+    } else {
+      console.log('Agent not valid!');
+    }
   };
 
   handleAdd = () => {
@@ -183,7 +192,7 @@ class NewAgentPage extends React.Component {
     apiCaller('agent/add', 'post', agent).then((result) => {
       console.log('result', result);
       if(result && result.AgentId) {
-        this.setState((prevState) => ({parents: [...prevState.parents, result]}));
+        this.setState((prevState) => ({agents: [...prevState.agents, result]}));
         alert('Save done');
       } else {
         alert('Save failed');
@@ -244,9 +253,9 @@ class NewAgentPage extends React.Component {
               <TableHeaderColumn style={{color: '#fff', fontSize: '1.1em'}}>Status</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody displayRowCheckbox={false}>
+          <TableBody displayRowCheckbox={false} stripedRows={true} showRowHover={true}>
             {
-              this.state.parents.map((agent, index) => {
+              this.state.agents.map((agent, index) => {
                 return (
                   <TableRow key={index}>
                     <TableRowColumn>{agent.AgentId||'N/A'}</TableRowColumn>
