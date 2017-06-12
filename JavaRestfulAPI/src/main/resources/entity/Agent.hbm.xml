@@ -20,7 +20,7 @@
         <many-to-one name="master" class="entity.Master" fetch="select">
             <column name="MasterId" />
         </many-to-one>
-        <property name="agentName" type="serializable">
+        <property name="agentName" type="java.lang.String">
             <column name="AgentName" />
         </property>
         <property name="activate" type="java.lang.Boolean">

@@ -9,7 +9,8 @@ namespace Mm.BusinessLayer.Implementation.Interface
 {
     public interface IMessageBusinessLayer
     {
-        void SendMessage(params Message[] mes);
+        Message SendMessage(params Message[] mes);
         List<Message> Get();
+        List<Message> GetUnread();
     }
 }

@@ -8,10 +8,10 @@
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="reportAgent" class="entity.ReportAgent" fetch="select">
+        <many-to-one name="reportAgent" class="entity.ReportAgent" fetch="select" lazy="false">
             <column name="ParentReportId" />
         </many-to-one>
-        <many-to-one name="reportType" class="entity.ReportType" fetch="select">
+        <many-to-one name="reportType" class="entity.ReportType" fetch="select" lazy="false">
             <column name="ReportTypeId" />
         </many-to-one>
         <property name="merchantId" type="java.lang.Integer">
@@ -20,7 +20,7 @@
         <property name="transactionType" type="java.lang.Integer">
             <column name="TransactionType" />
         </property>
-        <property name="cardType" type="serializable">
+        <property name="cardType" type="java.lang.String">
             <column name="CardType" />
         </property>
         <property name="saleAmount" type="big_decimal">

@@ -81,17 +81,19 @@ namespace Mm.DataAccessLayer.Implementation
             }
         }
 
-        public void Update(params T[] items)
+        public T Update(params T[] items)
         {
             using (var context = new CardProcessingEntities())
             {
-                foreach (T item in items)
+	            T rs = null;
+				foreach (T item in items)
                 {
                     context.Entry(item).State = System.Data.EntityState.Modified;
+	                rs = item;
                 }
                 context.SaveChanges();
-            }
-
+	            return rs;
+			}
         }
 
         public void Remove(params T[] items)

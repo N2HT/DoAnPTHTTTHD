@@ -8,10 +8,10 @@
             <column name="ReportId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="reportMaster" class="entity.ReportMaster" fetch="select">
+        <many-to-one name="reportMaster" class="entity.ReportMaster" fetch="select" lazy="false">
             <column name="ParentReportId" />
         </many-to-one>
-        <many-to-one name="reportType" class="entity.ReportType" fetch="select">
+        <many-to-one name="reportType" class="entity.ReportType" fetch="select" lazy="false">
             <column name="ReportTypeId" />
         </many-to-one>
         <property name="agentId" type="java.lang.Integer">
@@ -56,11 +56,11 @@
         <property name="toDate" type="date">
             <column name="ToDate" length="10" />
         </property>
-        <set name="reportMerchants" table="Report_Merchant" inverse="true" lazy="true" fetch="select">
+        <set name="reportMerchants" table="Report_Merchant" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="ParentReportId" />
             </key>
-            <one-to-many class="entity.ReportMerchant" />
+            <one-to-many class="entity.ReportMerchant"  />
         </set>
     </class>
 </hibernate-mapping>

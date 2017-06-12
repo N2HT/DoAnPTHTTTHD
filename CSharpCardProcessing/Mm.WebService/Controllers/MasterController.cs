@@ -29,8 +29,7 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				BusinessLayer.UpdateMaster(mt);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
+				return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.UpdateMaster(mt));
 			}
 			catch (Exception e)
 			{

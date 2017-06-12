@@ -6,7 +6,6 @@ using System.Web.Http.Cors;
 using Mm.BusinessLayer.Implementation;
 using Mm.BusinessLayer.Interface;
 using Mm.DomainModel;
-using Mm.WebService.Filters;
 
 namespace Mm.WebService.Controllers
 {
@@ -30,8 +29,7 @@ namespace Mm.WebService.Controllers
 		{
 			try
 			{
-				BusinessLayer.UpdateAgent(ag);
-				return Request.CreateResponse(HttpStatusCode.OK, 1);
+				return Request.CreateResponse(HttpStatusCode.OK, BusinessLayer.UpdateAgent(ag));
 			}
 			catch (Exception e)
 			{

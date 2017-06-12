@@ -24,9 +24,13 @@ namespace Mm.BusinessLayer.Implementation
         {
             return Repository.GetAll().ToList();
         }
-        void IMessageBusinessLayer.SendMessage(params Message[] mes)
+
+        public List<Message> GetUnread() {
+            return Repository.GetList(m=>m.MessageType.MessageTypeName=="unread").ToList();
+        }
+        public Message SendMessage(params Message[] mes)
         {
-            Repository.Add(mes);
+            return Repository.Add(mes);
         }
 
     } 

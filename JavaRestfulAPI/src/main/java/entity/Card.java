@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
     ,catalog="CardProcessing"
     , uniqueConstraints = @UniqueConstraint(columnNames="CardNumber") 
 )
-public class Card  implements java.io.Serializable {
+public class Card {
 
 
      private int cardId;

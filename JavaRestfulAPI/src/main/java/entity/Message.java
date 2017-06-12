@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class Message  implements java.io.Serializable {
+public class Message {
 
 
      private int messageId;

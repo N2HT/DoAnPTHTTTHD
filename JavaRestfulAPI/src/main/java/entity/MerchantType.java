@@ -20,11 +20,11 @@ import javax.persistence.Table;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class MerchantType  implements java.io.Serializable {
+public class MerchantType {
 
 
      private int merchantTypeId;
-     private Serializable merchantTypeName;
+     private String merchantTypeName;
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
 
     public MerchantType() {
@@ -34,7 +34,7 @@ public class MerchantType  implements java.io.Serializable {
     public MerchantType(int merchantTypeId) {
         this.merchantTypeId = merchantTypeId;
     }
-    public MerchantType(int merchantTypeId, Serializable merchantTypeName, Set<Merchant> merchants) {
+    public MerchantType(int merchantTypeId, String merchantTypeName, Set<Merchant> merchants) {
        this.merchantTypeId = merchantTypeId;
        this.merchantTypeName = merchantTypeName;
        this.merchants = merchants;
@@ -54,11 +54,11 @@ public class MerchantType  implements java.io.Serializable {
 
     
     @Column(name="MerchantTypeName")
-    public Serializable getMerchantTypeName() {
+    public String getMerchantTypeName() {
         return this.merchantTypeName;
     }
     
-    public void setMerchantTypeName(Serializable merchantTypeName) {
+    public void setMerchantTypeName(String merchantTypeName) {
         this.merchantTypeName = merchantTypeName;
     }
 

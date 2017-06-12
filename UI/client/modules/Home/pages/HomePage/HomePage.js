@@ -9,12 +9,6 @@ export default class HomePage extends React.Component {
       <div>
         <Helmet title="Home" />
         <h1>Home page</h1>
-        <input type="button" onClick={()=>{
-          apiCaller('test').then((data)=>{
-            console.log('data receive', data);
-          });
-        }} value="Test API auth"/>
-        <Link to='/about'>About us</Link>
       </div>
     );
   }

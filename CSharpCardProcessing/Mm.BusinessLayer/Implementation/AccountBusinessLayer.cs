@@ -4,6 +4,7 @@ using Mm.DataAccessLayer.Interface;
 using Mm.DomainModel;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mm.BusinessLayer.Implementation
 {
@@ -25,11 +26,27 @@ namespace Mm.BusinessLayer.Implementation
 				return null;
 			}
 			// Encode the password for check on db
-            return Repository.GetSingle(item => item.UserName == username && item.Password == MD5Helper.GetMd5Hash(password), a => a.Privilege);
+            var user = Repository.GetSingle(item => item.UserName == username.Trim() && item.Password == MD5Helper.GetMd5Hash(password),
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
+            return user;
 		}
+        public Account GetAccountById(int id) {
+            return Repository.GetSingle(item => item.AccountId == id,
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
+        }
+        public Account GetAccountByUsername(string username) {
+            return Repository.GetSingle(item => item.UserName == username.Trim(),
+                a => a.Privilege, a => a.Master, a => a.Agent, a => a.Merchant);
+        }
         public IList<Account> Get()
         {
             return Repository.GetAll();
         }
+
+		public bool IsExists(string username)
+		{
+			var list = Repository.GetList(a => a.UserName == username.Trim());
+			return list != null && list.Count > 0;
+		}
 	}
 }

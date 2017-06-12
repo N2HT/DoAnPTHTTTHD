@@ -14,7 +14,7 @@
         <many-to-one name="master" class="entity.Master" fetch="select">
             <column name="MasterId" />
         </many-to-one>
-        <property name="cardNumber" type="string">
+        <property name="cardNumber" type="java.lang.String">
             <column name="CardNumber" length="100" not-null="true" unique="true" />
         </property>
     </class>
