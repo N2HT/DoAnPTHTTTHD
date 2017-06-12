@@ -1,0 +1,32 @@
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.exe.config
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.exe
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.pdb
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\log4net.dll
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SQLServer.ManagedDTS.dll
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.DTSRuntimeWrap.dll
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.PipelineHost.dll
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.DTSPipelineWrap.dll
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\log4net.xml
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.csprojResolveAssemblyReference.cache
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.Main.resources
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.Properties.Resources.resources
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.csproj.GenerateResource.Cache
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.exe
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.pdb
+D:\LienThong\HocKi4\Phat Trien He Thong Thong Tin Hien Dai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\NHT.ico
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\NHT.ico
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.exe.config
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.exe
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Service_Trigger.pdb
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\log4net.dll
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SQLServer.ManagedDTS.dll
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.DTSRuntimeWrap.dll
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.PipelineHost.dll
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\Microsoft.SqlServer.DTSPipelineWrap.dll
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\bin\Debug\log4net.xml
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.csprojResolveAssemblyReference.cache
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.Main.resources
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.Properties.Resources.resources
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.csproj.GenerateResource.Cache
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.exe
+D:\LienThong\HocKi4\PhatTrienHeThongThongTinHienDai\DoAn\DoAnPTHTTTHD\CardProcessing_Service\Service_Trigger\obj\Debug\Service_Trigger.pdb
