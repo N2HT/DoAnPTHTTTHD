@@ -24,7 +24,7 @@ public class Master  implements java.io.Serializable {
 
 
      private int masterId;
-     private Serializable masterName;
+     private String masterName;
      private Set<Card> cards = new HashSet<Card>(0);
      private Set<AccountStatement> accountStatements = new HashSet<AccountStatement>(0);
      private Set<Agent> agents = new HashSet<Agent>(0);
@@ -37,7 +37,7 @@ public class Master  implements java.io.Serializable {
     public Master(int masterId) {
         this.masterId = masterId;
     }
-    public Master(int masterId, Serializable masterName, Set<Card> cards, Set<AccountStatement> accountStatements, Set<Agent> agents, Set<Account> accounts) {
+    public Master(int masterId, String masterName, Set<Card> cards, Set<AccountStatement> accountStatements, Set<Agent> agents, Set<Account> accounts) {
        this.masterId = masterId;
        this.masterName = masterName;
        this.cards = cards;
@@ -60,11 +60,11 @@ public class Master  implements java.io.Serializable {
 
     
     @Column(name="MasterName")
-    public Serializable getMasterName() {
+    public String getMasterName() {
         return this.masterName;
     }
     
-    public void setMasterName(Serializable masterName) {
+    public void setMasterName(String masterName) {
         this.masterName = masterName;
     }
 

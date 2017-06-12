@@ -9,15 +9,18 @@ import {
 } from 'material-ui/Table';
 import {Link} from 'react-router';
 import Helmet from 'react-helmet';
-import apiCaller from '../../../../util/apiCaller';
-
+import {callJavaApi} from '../../../../util/apiCaller';
+import {getUser} from '../../../Account/AccountReducer';
+import {connect} from 'react-redux';
 import {PieChart, Pie, Sector, Cell, Tooltip} from 'recharts';
-const data = [
-  {name: 'Card A', value: 400},
-  {name: 'Card B', value: 300},
-  {name: 'Card C', value: 300},
-  {name: 'Card D', value: 200}
+
+const cardTypes = [
+  'Visa Card',
+  'Master Card',
+  'Debit Card',
+  'Foreign Key Card'
 ];
+
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, name, index}) => {
@@ -32,38 +35,62 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
   );
 };
 
-const tableData = [
-  {
-    cardType: "1",
-    saleAmount: 100000,
-    returnAmount: 20000,
-    saleCount: 100,
-    returnCount: 20,
-    netAmount: 50,
-    fromDate: "2017-05-09"
-  },{
-    cardType: "2",
-    saleAmount: 100000,
-    returnAmount: 20000,
-    saleCount: 100,
-    returnCount: 20,
-    netAmount: 50,
-    fromDate: "2017-05-10"
-  },{
-    cardType: "3",
-    saleAmount: 100000,
-    returnAmount: 20000,
-    saleCount: 100,
-    returnCount: 20,
-    netAmount: 50,
-    fromDate: "2017-05-22"
-  },
-];
-
 const pieChartRadius = 120;
 const pieChartSize = pieChartRadius * 2;
 
-export default class HomePage extends React.Component {
+class HomePage extends React.Component {
+  state = {
+    reportRecords: [],
+    cardChartData: []
+  };
+  componentWillMount() {
+    let user = this.props.user;
+    if(!user) {
+      return;
+    }
+    let userRole = null;
+    if (user.Privilege) {
+      userRole = user.Privilege.PrivilegeName;
+    }
+    console.log('user', user);
+    let currentDate = new Date();
+    let stringDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`;
+    switch (userRole.toLowerCase()) {
+      case 'master':
+        callJavaApi(`report-master/master/dailyReport/${user.Master.MasterId}/${stringDate}`).then((results)=>{
+          console.log('results', results);
+          if(results && results[0]) {
+            this.setState({reportRecords: results});
+            let cardChartData = [];
+            results.map((record) => {
+              if(record.netAmount>0) {
+                cardChartData.push({
+                  name: cardTypes[record.cardType-1],
+                  value: record.netAmount
+                })
+              }
+            });
+            console.log('cardChartData', cardChartData);
+            this.setState({cardChartData});
+          } else {
+            console.log('Data empty');
+          }
+        });
+        break;
+      case 'agent':
+        callJavaApi(`report/agent/dailyReport`).then((result)=>{
+          console.log('result', result);
+        });
+        break;
+      case 'merchant':
+        callJavaApi(`report/merchant/dailyReport`).then((result)=>{
+          console.log('result', result);
+        });
+        break;
+      default:
+        console.log('User role not valid!');
+    }
+  }
   render() {
     return (
       <div>
@@ -73,7 +100,7 @@ export default class HomePage extends React.Component {
           <PieChart style={{left: '50%', transform: 'translateX(-50%)'}}
                     width={pieChartSize} height={pieChartSize+100} onMouseEnter={this.onPieEnter}>
             <Pie
-              data={data}
+              data={this.state.cardChartData}
               labelLine={false}
               label={renderCustomizedLabel}
               outerRadius={pieChartRadius}
@@ -82,7 +109,7 @@ export default class HomePage extends React.Component {
               animationDuration={800}
             >
               {
-                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
+                this.state.cardChartData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
               }
             </Pie>
             <Tooltip/>
@@ -106,11 +133,11 @@ export default class HomePage extends React.Component {
             </TableHeader>
             <TableBody displayRowCheckbox={false}>
               {
-                tableData.map((row, index) => {
+                this.state.reportRecords.map((row, index) => {
                   return (
                     <TableRow key={index}>
                       <TableRowColumn>{index}</TableRowColumn>
-                      <TableRowColumn>{row.cardType?row.cardType:"N/A"}</TableRowColumn>
+                      <TableRowColumn>{row.cardType?cardTypes[row.cardType-1]:"N/A"}</TableRowColumn>
                       <TableRowColumn>{row.saleAmount}</TableRowColumn>
                       <TableRowColumn>{row.returnAmount}</TableRowColumn>
                       <TableRowColumn>{row.saleCount}</TableRowColumn>
@@ -129,3 +156,11 @@ export default class HomePage extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: getUser(state)
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);

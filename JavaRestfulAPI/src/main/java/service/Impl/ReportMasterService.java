@@ -5,6 +5,8 @@ import dao.Impl.ReportMasterDaoImpl;
 import entity.ReportMaster;
 import service.IReportMasterService;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 public class ReportMasterService implements IReportMasterService {
@@ -44,4 +46,8 @@ public class ReportMasterService implements IReportMasterService {
     public List getByMasterID(int masterId) throws Exception {
         return reportMasterDAO.getByMasterID(masterId);
     }
+    public List getDailyReport(int masterId, Date date) throws Exception {
+        return reportMasterDAO.getDailyReport(masterId, date);
+    }
+
 }
