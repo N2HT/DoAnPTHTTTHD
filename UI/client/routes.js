@@ -27,6 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Merchant/MerchantPage');
   require('./modules/Merchant/MerchantAdd');
   require('./modules/Report/ReportPage');
+  require('./modules/Report/ReportMonthly');
 }
 
 // react-router setup with code-splitting
@@ -93,7 +94,7 @@ export default (
         path="/reports"
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
-            cb(null, require('./modules/Report/ReportPage').default);
+            cb(null, require('./modules/Report/ReportMonthly').default);
           });
         }}
       />

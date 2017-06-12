@@ -9,8 +9,8 @@ import {
 } from 'material-ui/Table';
 import {Link} from 'react-router';
 import Helmet from 'react-helmet';
-import {callJavaApi} from '../../../../util/apiCaller';
-import {getUser} from '../../../Account/AccountReducer';
+import {callJavaApi} from '../../util/apiCaller';
+import {getUser} from '../Account/AccountReducer';
 import {connect} from 'react-redux';
 import {PieChart, Pie, Sector, Cell, Tooltip} from 'recharts';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
@@ -39,7 +39,7 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
 const pieChartRadius = 120;
 const pieChartSize = pieChartRadius * 2;
 
-class HomePage extends React.Component {
+class ReportMonthly extends React.Component {
   state = {
     reportRecords: [],
     cardChartData: [],
@@ -60,7 +60,7 @@ class HomePage extends React.Component {
     let stringDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`;
     switch (userRole.toLowerCase()) {
       case 'master':
-        callJavaApi(`report/master/dailyReport/${user.Master.MasterId}/${stringDate}`).then((results)=>{
+        callJavaApi(`report/master/monthlyReport/${user.Master.MasterId}/${stringDate}`).then((results)=>{
           console.log('results', results);
           if(results && results[0]) {
             this.setState({reportRecords: results});
@@ -81,7 +81,7 @@ class HomePage extends React.Component {
         });
         break;
       case 'agent':
-        callJavaApi(`report/agent/dailyReport/${user.Agent.AgentId}/${stringDate}`).then((results)=>{
+        callJavaApi(`report/agent/monthlyReport/${user.Agent.AgentId}/${stringDate}`).then((results)=>{
           console.log('results', results);
           if(results && results[0]) {
             this.setState({reportRecords: results});
@@ -102,7 +102,7 @@ class HomePage extends React.Component {
         });
         break;
       case 'merchant':
-        callJavaApi(`report/merchant/dailyReport/${user.Merchant.MerchantId}/${stringDate}`).then((results)=>{
+        callJavaApi(`report/merchant/monthlyReport/${user.Merchant.MerchantId}/${stringDate}`).then((results)=>{
           console.log('results', results);
           if(results && results[0]) {
             this.setState({reportRecords: results});
@@ -128,12 +128,10 @@ class HomePage extends React.Component {
   }
   render() {
     let currentDate = new Date();
-    let stringDate = `${currentDate.getDate()}-${currentDate.getMonth()+1}-${currentDate.getFullYear()}`;
     return (
       <div>
-        <Helmet title="Home"/>
-        <h1>Dashboard</h1>
-        <h3>Daily report: {stringDate}</h3>
+        <Helmet title="Report"/>
+        <h1>Monthly Report: Month - {currentDate.getMonth()} / {currentDate.getFullYear()}</h1>
         <div style={{position: 'relative', width: '100%', margin: '10px 0', display: this.state.dataLoaded?'block':'none'}}>
           <PieChart style={{left: '50%', transform: 'translateX(-50%)'}}
                     width={pieChartSize} height={pieChartSize+100} onMouseEnter={this.onPieEnter}>
@@ -213,4 +211,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(ReportMonthly);

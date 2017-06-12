@@ -5,6 +5,8 @@ import entity.ReportAgent;
 import service.IReportAgentService;
 import service.IReportAgentService;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ReportAgentService implements IReportAgentService {
@@ -39,4 +41,22 @@ public class ReportAgentService implements IReportAgentService {
     public List getListWithHQL(String HQL) throws Exception {
         return null;
     }
+
+    public List getDailyReport(int agentID, Date date) throws Exception {
+        return reportAgentDAO.getDailyReport(agentID, date);
+    }
+
+    public List getMonthlyReport(int masterId, Date date) throws Exception {
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date toDate = cal.getTime();
+
+        cal.add(Calendar.MONTH, -1);
+        Date fromDate = cal.getTime();
+
+        return reportAgentDAO.getReportFromToDate(masterId, fromDate, toDate);
+    }
 }
+

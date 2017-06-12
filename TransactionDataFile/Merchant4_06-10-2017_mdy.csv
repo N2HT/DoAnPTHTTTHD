@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,4,13,Daltfresh,14.1,46.65,06/10/2017,2
+2,4,99,Y-Solowarm,2.3,6.05,06/10/2017,2
+3,4,84,Cardguard,5.9,51.74,06/10/2017,2
+4,4,53,Toughjoyfax,10.2,6.61,06/10/2017,2
+5,4,100,Tempsoft,4.6,8.93,06/10/2017,1
+6,4,49,Otcom,5.0,44.17,06/10/2017,1
+7,4,10,Stringtough,0.7,22.03,06/10/2017,2
+8,4,64,Flowdesk,6.9,6.58,06/10/2017,1
+9,4,30,Flexidy,14.2,90.71,06/10/2017,1
+10,4,70,Cardguard,2.5,29.71,06/10/2017,1

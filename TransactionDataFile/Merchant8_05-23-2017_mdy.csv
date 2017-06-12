@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,8,45,Tampflex,3.9,2.65,05/23/2017,2
+2,8,86,Mat Lam Tam,11.1,64.36,05/23/2017,2
+3,8,22,Lotlux,11.8,50.84,05/23/2017,2
+4,8,49,Konklab,10.8,86.54,05/23/2017,2
+5,8,87,Stim,13.6,21.61,05/23/2017,1
+6,8,88,Wrapsafe,12.5,25.01,05/23/2017,2
+7,8,92,Aerified,13.0,53.65,05/23/2017,2
+8,8,36,Gembucket,14.5,85.56,05/23/2017,1
+9,8,30,Span,5.2,47.90,05/23/2017,2
+10,8,97,Voyatouch,8.9,91.21,05/23/2017,2

@@ -6,6 +6,7 @@ import entity.ReportMaster;
 import service.IReportMasterService;
 
 import javax.xml.crypto.Data;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +49,19 @@ public class ReportMasterService implements IReportMasterService {
     }
     public List getDailyReport(int masterId, Date date) throws Exception {
         return reportMasterDAO.getDailyReport(masterId, date);
+    }
+
+    public List getMonthlyReport(int masterId, Date date) throws Exception {
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date toDate = cal.getTime();
+
+        cal.add(Calendar.MONTH, -1);
+        Date fromDate = cal.getTime();
+
+        return reportMasterDAO.getReportFromToDate(masterId, fromDate, toDate);
     }
 
 }

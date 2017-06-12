@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,9,6,Latlux,13.3,74.53,05/05/2017,1
+2,9,41,Bitwolf,4.2,17.99,05/05/2017,1
+3,9,11,Duobam,10.1,65.36,05/05/2017,2
+4,9,36,Alpha,1.5,44.67,05/05/2017,2
+5,9,18,Trippledex,9.5,46.48,05/05/2017,1
+6,9,41,Lotstring,6.2,90.93,05/05/2017,1
+7,9,22,Daltfresh,7.3,19.35,05/05/2017,1
+8,9,28,Wrapsafe,6.1,12.53,05/05/2017,2
+9,9,54,Sonair,6.0,92.60,05/05/2017,1
+10,9,42,Fintone,3.4,69.62,05/05/2017,2

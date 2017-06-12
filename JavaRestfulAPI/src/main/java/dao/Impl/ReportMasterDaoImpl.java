@@ -56,8 +56,35 @@ public class ReportMasterDaoImpl extends GenericDAO<ReportMaster> implements IRe
             getSession().getTransaction().commit();
 
         } catch (Exception ex) {
-            if(ex.getMessage().equals("could not extract ResultSet")){
-                return  null;
+            if (ex.getMessage().equals("could not extract ResultSet")) {
+                return null;
+            }
+            throw ex;
+        }
+        return list;
+    }
+
+    @Override
+    public List<ReportMaster> getReportFromToDate(int masterID, Date fromDate, Date toDate) throws Exception {
+        List list = null;
+        try {
+            String strToDate = dateFormat.format(toDate);
+
+            String strFromDate = dateFormat.format(fromDate);
+
+            getSession().beginTransaction();
+            Query query = getSession().createSQLQuery("sp_GetReportMaster @masterid = :masterID, @fromdate = :fromDate, @todate= :toDate"
+            ).addEntity(ReportMaster.class);
+            query.setParameter("masterID", masterID)
+                    .setParameter("fromDate", strFromDate)
+                    .setParameter("toDate", strToDate);
+
+            list = query.list();
+            getSession().getTransaction().commit();
+
+        } catch (Exception ex) {
+            if (ex.getMessage().equals("could not extract ResultSet")) {
+                return null;
             }
             throw ex;
         }
