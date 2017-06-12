@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import service.Impl.ReportMasterService;
 
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -63,6 +66,32 @@ public class ReportMasterAPI {
             mp.enable(SerializationFeature.INDENT_OUTPUT);
 
             List<ReportMaster> reportMasters = reportMasterService.getByMasterID(id);
+
+            String json = mp.writeValueAsString(reportMasters);
+
+            HttpHeaders responseHeaders = new HttpHeaders();
+            responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            return new ResponseEntity<String>(json, responseHeaders, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<String>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    //http://localhost:8080/api/report-master/master/dailyReport/1/06-12-2017
+    @RequestMapping(value = "/master/dailyReport/{id}/{date}", method = RequestMethod.GET)
+    public ResponseEntity<String> getDaylyReport(@PathVariable("id") int id, @PathVariable("date") String date) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+            ObjectMapper mp = new ObjectMapper();
+            mp.enable(SerializationFeature.INDENT_OUTPUT);
+            Date dateGet = new Date();
+            if (!date.isEmpty()) {
+                dateGet = dateFormat.parse(date);
+            }
+
+            List<ReportMaster> reportMasters = reportMasterService.getDailyReport(id, dateGet);
 
             String json = mp.writeValueAsString(reportMasters);
 

@@ -104,6 +104,7 @@ public class ReportAgent {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ReportTypeId")
+    @JsonIgnore
     public ReportType getReportType() {
         return this.reportType;
     }
@@ -253,6 +254,7 @@ public class ReportAgent {
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "reportAgent")
+    @JsonIgnore
     public Set<ReportMerchant> getReportMerchants() {
         return this.reportMerchants;
     }

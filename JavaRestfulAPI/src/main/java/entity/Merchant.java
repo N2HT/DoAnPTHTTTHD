@@ -32,8 +32,8 @@ public class Merchant  implements java.io.Serializable {
      private Agent agent;
      private Area area;
      private MerchantType merchantType;
-     private Serializable merchantName;
-     private Serializable address;
+     private String merchantName;
+     private String address;
      private Date beginDay;
      private Boolean activate;
      private Set<Account> accounts = new HashSet<Account>(0);
@@ -46,7 +46,7 @@ public class Merchant  implements java.io.Serializable {
     public Merchant(int merchantId) {
         this.merchantId = merchantId;
     }
-    public Merchant(int merchantId, Agent agent, Area area, MerchantType merchantType, Serializable merchantName, Serializable address, Date beginDay, Boolean activate, Set<Account> accounts, Set<TransactionDetails> transactionDetailses) {
+    public Merchant(int merchantId, Agent agent, Area area, MerchantType merchantType, String merchantName, String address, Date beginDay, Boolean activate, Set<Account> accounts, Set<TransactionDetails> transactionDetailses) {
        this.merchantId = merchantId;
        this.agent = agent;
        this.area = area;
@@ -103,21 +103,21 @@ public class Merchant  implements java.io.Serializable {
 
     
     @Column(name="MerchantName")
-    public Serializable getMerchantName() {
+    public String getMerchantName() {
         return this.merchantName;
     }
     
-    public void setMerchantName(Serializable merchantName) {
+    public void setMerchantName(String merchantName) {
         this.merchantName = merchantName;
     }
 
     
     @Column(name="Address")
-    public Serializable getAddress() {
+    public String getAddress() {
         return this.address;
     }
     
-    public void setAddress(Serializable address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

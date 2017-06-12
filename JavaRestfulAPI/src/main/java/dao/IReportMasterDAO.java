@@ -2,6 +2,7 @@ package dao;
 
 import entity.ReportMaster;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,4 +10,5 @@ import java.util.List;
  */
 public interface IReportMasterDAO extends IGenericDAO<ReportMaster> {
     public List<ReportMaster> getByMasterID(int masterID) throws Exception;
+    public List<ReportMaster> getDailyReport(int masterID, Date date) throws Exception;
 }
