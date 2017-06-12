@@ -59,7 +59,7 @@ namespace Mm.BusinessLayer.Implementation
 		}
 		public IList<Merchant> GetAllMerchant()
 		{
-			return Repository.GetAll(me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
+			return Repository.GetAll(x => x.Agent, xu => xu.Account, xr => xr.Area, xa => xa.MerchantType);
 		}
 		#endregion
 	}
