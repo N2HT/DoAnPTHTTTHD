@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,4,47,Stronghold,3.3,10.38,05/05/2017,1
+2,4,37,Flexidy,3.5,58.76,05/05/2017,2
+3,4,37,Wrapsafe,12.4,41.25,05/05/2017,2
+4,4,70,Transcof,6.2,29.45,05/05/2017,2
+5,4,96,Solarbreeze,10.6,18.14,05/05/2017,2
+6,4,24,Pannier,10.5,7.28,05/05/2017,2
+7,4,91,Y-find,12.7,95.46,05/05/2017,1
+8,4,72,Sonsing,1.1,60.37,05/05/2017,2
+9,4,54,Domainer,5.0,56.03,05/05/2017,1
+10,4,54,Keylex,5.5,22.00,05/05/2017,2

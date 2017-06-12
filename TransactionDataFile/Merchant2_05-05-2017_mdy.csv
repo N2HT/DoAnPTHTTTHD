@@ -1,0 +1,11 @@
+Id,MerchantId,CardNumber,Product,Quantity,UnitPrice,TransactionTime,TransactionType
+1,2,10,Y-find,8.5,24.12,05/05/2017,2
+2,2,64,Transcof,1.0,97.22,05/05/2017,2
+3,2,85,Fixflex,8.2,12.73,05/05/2017,1
+4,2,2,Zontrax,4.5,67.57,05/05/2017,1
+5,2,11,Mat Lam Tam,10.1,53.11,05/05/2017,2
+6,2,82,Toughjoyfax,4.4,8.95,05/05/2017,2
+7,2,14,Zoolab,12.2,40.24,05/05/2017,2
+8,2,98,Ventosanzap,13.3,83.35,05/05/2017,2
+9,2,76,Job,12.6,48.18,05/05/2017,1
+10,2,66,Pannier,8.7,90.41,05/05/2017,1
