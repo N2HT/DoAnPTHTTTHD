@@ -21,6 +21,8 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Home/pages/AboutPage/AboutPage');
   require('./modules/Account/pages/LoginPage/LoginPage');
   require('./modules/Agent/AgentPageUpdate');
+  require('./modules/Agent/AgentDetailPage');
+  require('./modules/Agent/AgentSearchPage');
   require('./modules/Agent/NewAgentPage');
   require('./modules/Merchant/MerchantPage');
   require('./modules/Merchant/MerchantAdd');
@@ -52,6 +54,22 @@ export default (
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
             cb(null, require('./modules/Agent/AgentPageUpdate').default);
+          });
+        }}
+      />
+      <Route
+        path="/agent/search"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Agent/AgentSearchPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/agent/details"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Agent/AgentDetailPage').default);
           });
         }}
       />

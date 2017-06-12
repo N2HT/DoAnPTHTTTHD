@@ -33,6 +33,8 @@ const styles = {
 };
 const iconViewBox = '0 0 30 30';
 
+import {browserHistory} from 'react-router';
+
 export default class SearchForm extends Component {
   constructor(props) {
     super(props);
@@ -44,11 +46,27 @@ export default class SearchForm extends Component {
     let inputValue = e.target.value;
     this.setState({inputValue});
   }
+
+  handleSearch = () => {
+    if(location.pathname == '/agent/search'
+      ||location.pathname == '/agents'
+      ||location.pathname == '/agent/details'
+    ) {
+      // check the location
+      browserHistory.push(`/agent/search?keyword=${this.state.inputValue}`);
+    }
+  };
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      this.handleSearch();
+    }
+  };
   
   render() {
     return (
       <div style={styles.wrapper}>
-        <IconButton style={styles.icon}>
+        <IconButton style={styles.icon} onClick={this.handleSearch}>
           <SearchIcon viewBox={iconViewBox} color="#fff" />
         </IconButton>
         <TextField
@@ -58,7 +76,8 @@ export default class SearchForm extends Component {
           inputStyle={styles.searchInput}
           style={styles.textField}
           hintStyle={styles.hint}
-          underlineShow={false} />
+          underlineShow={false}
+          onKeyPress={this.handleKeyPress}/>
       </div>
     );
   }

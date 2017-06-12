@@ -54,7 +54,7 @@ export default class MerchantPage extends React.Component {
               <TableHeaderColumn>Is Activate</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody displayRowCheckbox={false}>
+          <TableBody displayRowCheckbox={false} stripedRows={true} showRowHover={true}>
             {
               this.state.merchants.map((merchant, index) => {
                 return (
