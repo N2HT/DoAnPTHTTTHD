@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 12:53:24 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -25,18 +25,18 @@ import javax.persistence.TemporalType;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class Merchant {
+public class Merchant  implements java.io.Serializable {
 
 
      private int merchantId;
-     private Account account;
      private Agent agent;
      private Area area;
      private MerchantType merchantType;
-     private String merchantName;
-     private String address;
+     private Serializable merchantName;
+     private Serializable address;
      private Date beginDay;
      private Boolean activate;
+     private Set<Account> accounts = new HashSet<Account>(0);
      private Set<TransactionDetails> transactionDetailses = new HashSet<TransactionDetails>(0);
 
     public Merchant() {
@@ -46,9 +46,8 @@ public class Merchant {
     public Merchant(int merchantId) {
         this.merchantId = merchantId;
     }
-    public Merchant(int merchantId, Account account, Agent agent, Area area, MerchantType merchantType, String merchantName, String address, Date beginDay, Boolean activate, Set<TransactionDetails> transactionDetailses) {
+    public Merchant(int merchantId, Agent agent, Area area, MerchantType merchantType, Serializable merchantName, Serializable address, Date beginDay, Boolean activate, Set<Account> accounts, Set<TransactionDetails> transactionDetailses) {
        this.merchantId = merchantId;
-       this.account = account;
        this.agent = agent;
        this.area = area;
        this.merchantType = merchantType;
@@ -56,6 +55,7 @@ public class Merchant {
        this.address = address;
        this.beginDay = beginDay;
        this.activate = activate;
+       this.accounts = accounts;
        this.transactionDetailses = transactionDetailses;
     }
    
@@ -69,16 +69,6 @@ public class Merchant {
     
     public void setMerchantId(int merchantId) {
         this.merchantId = merchantId;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="AccountId")
-    public Account getAccount() {
-        return this.account;
-    }
-    
-    public void setAccount(Account account) {
-        this.account = account;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -113,21 +103,21 @@ public class Merchant {
 
     
     @Column(name="MerchantName")
-    public String getMerchantName() {
+    public Serializable getMerchantName() {
         return this.merchantName;
     }
     
-    public void setMerchantName(String merchantName) {
+    public void setMerchantName(Serializable merchantName) {
         this.merchantName = merchantName;
     }
 
     
     @Column(name="Address")
-    public String getAddress() {
+    public Serializable getAddress() {
         return this.address;
     }
     
-    public void setAddress(String address) {
+    public void setAddress(Serializable address) {
         this.address = address;
     }
 
@@ -149,6 +139,15 @@ public class Merchant {
     
     public void setActivate(Boolean activate) {
         this.activate = activate;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="merchant")
+    public Set<Account> getAccounts() {
+        return this.accounts;
+    }
+    
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="merchant")

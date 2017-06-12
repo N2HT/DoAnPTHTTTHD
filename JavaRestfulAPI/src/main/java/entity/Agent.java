@@ -1,5 +1,5 @@
 package entity;
-// Generated Jun 11, 2017 7:33:44 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2017 12:53:24 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -22,17 +22,17 @@ import javax.persistence.Table;
     ,schema="dbo"
     ,catalog="CardProcessing"
 )
-public class Agent {
+public class Agent  implements java.io.Serializable {
 
 
      private int agentId;
-     private Account account;
      private Agent agent;
      private Area area;
      private Master master;
-     private String agentName;
+     private Serializable agentName;
      private Boolean activate;
      private Set<Agent> agents = new HashSet<Agent>(0);
+     private Set<Account> accounts = new HashSet<Account>(0);
      private Set<Merchant> merchants = new HashSet<Merchant>(0);
 
     public Agent() {
@@ -42,15 +42,15 @@ public class Agent {
     public Agent(int agentId) {
         this.agentId = agentId;
     }
-    public Agent(int agentId, Account account, Agent agent, Area area, Master master, String agentName, Boolean activate, Set<Agent> agents, Set<Merchant> merchants) {
+    public Agent(int agentId, Agent agent, Area area, Master master, Serializable agentName, Boolean activate, Set<Agent> agents, Set<Account> accounts, Set<Merchant> merchants) {
        this.agentId = agentId;
-       this.account = account;
        this.agent = agent;
        this.area = area;
        this.master = master;
        this.agentName = agentName;
        this.activate = activate;
        this.agents = agents;
+       this.accounts = accounts;
        this.merchants = merchants;
     }
    
@@ -64,16 +64,6 @@ public class Agent {
     
     public void setAgentId(int agentId) {
         this.agentId = agentId;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="AccountId")
-    public Account getAccount() {
-        return this.account;
-    }
-    
-    public void setAccount(Account account) {
-        this.account = account;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -108,11 +98,11 @@ public class Agent {
 
     
     @Column(name="AgentName")
-    public String getAgentName() {
+    public Serializable getAgentName() {
         return this.agentName;
     }
     
-    public void setAgentName(String agentName) {
+    public void setAgentName(Serializable agentName) {
         this.agentName = agentName;
     }
 
@@ -133,6 +123,15 @@ public class Agent {
     
     public void setAgents(Set<Agent> agents) {
         this.agents = agents;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="agent")
+    public Set<Account> getAccounts() {
+        return this.accounts;
+    }
+    
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="agent")

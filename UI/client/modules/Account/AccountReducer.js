@@ -14,6 +14,11 @@ const AccountReducer = (state = initialState, action) => {
       } else {
         state.user = null;
       }
+      if(action.loginInfo && action.loginInfo.token) {
+        state.token = action.loginInfo.token;
+      } else {
+        state.token = null;
+      }
       // Store token when login success
       if(localStorage) {
         if(action.loginInfo && action.loginInfo.token) {
