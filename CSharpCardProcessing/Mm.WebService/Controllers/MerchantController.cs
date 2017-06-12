@@ -128,8 +128,8 @@ namespace Mm.WebService.Controllers
         [HttpGet]
 		[Route("api/merchant/search")]
 		/*Alow authenticate*/
-		[JwtAuthentication]
-		[Authorize]
+        //[JwtAuthentication]
+        //[Authorize]
 		public HttpResponseMessage SearchMerchant(string name)
 		{
 			try

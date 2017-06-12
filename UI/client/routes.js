@@ -26,6 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Agent/NewAgentPage');
   require('./modules/Merchant/MerchantPage');
   require('./modules/Merchant/MerchantAdd');
+  require('./modules/Merchant/MerchantSearch');
   require('./modules/Report/ReportPage');
   require('./modules/Report/ReportMonthly');
 }
@@ -87,6 +88,14 @@ export default (
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
             cb(null, require('./modules/Merchant/MerchantAdd').default);
+          });
+        }}
+      />
+      <Route
+        path="/merchant/search"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Merchant/MerchantSearch').default);
           });
         }}
       />

@@ -38,8 +38,11 @@ import {browserHistory} from 'react-router';
 export default class SearchForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {inputValue: ''};
+    console.log(props);console.log('location', location);
+    let keyword = props.location.query.keyword.toLowerCase().trim();
+    this.state = {inputValue: keyword||''};
     this.handleTextChange = this.handleTextChange.bind(this);
+
   }
 
   handleTextChange(e) {
@@ -53,7 +56,15 @@ export default class SearchForm extends Component {
       ||location.pathname == '/agent/details'
     ) {
       // check the location
-      browserHistory.push(`/agent/search?keyword=${this.state.inputValue}`);
+      window.location =`/agent/search?keyword=${this.state.inputValue}`;
+    }
+    if(location.pathname == '/merchant/search'
+      ||location.pathname == '/merchants'
+      ||location.pathname == '/merchant/details'
+      ||location.pathname == '/merchant/add'
+    ) {
+      // check the location
+      window.location =`/merchant/search?keyword=${this.state.inputValue}`;
     }
   };
   handleKeyPress = (e) => {

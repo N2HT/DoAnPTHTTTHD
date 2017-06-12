@@ -96,7 +96,7 @@ class Header extends Component {
           titleStyle={navTitleStyle}
           iconStyleLeft={navIconStyle}
           iconStyleRight={navIconStyle}
-          title={<SearchForm />}
+          title={<SearchForm location={this.props.location}/>}
           iconElementLeft={
             <div>
               <IconButton onClick={this.handleSwitchDrawerState}>

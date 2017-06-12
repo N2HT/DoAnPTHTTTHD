@@ -5,18 +5,29 @@ import SubHeader from 'material-ui/Subheader';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import apiCaller from '../../util/apiCaller';
+import Checkbox from 'material-ui/Checkbox';
+import MD5 from 'md5';
+
+import {browserHistory} from 'react-router';
+import {connect} from 'react-redux';
+import {getUser} from '../Account/AccountReducer';
 
 const style = {
     margin: 12
 };
 
-export default class MerchantAdd extends React.Component {
+class MerchantAdd extends React.Component {
     state = {
         merchantName: '',
         merchantNameError: '',
         merchantAddress: '',
-        merchantAddressError: ''
+        merchantAddressError: '',
+        merchantUsername: '',
+        merchantPassword: '',
+        merchantActive: false
     };
+
+    handleActiveCheck = (event, isInputChecked) => this.setState({merchantActive: isInputChecked});
 
     render() {
         return (
@@ -45,22 +56,68 @@ export default class MerchantAdd extends React.Component {
                             this.setState({merchantAddress: e.target.value})
                         }}
                     />
+                    <TextField
+                        fullWidth={true}
+                        hintText="Username"
+                        value={this.state.merchantUsername}
+                        onChange={(e) => {
+                            this.setState({merchantUsername: e.target.value})
+                        }}
+                    />
+                    <TextField
+                        fullWidth={true}
+                        type="password"
+                        hintText="Password"
+                        value={this.state.merchantPassword}
+                        onChange={(e) => {
+                            this.setState({merchantPassword: e.target.value})
+                        }}
+                    />
+                    <br />
+                    <Checkbox
+                      label="Active"
+                      style={{marginBottom: 16}}
+                      onCheck={this.handleActiveCheck}
+                    />
                     <RaisedButton label="Save" primary={true} style={style} onClick={this.handleSaveMerchant} />
                 </div>
             </div>
         );
     }
     handleSaveMerchant = () => {
+        let privilege = {
+            PrivilegeId: 3,
+            PrivilegeName: 'Merchant'
+        };
+        let account = {
+            UserName: this.state.merchantUsername,
+            Password: MD5(this.state.merchantPassword),
+            Privilege: privilege
+        };
         let merchant = {
             MerchantName: this.state.merchantName,
-            Address: this.state.merchantAddress
+            MasterId: this.props.user.Master.MasterId,
+            Activate: this.state.merchantActive,
+            Address: this.state.merchantAddress,
+            Account: account
         };
+        console.log('New merchant:', merchant);
         apiCaller('merchant/add', 'post', merchant).then((result) => {
-            if(result == 1) {
+            console.log('result', result);
+            if(result && result.MerchantId) {
                 alert('Save done');
+                browserHistory.push('/merchants')
             } else {
                 alert('Save failed');
             }
         });
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        user: getUser(state)
+    };
+}
+
+export default connect(mapStateToProps)(MerchantAdd);

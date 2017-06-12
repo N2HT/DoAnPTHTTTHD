@@ -56,7 +56,7 @@ namespace Mm.BusinessLayer.Implementation
 		/// <returns> List Merchant</returns>
 		public IList<Merchant> SearchMerchant(string name)
 		{
-			return Repository.GetList(item => item.MerchantName.Contains(name), me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
+			return Repository.GetList(item => item.MerchantName.ToLower().Contains(name), me => me.Agent, mr => mr.Account, mc => mc.Area, mm => mm.MerchantType);
 		}
 		public IList<Merchant> GetAllMerchant()
 		{

@@ -21,7 +21,8 @@ export default class MerchantPage extends React.Component {
   };
 
   componentWillMount() {
-    apiCaller('merchant/getAll').then((result) => {
+    let keyword = this.props.location.query.keyword.toLowerCase().trim();
+    apiCaller(`merchant/search?name=${keyword}`).then((result) => {
       if (result[0]) {
         this.setState({merchants: result});
       }

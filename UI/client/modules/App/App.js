@@ -53,7 +53,7 @@ export class App extends Component {
                 },
               ]}
             />
-            {this.state.isMounted && location.pathname !== '/login' && isLoggedIn && <Header />}
+            {this.state.isMounted && location.pathname !== '/login' && isLoggedIn && <Header location={location} />}
             <div className={styles.container}>
               {this.props.children}
             </div>
