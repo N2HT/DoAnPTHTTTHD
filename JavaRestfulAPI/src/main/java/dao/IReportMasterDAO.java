@@ -11,4 +11,5 @@ import java.util.List;
 public interface IReportMasterDAO extends IGenericDAO<ReportMaster> {
     public List<ReportMaster> getByMasterID(int masterID) throws Exception;
     public List<ReportMaster> getDailyReport(int masterID, Date date) throws Exception;
+    public List<ReportMaster> getReportFromToDate(int masterID, Date fromDate, Date toDate) throws Exception;
 }

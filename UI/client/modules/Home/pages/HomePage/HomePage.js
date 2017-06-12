@@ -60,7 +60,7 @@ class HomePage extends React.Component {
     let stringDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`;
     switch (userRole.toLowerCase()) {
       case 'master':
-        callJavaApi(`report-master/master/dailyReport/${user.Master.MasterId}/${stringDate}`).then((results)=>{
+        callJavaApi(`report/master/dailyReport/${user.Master.MasterId}/${stringDate}`).then((results)=>{
           console.log('results', results);
           if(results && results[0]) {
             this.setState({reportRecords: results});

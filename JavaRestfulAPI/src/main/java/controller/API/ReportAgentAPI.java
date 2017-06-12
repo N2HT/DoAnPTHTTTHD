@@ -26,6 +26,7 @@ import java.util.List;
 public class ReportAgentAPI {
     private ReportAgentService reportAgentService = new ReportAgentService();
 
+    @CrossOrigin(origins = "http://localhost:3333")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<String> list() {
         try {
