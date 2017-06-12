@@ -80,10 +80,12 @@ public class ReportMasterDaoImpl extends GenericDAO<ReportMaster> implements IRe
                     .setParameter("toDate", strToDate);
 
             list = query.list();
+
             getSession().getTransaction().commit();
 
         } catch (Exception ex) {
             if (ex.getMessage().equals("could not extract ResultSet")) {
+
                 return null;
             }
             throw ex;

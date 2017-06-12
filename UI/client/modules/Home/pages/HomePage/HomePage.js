@@ -76,6 +76,7 @@ class HomePage extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
+            alert('NOT DATA!');
             console.log('Data empty');
           }
         });
@@ -97,7 +98,8 @@ class HomePage extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
-            console.log('Data empty');
+            alert('NOT DATA!');
+            this.setState({cardChartData, dataLoaded: true});
           }
         });
         break;
@@ -118,6 +120,7 @@ class HomePage extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
+            alert('NOT DATA!');
             console.log('Data empty');
           }
         });

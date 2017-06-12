@@ -39,10 +39,15 @@ export default class SearchForm extends Component {
   constructor(props) {
     super(props);
     console.log(props);console.log('location', location);
-    let keyword = props.location.query.keyword.toLowerCase().trim();
+    let keyword = '';
+    if(props.location.query) {
+      let keyword = props.location.query.keyword;
+      if(keyword) {
+        keyword = keyword.toLowerCase().trim();
+        this.handleTextChange = this.handleTextChange.bind(this);
+      }
+    }
     this.state = {inputValue: keyword||''};
-    this.handleTextChange = this.handleTextChange.bind(this);
-
   }
 
   handleTextChange(e) {
@@ -73,7 +78,7 @@ export default class SearchForm extends Component {
       this.handleSearch();
     }
   };
-  
+
   render() {
     return (
       <div style={styles.wrapper}>

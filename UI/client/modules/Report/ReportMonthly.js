@@ -76,6 +76,7 @@ class ReportMonthly extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
+            alert('NOT DATA!');
             console.log('Data empty');
           }
         });
@@ -97,6 +98,7 @@ class ReportMonthly extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
+            alert('NOT DATA!');
             console.log('Data empty');
           }
         });
@@ -118,6 +120,7 @@ class ReportMonthly extends React.Component {
             console.log('cardChartData', cardChartData);
             this.setState({cardChartData, dataLoaded: true});
           } else {
+            alert('NOT DATA!');
             console.log('Data empty');
           }
         });
