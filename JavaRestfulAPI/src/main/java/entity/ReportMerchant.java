@@ -69,14 +69,6 @@ public class ReportMerchant {
         this.toDate = toDate;
     }
 
-    public BigDecimal getReturnAmount() {
-        return returnAmount;
-    }
-
-    public void setReturnAmount(BigDecimal returnAmount) {
-        this.returnAmount = returnAmount;
-    }
-
     @Id
     @Column(name = "ReportId", unique = true, nullable = false)
     public int getReportId() {
@@ -100,6 +92,7 @@ public class ReportMerchant {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ReportTypeId")
+    @JsonIgnore
     public ReportType getReportType() {
         return this.reportType;
     }
@@ -149,13 +142,12 @@ public class ReportMerchant {
     }
 
 
-    @Column(name = "returnAmount", scale = 4)
-    @JsonIgnore
-    public BigDecimal getreturnAmount() {
+    @Column(name = "ReturnAmount", scale = 4)
+    public BigDecimal getReturnAmount() {
         return this.returnAmount;
     }
 
-    public void setreturnAmount(BigDecimal returnAmount) {
+    public void setReturnAmount(BigDecimal returnAmount) {
         this.returnAmount = returnAmount;
     }
 

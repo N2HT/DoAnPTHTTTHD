@@ -13,6 +13,7 @@ import {callJavaApi} from '../../../../util/apiCaller';
 import {getUser} from '../../../Account/AccountReducer';
 import {connect} from 'react-redux';
 import {PieChart, Pie, Sector, Cell, Tooltip} from 'recharts';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 const cardTypes = [
   'Visa Card',
@@ -41,13 +42,15 @@ const pieChartSize = pieChartRadius * 2;
 class HomePage extends React.Component {
   state = {
     reportRecords: [],
-    cardChartData: []
+    cardChartData: [],
+    dataLoaded: false
   };
   componentWillMount() {
     let user = this.props.user;
     if(!user) {
       return;
     }
+    this.setState({dataLoaded: false})
     let userRole = null;
     if (user.Privilege) {
       userRole = user.Privilege.PrivilegeName;
@@ -71,20 +74,52 @@ class HomePage extends React.Component {
               }
             });
             console.log('cardChartData', cardChartData);
-            this.setState({cardChartData});
+            this.setState({cardChartData, dataLoaded: true});
           } else {
             console.log('Data empty');
           }
         });
         break;
       case 'agent':
-        callJavaApi(`report/agent/dailyReport`).then((result)=>{
-          console.log('result', result);
+        callJavaApi(`report/agent/dailyReport/${user.Agent.AgentId}/${stringDate}`).then((results)=>{
+          console.log('results', results);
+          if(results && results[0]) {
+            this.setState({reportRecords: results});
+            let cardChartData = [];
+            results.map((record) => {
+              if(record.netAmount>0) {
+                cardChartData.push({
+                  name: cardTypes[record.cardType-1],
+                  value: record.netAmount
+                })
+              }
+            });
+            console.log('cardChartData', cardChartData);
+            this.setState({cardChartData, dataLoaded: true});
+          } else {
+            console.log('Data empty');
+          }
         });
         break;
       case 'merchant':
-        callJavaApi(`report/merchant/dailyReport`).then((result)=>{
-          console.log('result', result);
+        callJavaApi(`report/merchant/dailyReport/${user.Merchant.MerchantId}/${stringDate}`).then((results)=>{
+          console.log('results', results);
+          if(results && results[0]) {
+            this.setState({reportRecords: results});
+            let cardChartData = [];
+            results.map((record) => {
+              if(record.netAmount>0) {
+                cardChartData.push({
+                  name: cardTypes[record.cardType-1],
+                  value: record.netAmount
+                })
+              }
+            });
+            console.log('cardChartData', cardChartData);
+            this.setState({cardChartData, dataLoaded: true});
+          } else {
+            console.log('Data empty');
+          }
         });
         break;
       default:
@@ -96,7 +131,7 @@ class HomePage extends React.Component {
       <div>
         <Helmet title="Home"/>
         <h1>Dashboard</h1>
-        <div style={{position: 'relative', width: '100%', margin: '10px 0'}}>
+        <div style={{position: 'relative', width: '100%', margin: '10px 0', display: this.state.dataLoaded?'block':'none'}}>
           <PieChart style={{left: '50%', transform: 'translateX(-50%)'}}
                     width={pieChartSize} height={pieChartSize+100} onMouseEnter={this.onPieEnter}>
             <Pie
@@ -115,7 +150,7 @@ class HomePage extends React.Component {
             <Tooltip/>
           </PieChart>
         </div>
-        <div>
+        <div style={{display: this.state.dataLoaded?'block':'none'}}>
           <Table style={{ height: '100%' }}>
             <TableHeader displaySelectAll={false}
                          adjustForCheckbox={false}
@@ -151,6 +186,18 @@ class HomePage extends React.Component {
               }
             </TableBody>
           </Table>
+        </div>
+        <div style={{position: 'absolute', transform: 'translate(-50%, -50%)', top: '50%', left: '50%', display: this.state.dataLoaded?'none':'block'}}>
+          <RefreshIndicator
+            size={40}
+            left={10}
+            top={0}
+            status="loading"
+            style={{
+              display: 'inline-block',
+              position: 'relative'
+            }}
+          />
         </div>
       </div>
     );

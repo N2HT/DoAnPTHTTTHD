@@ -4,6 +4,7 @@ import dao.Impl.ReportMerchantDaoImpl;
 import entity.ReportMerchant;
 import service.IReportMerchantService;
 
+import java.util.Date;
 import java.util.List;
 
 public class ReportMerchantService implements IReportMerchantService {
@@ -37,5 +38,8 @@ public class ReportMerchantService implements IReportMerchantService {
     @Override
     public List getListWithHQL(String HQL) throws Exception {
         return null;
+    }
+    public List getDailyReport(int merchantId, Date date) throws Exception {
+        return reportMerchantDAO.getDailyReport(merchantId, date);
     }
 }

@@ -5,6 +5,7 @@ import entity.ReportAgent;
 import service.IReportAgentService;
 import service.IReportAgentService;
 
+import java.util.Date;
 import java.util.List;
 
 public class ReportAgentService implements IReportAgentService {
@@ -39,4 +40,9 @@ public class ReportAgentService implements IReportAgentService {
     public List getListWithHQL(String HQL) throws Exception {
         return null;
     }
+
+    public List getDailyReport(int agentID, Date date) throws Exception {
+        return reportAgentDAO.getDailyReport(agentID, date);
+    }
 }
+
