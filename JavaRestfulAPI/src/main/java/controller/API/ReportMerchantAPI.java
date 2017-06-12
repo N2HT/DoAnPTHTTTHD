@@ -68,4 +68,31 @@ public class ReportMerchantAPI {
         }
         return new ResponseEntity<String>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    //http://localhost:8080/api/report/merchant/dailyReport/1/06-12-2017
+    @CrossOrigin(origins = "http://localhost:3333")
+    @RequestMapping(value = "/monthlyReport/{id}/{date}", method = RequestMethod.GET)
+    public ResponseEntity<String> getMonthlyReport(@PathVariable("id") int id, @PathVariable("date") String date) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+            ObjectMapper mp = new ObjectMapper();
+            mp.enable(SerializationFeature.INDENT_OUTPUT);
+            Date dateGet = new Date();
+            if (!date.isEmpty()) {
+                dateGet = dateFormat.parse(date);
+            }
+
+            List<ReportMerchant> reportMerchants = reportMerchantService.getMonthlyReport(id, dateGet);
+
+            String json = mp.writeValueAsString(reportMerchants);
+
+            HttpHeaders responseHeaders = new HttpHeaders();
+            responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            return new ResponseEntity<String>(json, responseHeaders, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<String>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

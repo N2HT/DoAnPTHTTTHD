@@ -4,6 +4,7 @@ import dao.Impl.ReportMerchantDaoImpl;
 import entity.ReportMerchant;
 import service.IReportMerchantService;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -41,5 +42,18 @@ public class ReportMerchantService implements IReportMerchantService {
     }
     public List getDailyReport(int merchantId, Date date) throws Exception {
         return reportMerchantDAO.getDailyReport(merchantId, date);
+    }
+
+    public List getMonthlyReport(int masterId, Date date) throws Exception {
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date toDate = cal.getTime();
+
+        cal.add(Calendar.MONTH, -1);
+        Date fromDate = cal.getTime();
+
+        return reportMerchantDAO.getReportFromToDate(masterId, fromDate, toDate);
     }
 }

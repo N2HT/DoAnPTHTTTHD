@@ -127,10 +127,13 @@ class HomePage extends React.Component {
     }
   }
   render() {
+    let currentDate = new Date();
+    let stringDate = `${currentDate.getDate()}-${currentDate.getMonth()+1}-${currentDate.getFullYear()}`;
     return (
       <div>
         <Helmet title="Home"/>
         <h1>Dashboard</h1>
+        <h3>Daily report: {stringDate}</h3>
         <div style={{position: 'relative', width: '100%', margin: '10px 0', display: this.state.dataLoaded?'block':'none'}}>
           <PieChart style={{left: '50%', transform: 'translateX(-50%)'}}
                     width={pieChartSize} height={pieChartSize+100} onMouseEnter={this.onPieEnter}>

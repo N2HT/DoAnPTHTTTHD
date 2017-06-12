@@ -11,5 +11,7 @@ import java.util.List;
  */
 public interface IReportAgentDAO extends IGenericDAO<ReportAgent>  {
     public List<ReportAgent> getDailyReport(int agentID, Date date) throws Exception;
+    public List<ReportAgent> getReportFromToDate(int agentID, Date fromDate, Date toDate) throws Exception;
+
 
 }
