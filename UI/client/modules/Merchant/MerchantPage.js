@@ -55,12 +55,10 @@ export default class MerchantPage extends React.Component {
             </TableRow>
           </TableHeader>
           <TableBody displayRowCheckbox={false}>
-            /* eslint-disable react/jsx-no-undef */
-            /* eslint-disable no-multi-spaces */
             {
               this.state.merchants.map((merchant, index) => {
                 return (
-                  <TableRow key={index}>
+                  <TableRow striped={true} key={index}>
                     <TableRowColumn>{merchant.MerchantId}</TableRowColumn>
                     <TableRowColumn>{merchant.MerchantName}</TableRowColumn>
                     <TableRowColumn>{merchant.Address}</TableRowColumn>

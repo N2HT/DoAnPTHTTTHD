@@ -25,14 +25,16 @@ export default class AgentPage extends React.Component {
       }
     });
   }
+  handleAddNew = () => {
+
+  };
   render() {
     return (
-
       <div>
         <Helmet title="Agents" />
         <Subheader style={{fontSize: '1.5em'}}>
           <span>Agents</span>
-          <IconButton style={{top: 5}} onClick={()=>{browserHistory.push('/agent/new')}}>
+          <IconButton style={{top: 5}} onClick={this.handleAddNew}>
             <AddIcon color="#747474"/>
           </IconButton>
         </Subheader>

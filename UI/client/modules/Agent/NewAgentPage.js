@@ -1,12 +1,15 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-import Chip from 'material-ui/Chip';
+import Checkbox from 'material-ui/Checkbox';
 import Toggle from 'material-ui/Toggle';
+import {connect} from 'react-redux';
+import {getUser} from '../Account/AccountReducer';
+import MD5 from 'md5';
+
 import {
   Table,
   TableBody,
@@ -15,6 +18,11 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+
+import Subheader from 'material-ui/Subheader';
+import IconButton from 'material-ui/IconButton';
+import AddIcon from 'material-ui/svg-icons/content/add-circle-outline';
+import Helmet from 'react-helmet';
 
 import apiCaller from '../../util/apiCaller';
 
@@ -61,32 +69,30 @@ const styles = {
     color: 'red',
   },
 };
-export default class NewAgentPage extends React.Component {
-
+class NewAgentPage extends React.Component {
   state = {
-    selected: [1],
+    selected: [],
     isDialogOpen: false,
-    dropValueMaster: -1,
-    dropValueparents: -1,
-    dropValueArea: -1,
-    dropValueAccount: -1,
-    textValue: '',
-    isToogleChage: false,
     // array mater
     masters: [],
     parents: [],
     areas: [],
-    accounts: []
+    dropValueArea: -1,
+    agentName: '',
+    agentNameError: '',
+    agentActive: false,
+    agentUsername: '',
+    agentUsernameError: '',
+    agentPassword: '',
+    agentPasswordError: '',
+    agentMatchPassword: '',
+    agentMatchPasswordError: ''
   };
 
   componentWillMount() {
-    apiCaller('master/get').then((result) => {
-      if (result[0]) {
-        this.setState({masters: result});
-      }
-    });
     apiCaller('agent/getAll').then((result) => {
       if (result[0]) {
+        console.log('parents', result);
         this.setState({parents: result});
       }
     });
@@ -95,20 +101,12 @@ export default class NewAgentPage extends React.Component {
         this.setState({areas: result});
       }
     });
-    apiCaller('user/get').then((result) => {
-      if (result[0]) {
-        this.setState({accounts: result});
-      }
-    });
   }
 
   // dropdown
-  handleChangeMaster = (event, index, value) => this.setState({dropValueMaster: value});
-  handleChangeParent = (event, index, value) => this.setState({dropValueparents: value});
   handleChangeArea = (event, index, value) => this.setState({dropValueArea: value});
-  handleChangeAccount = (event, index, value) => this.setState({dropValueAccount: value});
-  handleTextChange = (event) => this.setState({textValue: event.target.value});
-  handleToogleChange = (event, isInputChecked) => this.setState({isToogleChage: isInputChecked});
+  handleTextChange = (event) => this.setState({agentName: event.target.value});
+  handleActiveCheck = (event, isInputChecked) => this.setState({agentActive: isInputChecked});
 
   isSelected = (index) => {
     return this.state.selected.indexOf(index) !== -1;
@@ -127,28 +125,88 @@ export default class NewAgentPage extends React.Component {
   handleClose = () => {
     console.log('handleClose');
     this.setState({isDialogOpen: false});
+    this.resetFormData();
   };
+  validateData() {
+    let valid = true;
+    if(!this.state.agentName || this.state.agentName==='') {
+      this.setState({agentNameError: 'Agent name is required!'});
+      valid = false;
+    } else {
+      this.setState({agentNameError: ''});
+    }
+    if(!this.state.agentUsername || this.state.agentUsername==='') {
+      this.setState({agentUsernameError: 'Username is required!'});
+      valid = false;
+    } else {
+      this.setState({agentUsernameError: ''});
+    }
+    if(!this.state.agentPassword || this.state.agentPassword==='') {
+      this.setState({agentPasswordError: 'Password is required!'});
+      valid = false;
+    } else {
+      this.setState({agentPasswordError: ''});
+    }
+    if(!this.state.agentMatchPassword || this.state.agentMatchPassword==='') {
+      this.setState({agentMatchPasswordError: 'Retype password is required!'});
+      valid = false;
+    } else if(this.state.agentPassword !== this.state.agentMatchPassword) {
+      this.setState({agentMatchPasswordError: 'Password and retype password not match!'});
+      valid = false;
+    } else {
+      this.setState({agentMatchPasswordError: ''});
+    }
+    return valid;
+  }
   handleSubmit = () => {
     console.log('handleSubmit');
-    let agent = {
-      AgentName: this.state.textValue,
-      MasterId: this.state.dropValueMaster,
-      ParentAgentId: this.state.dropValueparents,
-      Activate: this.state.isToogleChage,
-      AreaId: this.state.dropValueArea,
-      AccountId: this.state.dropValueAccount
+    if(!this.validateData()) {
+      return;
+    }
+    let privilege = {
+      PrivilegeId: 2,
+      PrivilegeName: 'Agent'
     };
+    let account = {
+      UserName: this.state.agentUsername,
+      Password: MD5(this.state.agentPassword),
+      Privilege: privilege
+    };
+    let agent = {
+      AgentName: this.state.agentName,
+      MasterId: this.props.user.Master.MasterId,
+      Activate: this.state.agentActive,
+      Area: this.state.dropValueArea == -1 ? null : this.state.areas[this.state.dropValueArea],
+      Account: account
+    };
+    console.log('New agent:', agent);
     apiCaller('agent/add', 'post', agent).then((result) => {
       console.log('result', result);
-      if(result.AgentId) {
+      if(result && result.AgentId) {
         this.setState((prevState) => ({parents: [...prevState.parents, result]}));
         alert('Save done');
       } else {
         alert('Save failed');
       }
     });
+    // Reset form data
+    this.resetFormData();
     this.setState({isDialogOpen: false});
   };
+  resetFormData() {
+    this.setState({
+      dropValueArea: -1,
+      agentName: '',
+      agentNameError: '',
+      agentActive: false,
+      agentUsername: '',
+      agentUsernameError: '',
+      agentPassword: '',
+      agentPasswordError: '',
+      agentMatchPassword: '',
+      agentMatchPasswordError: ''
+    })
+  }
 
   render() {
     const actions = [
@@ -156,25 +214,34 @@ export default class NewAgentPage extends React.Component {
         label="Cancel"
         primary={true}
         onTouchTap={this.handleClose}
-      />,
+        backgroundColor='#eeeeee'
+        hoverColor='#eeeeee'
+        style={{marginRight: 10}}/>,
       <FlatButton
         label="Submit"
         primary={true}
-        keyboardFocused={true}
         onTouchTap={this.handleSubmit}
-      />,
+        backgroundColor='#4caf50'
+        hoverColor='#4caf50'
+        style={{color: '#fff'}}/>
     ];
     return (
       <div>
-        <FlatButton onClick={this.handleAdd} label="Add" labelPosition="before" primary={true} icon={<ContentAdd />}/>
+        <Helmet title="Agents" />
+        <Subheader style={{fontSize: '1.5em'}}>
+          <span>Agents</span>
+          <IconButton style={{top: 5}} onClick={this.handleAdd}>
+            <AddIcon color="#747474"/>
+          </IconButton>
+        </Subheader>
         <Table style={{height: '100%'}} onRowSelection={this.handleRowSelection}>
           <TableHeader displaySelectAll={false}
-                       adjustForCheckbox={false}>
+                       adjustForCheckbox={false} style={{backgroundColor: '#3367d6'}}>
             <TableRow>
-              <TableHeaderColumn>ID</TableHeaderColumn>
-              <TableHeaderColumn>Name</TableHeaderColumn>
-              <TableHeaderColumn>Area</TableHeaderColumn>
-              <TableHeaderColumn>Status</TableHeaderColumn>
+              <TableHeaderColumn style={{color: '#fff', fontSize: '1.1em'}}>ID</TableHeaderColumn>
+              <TableHeaderColumn style={{color: '#fff', fontSize: '1.1em'}}>Name</TableHeaderColumn>
+              <TableHeaderColumn style={{color: '#fff', fontSize: '1.1em'}}>Area</TableHeaderColumn>
+              <TableHeaderColumn style={{color: '#fff', fontSize: '1.1em'}}>Status</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody displayRowCheckbox={false}>
@@ -182,9 +249,9 @@ export default class NewAgentPage extends React.Component {
               this.state.parents.map((agent, index) => {
                 return (
                   <TableRow key={index}>
-                    <TableRowColumn>{agent.AgentId}</TableRowColumn>
-                    <TableRowColumn>{agent.AgentName}</TableRowColumn>
-                    <TableRowColumn>{agent.Area?agent.Area.AreaName:''}</TableRowColumn>
+                    <TableRowColumn>{agent.AgentId||'N/A'}</TableRowColumn>
+                    <TableRowColumn>{agent.AgentName||'N/A'}</TableRowColumn>
+                    <TableRowColumn>{agent.Area?agent.Area.AreaName:'N/A'}</TableRowColumn>
                     <TableRowColumn>{agent.Activate ? 'Active' : 'In Active'}</TableRowColumn>
                   </TableRow>)
               })
@@ -192,65 +259,62 @@ export default class NewAgentPage extends React.Component {
           </TableBody>
         </Table>
         <Dialog
-          title="Dialog With Actions"
+          title="Add new Agent"
           actions={actions}
           modal={false}
           open={this.state.isDialogOpen}
           onRequestClose={this.handleClose}
-          autoScrollBodyContent={true}
-        >
+          autoScrollBodyContent={true}>
           <div>
-            <TextField onChange={this.handleTextChange} value={this.state.textValue}
-                       hintText="Agent Name"
-            />
+            <TextField onChange={this.handleTextChange} value={this.state.agentName}
+                       hintText="Agent Name *" fullWidth={true}
+                       errorText={this.state.agentNameError}/>
             <br />
-            <DropDownMenu value={this.state.dropValueMaster} onChange={this.handleChangeMaster}>
-              {
-                this.state.masters.map((mater, index) => {
-                  return (
-                    <MenuItem key={index} value={mater.MasterId} primaryText={mater.MasterName}/>
-                  )
-                })
-              }
-            </DropDownMenu>
+            <TextField onChange={(e)=>{this.setState({agentUsername: e.target.value})}}
+                       value={this.state.agentUsername}
+                       hintText="User name *"
+                       fullWidth={true}
+                       errorText={this.state.agentUsernameError}/>
             <br />
-            <DropDownMenu value={this.state.dropValueparents} onChange={this.handleChangeParent}>
-              {
-                this.state.parents.map((paren, index) => {
-                  return (
-                    <MenuItem key={index} value={paren.AgentId} primaryText={paren.AgentName}/>
-                  )
-                })
-              }
-            </DropDownMenu>
+            <TextField onChange={(e)=>{this.setState({agentPassword: e.target.value})}}
+                       value={this.state.agentPassword}
+                       hintText="Password *" fullWidth={true}
+                       errorText={this.state.agentPasswordError}
+                       type="password"/>
             <br />
-            <Toggle onToggle={this.handleToogleChange}
-                    label="Active"
-                    style={styles.toggle}
-            />
+            <TextField onChange={(e)=>{this.setState({agentMatchPassword: e.target.value})}}
+                       value={this.state.agentMatchPassword}
+                       hintText="Retype password *" fullWidth={true}
+                       errorText={this.state.agentMatchPasswordError}
+                       type="password"/>
             <br />
-            <DropDownMenu value={this.state.dropValueArea} onChange={this.handleChangeArea}>
+            <DropDownMenu style={{marginLeft: -24}} value={this.state.dropValueArea} onChange={this.handleChangeArea}>
+              <MenuItem key={-1} value={-1} primaryText="None" label="Select area"/>
               {
                 this.state.areas.map((area, index) => {
                   return (
-                    <MenuItem key={index} value={area.AreaId} primaryText={area.AreaName}/>
+                    <MenuItem key={index} value={index} primaryText={area.AreaName}/>
                   )
                 })
               }
             </DropDownMenu>
             <br />
-            <DropDownMenu value={this.state.dropValueAccount} onChange={this.handleChangeAccount}>
-              {
-                this.state.accounts.map((account, index) => {
-                  return (
-                    <MenuItem key={index} value={account.AccountId} primaryText={account.UserName}/>
-                  )
-                })
-              }
-            </DropDownMenu>
+            <Checkbox
+              label="Active"
+              style={{marginBottom: 16}}
+              onCheck={this.handleActiveCheck}
+            />
           </div>
         </Dialog>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: getUser(state)
+  };
+}
+
+export default connect(mapStateToProps)(NewAgentPage);

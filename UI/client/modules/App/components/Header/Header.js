@@ -104,7 +104,7 @@ class Header extends Component {
               </IconButton>
               <img onClick={()=>{browserHistory.push('/')}}
                    style={appIconStyle}
-                   title="Card Processing" src="assets/images/appicon.png" width="40" height="40" />
+                   title="Card Processing" src="/assets/images/appicon.png" width="40" height="40" />
             </div>}
           iconElementRight={
             <div>
