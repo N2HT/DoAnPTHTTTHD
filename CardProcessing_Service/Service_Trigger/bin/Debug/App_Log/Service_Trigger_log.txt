@@ -1,0 +1,110 @@
+INFO 2017-05-27 04:28:07 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:28:07 – Create new cache.xml file.
+INFO 2017-05-27 04:28:41 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:28:41 – Create new cache.xml file.
+INFO 2017-05-27 04:32:39 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:32:39 – Create new cache.xml file.
+INFO 2017-05-27 04:35:55 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:35:55 – Create new cache.xml file.
+INFO 2017-05-27 04:47:17 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:47:17 – Create new cache.xml file.
+INFO 2017-05-27 04:55:19 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:55:19 – Create new cache.xml file.
+INFO 2017-05-27 04:55:41 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:55:41 – Create new cache.xml file.
+INFO 2017-05-27 04:56:58 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:56:58 – Create new cache.xml file.
+INFO 2017-05-27 04:57:13 – Save file and folder paths to cache.xml
+INFO 2017-05-27 04:57:13 – Create new cache.xml file.
+INFO 2017-05-27 05:07:50 – Save file and folder paths to cache.xml
+INFO 2017-05-27 05:07:50 – Create new cache.xml file.
+INFO 2017-05-27 05:10:11 – All paths valid. Start service...
+INFO 2017-06-12 06:18:00 – All paths valid. Start service...
+INFO 2017-06-12 06:22:03 – All paths valid. Start service...
+INFO 2017-06-12 06:39:42 – All paths valid. Start service...
+INFO 2017-06-12 06:39:52 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant10_07-08-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant10_07-08-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant10_07-08-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant1_05-05-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant1_05-05-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant1_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant1_05-15-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant1_05-15-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant1_05-15-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant2_05-05-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant2_05-05-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant2_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant2_07-08-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant2_07-08-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant2_07-08-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant3_05-05-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant3_05-05-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant3_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant3_05-15-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant3_05-15-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant3_05-15-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant4_05-05-2017_mdy.csv"
+INFO 2017-06-12 06:39:53 – Import "Merchant4_05-05-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_53_Merchant4_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:53 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant4_06-10-2017_mdy.csv"
+INFO 2017-06-12 06:39:54 – Import "Merchant4_06-10-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_54_Merchant4_06-10-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant5_05-05-2017_mdy.csv"
+INFO 2017-06-12 06:39:54 – Import "Merchant5_05-05-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_54_Merchant5_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant5_06-10-2017_mdy.csv"
+INFO 2017-06-12 06:39:54 – Import "Merchant5_06-10-2017_mdy.csv" successfully. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Store". Rename file to "Completed_12_06_2017_18_39_54_Merchant5_06-10-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant6_05-05-2017_mdy.csv"
+ERROR2017-06-12 06:39:54 – Import "Merchant6_05-05-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_54_Merchant6_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant6_05-15-2017_mdy.csv"
+ERROR2017-06-12 06:39:54 – Import "Merchant6_05-15-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_54_Merchant6_05-15-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant7_05-05-2017_mdy.csv"
+ERROR2017-06-12 06:39:54 – Import "Merchant7_05-05-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_54_Merchant7_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant7_05-15-2017_mdy.csv"
+ERROR2017-06-12 06:39:54 – Import "Merchant7_05-15-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_54_Merchant7_05-15-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant7_05-23-2017_mdy.csv"
+ERROR2017-06-12 06:39:54 – Import "Merchant7_05-23-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_54_Merchant7_05-23-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:54 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant8_05-05-2017_mdy.csv"
+ERROR2017-06-12 06:39:55 – Import "Merchant8_05-05-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_55_Merchant8_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:55 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant8_05-23-2017_mdy.csv"
+ERROR2017-06-12 06:39:55 – Import "Merchant8_05-23-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_55_Merchant8_05-23-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:55 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant9_05-05-2017_mdy.csv"
+ERROR2017-06-12 06:39:55 – Import "Merchant9_05-05-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_55_Merchant9_05-05-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:55 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant9_05-23-2017_mdy.csv"
+ERROR2017-06-12 06:39:55 – Import "Merchant9_05-23-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_55_Merchant9_05-23-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:39:55 – Importing file "C:\Users\Hieu\Desktop\FOLDER DEMO\Data\Merchant9_07-08-2017_mdy.csv"
+ERROR2017-06-12 06:39:55 – Import "Merchant9_07-08-2017_mdy.csv" failed. Move to "C:\Users\Hieu\Desktop\FOLDER DEMO\Error". Rename file to "Failed_12_06_2017_18_39_55_Merchant9_07-08-2017_mdy.csv"
+
+
+INFO 2017-06-12 06:46:44 – Save file and folder paths to cache.xml
+INFO 2017-06-12 06:46:44 – Create new cache.xml file.
